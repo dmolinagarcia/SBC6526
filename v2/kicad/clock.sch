@@ -1,0 +1,144 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 2 10
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L 74xx:74LS14 U8
+U 1 1 5FACB82F
+P 4250 3500
+F 0 "U8" H 4250 3817 50  0000 C CNN
+F 1 "74AC14" H 4250 3726 50  0000 C CNN
+F 2 "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" H 4250 3500 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS14" H 4250 3500 50  0001 C CNN
+	1    4250 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS14 U8
+U 2 1 5FACCF6D
+P 5600 3500
+F 0 "U8" H 5600 3817 50  0000 C CNN
+F 1 "74AC14" H 5600 3726 50  0000 C CNN
+F 2 "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" H 5600 3500 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS14" H 5600 3500 50  0001 C CNN
+	2    5600 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS74 U7
+U 2 1 5FAD165A
+P 7100 3500
+F 0 "U7" H 7300 3950 50  0000 C CNN
+F 1 "74AC74" H 7400 3850 50  0000 C CNN
+F 2 "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" H 7100 3500 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 7100 3500 50  0001 C CNN
+	2    7100 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4550 3500 4900 3500
+Wire Wire Line
+	5900 3500 6800 3500
+$Comp
+L Device:C C13
+U 1 1 5FAD4E81
+P 3700 4200
+F 0 "C13" H 3815 4246 50  0000 L CNN
+F 1 "470p" H 3815 4155 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3738 4050 50  0001 C CNN
+F 3 "~" H 3700 4200 50  0001 C CNN
+	1    3700 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_POT_TRIM P1
+U 1 1 5FAD531B
+P 4900 3950
+F 0 "P1" V 4785 3950 50  0000 C CNN
+F 1 "2k" V 4694 3950 50  0000 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical" H 4900 3950 50  0001 C CNN
+F 3 "~" H 4900 3950 50  0001 C CNN
+	1    4900 3950
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3950 3500 3700 3500
+Wire Wire Line
+	3700 3500 3700 3950
+Wire Wire Line
+	4750 3950 3700 3950
+Connection ~ 3700 3950
+Wire Wire Line
+	3700 3950 3700 4050
+Wire Wire Line
+	4900 3800 4900 3500
+Connection ~ 4900 3500
+Wire Wire Line
+	4900 3500 5300 3500
+Wire Wire Line
+	3700 4350 3700 4600
+$Comp
+L power:GND #PWR0101
+U 1 1 5FAD6588
+P 3700 4600
+F 0 "#PWR0101" H 3700 4350 50  0001 C CNN
+F 1 "GND" H 3705 4427 50  0000 C CNN
+F 2 "" H 3700 4600 50  0001 C CNN
+F 3 "" H 3700 4600 50  0001 C CNN
+	1    3700 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR0102
+U 1 1 5FAD6C02
+P 7100 3200
+F 0 "#PWR0102" H 7100 3050 50  0001 C CNN
+F 1 "VCC" H 7115 3373 50  0000 C CNN
+F 2 "" H 7100 3200 50  0001 C CNN
+F 3 "" H 7100 3200 50  0001 C CNN
+	1    7100 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR0103
+U 1 1 5FAD76AD
+P 7100 3800
+F 0 "#PWR0103" H 7100 3650 50  0001 C CNN
+F 1 "VCC" H 7115 3973 50  0000 C CNN
+F 2 "" H 7100 3800 50  0001 C CNN
+F 3 "" H 7100 3800 50  0001 C CNN
+	1    7100 3800
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6800 3400 6600 3400
+Wire Wire Line
+	6600 3400 6600 4050
+Wire Wire Line
+	6600 4050 7650 4050
+Wire Wire Line
+	7650 4050 7650 3600
+Wire Wire Line
+	7400 3600 7650 3600
+Wire Wire Line
+	7650 3600 8300 3600
+Connection ~ 7650 3600
+Wire Wire Line
+	7400 3400 8300 3400
+Text HLabel 8300 3400 2    50   Output ~ 0
+PHI2
+Text HLabel 8300 3600 2    50   Output ~ 0
+~PHI2
+NoConn ~ 5050 3950
+$EndSCHEMATC

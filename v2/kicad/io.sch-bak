@@ -1,0 +1,369 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 8 10
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector:Conn_01x10_Female J1
+U 1 1 5FF8340C
+P 3900 3050
+F 0 "J1" H 3928 3026 50  0000 L CNN
+F 1 "Conn_01x10_Female" H 3928 2935 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_2x05_P2.54mm_Vertical" H 3900 3050 50  0001 C CNN
+F 3 "~" H 3900 3050 50  0001 C CNN
+	1    3900 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_MEC_5G SW1
+U 1 1 5FF85C1A
+P 9250 3000
+F 0 "SW1" H 9450 2900 50  0000 R CNN
+F 1 "UP" H 9600 2900 50  0000 R CNN
+F 2 "sbc6526:SW_TH_Tactile_Omron_B3F-10xx" H 9250 3200 50  0001 C CNN
+F 3 "http://www.apem.com/int/index.php?controller=attachment&id_attachment=488" H 9250 3200 50  0001 C CNN
+	1    9250 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9450 3000 9500 3000
+Wire Wire Line
+	9850 3000 9950 3000
+Wire Wire Line
+	9950 3000 9950 2900
+$Comp
+L power:VCC #PWR0141
+U 1 1 5FF91EE0
+P 9950 2900
+F 0 "#PWR0141" H 9950 2750 50  0001 C CNN
+F 1 "VCC" H 9965 3073 50  0000 C CNN
+F 2 "" H 9950 2900 50  0001 C CNN
+F 3 "" H 9950 2900 50  0001 C CNN
+	1    9950 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9500 3000 9500 2750
+Wire Wire Line
+	9500 2750 8700 2750
+Connection ~ 9500 3000
+Wire Wire Line
+	9500 3000 9550 3000
+Entry Wire Line
+	8700 2750 8600 2850
+$Comp
+L power:GND #PWR0142
+U 1 1 5FF871EB
+P 9000 3050
+F 0 "#PWR0142" H 9000 2800 50  0001 C CNN
+F 1 "GND" H 9005 2877 50  0000 C CNN
+F 2 "" H 9000 3050 50  0001 C CNN
+F 3 "" H 9000 3050 50  0001 C CNN
+	1    9000 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_MEC_5G SW2
+U 1 1 5FF93D93
+P 9250 3550
+F 0 "SW2" H 9450 3450 50  0000 R CNN
+F 1 "DOWN" H 9700 3450 50  0000 R CNN
+F 2 "sbc6526:SW_TH_Tactile_Omron_B3F-10xx" H 9250 3750 50  0001 C CNN
+F 3 "http://www.apem.com/int/index.php?controller=attachment&id_attachment=488" H 9250 3750 50  0001 C CNN
+	1    9250 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9450 3550 9500 3550
+$Comp
+L Device:R R16
+U 1 1 5FF93D9A
+P 9700 3550
+F 0 "R16" V 9493 3550 50  0000 C CNN
+F 1 "3.3k" V 9584 3550 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 9630 3550 50  0001 C CNN
+F 3 "~" H 9700 3550 50  0001 C CNN
+	1    9700 3550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9850 3550 9950 3550
+Wire Wire Line
+	9950 3550 9950 3450
+$Comp
+L power:VCC #PWR0143
+U 1 1 5FF93DA2
+P 9950 3450
+F 0 "#PWR0143" H 9950 3300 50  0001 C CNN
+F 1 "VCC" H 9965 3623 50  0000 C CNN
+F 2 "" H 9950 3450 50  0001 C CNN
+F 3 "" H 9950 3450 50  0001 C CNN
+	1    9950 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9500 3550 9500 3300
+Wire Wire Line
+	9500 3300 8700 3300
+Connection ~ 9500 3550
+Wire Wire Line
+	9500 3550 9550 3550
+Entry Wire Line
+	8700 3300 8600 3400
+$Comp
+L power:GND #PWR0144
+U 1 1 5FF93DAD
+P 9000 3600
+F 0 "#PWR0144" H 9000 3350 50  0001 C CNN
+F 1 "GND" H 9005 3427 50  0000 C CNN
+F 2 "" H 9000 3600 50  0001 C CNN
+F 3 "" H 9000 3600 50  0001 C CNN
+	1    9000 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_MEC_5G SW3
+U 1 1 5FF94937
+P 9250 4100
+F 0 "SW3" H 9450 4000 50  0000 R CNN
+F 1 "OK" H 9600 4000 50  0000 R CNN
+F 2 "sbc6526:SW_TH_Tactile_Omron_B3F-10xx" H 9250 4300 50  0001 C CNN
+F 3 "http://www.apem.com/int/index.php?controller=attachment&id_attachment=488" H 9250 4300 50  0001 C CNN
+	1    9250 4100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9450 4100 9500 4100
+$Comp
+L Device:R R17
+U 1 1 5FF9493E
+P 9700 4100
+F 0 "R17" V 9493 4100 50  0000 C CNN
+F 1 "3.3k" V 9584 4100 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 9630 4100 50  0001 C CNN
+F 3 "~" H 9700 4100 50  0001 C CNN
+	1    9700 4100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9850 4100 9950 4100
+Wire Wire Line
+	9950 4100 9950 4000
+$Comp
+L power:VCC #PWR0145
+U 1 1 5FF94946
+P 9950 4000
+F 0 "#PWR0145" H 9950 3850 50  0001 C CNN
+F 1 "VCC" H 9965 4173 50  0000 C CNN
+F 2 "" H 9950 4000 50  0001 C CNN
+F 3 "" H 9950 4000 50  0001 C CNN
+	1    9950 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9500 4100 9500 3850
+Wire Wire Line
+	9500 3850 8700 3850
+Connection ~ 9500 4100
+Wire Wire Line
+	9500 4100 9550 4100
+Entry Wire Line
+	8700 3850 8600 3950
+$Comp
+L Switch:SW_MEC_5G SW4
+U 1 1 5FF95EEF
+P 9250 4650
+F 0 "SW4" H 9450 4550 50  0000 R CNN
+F 1 "CANCEL" H 9750 4550 50  0000 R CNN
+F 2 "sbc6526:SW_TH_Tactile_Omron_B3F-10xx" H 9250 4850 50  0001 C CNN
+F 3 "http://www.apem.com/int/index.php?controller=attachment&id_attachment=488" H 9250 4850 50  0001 C CNN
+	1    9250 4650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9450 4650 9500 4650
+$Comp
+L Device:R R18
+U 1 1 5FF95EF6
+P 9700 4650
+F 0 "R18" V 9493 4650 50  0000 C CNN
+F 1 "3.3k" V 9584 4650 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 9630 4650 50  0001 C CNN
+F 3 "~" H 9700 4650 50  0001 C CNN
+	1    9700 4650
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9850 4650 9950 4650
+Wire Wire Line
+	9950 4650 9950 4550
+$Comp
+L power:VCC #PWR0147
+U 1 1 5FF95EFE
+P 9950 4550
+F 0 "#PWR0147" H 9950 4400 50  0001 C CNN
+F 1 "VCC" H 9965 4723 50  0000 C CNN
+F 2 "" H 9950 4550 50  0001 C CNN
+F 3 "" H 9950 4550 50  0001 C CNN
+	1    9950 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9500 4650 9500 4400
+Wire Wire Line
+	9500 4400 8700 4400
+Connection ~ 9500 4650
+Wire Wire Line
+	9500 4650 9550 4650
+Entry Wire Line
+	8700 4400 8600 4500
+$Comp
+L power:GND #PWR0148
+U 1 1 5FF95F09
+P 9000 4700
+F 0 "#PWR0148" H 9000 4450 50  0001 C CNN
+F 1 "GND" H 9005 4527 50  0000 C CNN
+F 2 "" H 9000 4700 50  0001 C CNN
+F 3 "" H 9000 4700 50  0001 C CNN
+	1    9000 4700
+	1    0    0    -1  
+$EndComp
+Text HLabel 6850 2050 0    50   Input ~ 0
+VPB[4..7]
+Wire Bus Line
+	6900 2050 8600 2050
+Text Label 8700 2750 0    50   ~ 0
+VPB7
+Text Label 8700 3300 0    50   ~ 0
+VPB6
+Text Label 8700 3850 0    50   ~ 0
+VPB5
+$Comp
+L Device:R R15
+U 1 1 5FF9158A
+P 9700 3000
+F 0 "R15" V 9493 3000 50  0000 C CNN
+F 1 "3.3k" V 9584 3000 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 9630 3000 50  0001 C CNN
+F 3 "~" H 9700 3000 50  0001 C CNN
+	1    9700 3000
+	0    1    1    0   
+$EndComp
+Text HLabel 2700 2050 0    50   Input ~ 0
+PB[0..7]
+Wire Bus Line
+	2700 2050 3350 2050
+Wire Wire Line
+	3450 3450 3700 3450
+Entry Wire Line
+	3450 3450 3350 3350
+Wire Wire Line
+	3450 3350 3700 3350
+Entry Wire Line
+	3450 3350 3350 3250
+Wire Wire Line
+	3450 3250 3700 3250
+Entry Wire Line
+	3450 3250 3350 3150
+Wire Wire Line
+	3450 3150 3700 3150
+Entry Wire Line
+	3450 3150 3350 3050
+Wire Wire Line
+	3450 3050 3700 3050
+Entry Wire Line
+	3450 3050 3350 2950
+Wire Wire Line
+	3450 2950 3700 2950
+Entry Wire Line
+	3450 2950 3350 2850
+Wire Wire Line
+	3450 2850 3700 2850
+Entry Wire Line
+	3450 2850 3350 2750
+Wire Wire Line
+	3450 2750 3700 2750
+Entry Wire Line
+	3450 2750 3350 2650
+$Comp
+L power:VCC #PWR0149
+U 1 1 5FFA1B25
+P 3700 2650
+F 0 "#PWR0149" H 3700 2500 50  0001 C CNN
+F 1 "VCC" V 3715 2777 50  0000 L CNN
+F 2 "" H 3700 2650 50  0001 C CNN
+F 3 "" H 3700 2650 50  0001 C CNN
+	1    3700 2650
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0150
+U 1 1 5FFA2354
+P 3700 3550
+F 0 "#PWR0150" H 3700 3300 50  0001 C CNN
+F 1 "GND" V 3705 3422 50  0000 R CNN
+F 2 "" H 3700 3550 50  0001 C CNN
+F 3 "" H 3700 3550 50  0001 C CNN
+	1    3700 3550
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0146
+U 1 1 5FFE0DB1
+P 9000 4150
+F 0 "#PWR0146" H 9000 3900 50  0001 C CNN
+F 1 "GND" H 9005 3977 50  0000 C CNN
+F 2 "" H 9000 4150 50  0001 C CNN
+F 3 "" H 9000 4150 50  0001 C CNN
+	1    9000 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9000 3050 9000 3000
+Wire Wire Line
+	9000 3000 9050 3000
+Wire Wire Line
+	9000 3600 9000 3550
+Wire Wire Line
+	9000 3550 9050 3550
+Wire Wire Line
+	9000 4150 9000 4100
+Wire Wire Line
+	9000 4100 9050 4100
+Wire Wire Line
+	9000 4700 9000 4650
+Wire Wire Line
+	9000 4650 9050 4650
+Text Label 8700 4400 0    50   ~ 0
+VPB4
+Wire Bus Line
+	8600 2050 8600 4500
+Wire Bus Line
+	3350 2050 3350 3350
+Text Label 3500 2750 0    50   ~ 0
+PB7
+Text Label 3500 2850 0    50   ~ 0
+PB6
+Text Label 3500 2950 0    50   ~ 0
+PB5
+Text Label 3500 3050 0    50   ~ 0
+PB4
+Text Label 3500 3150 0    50   ~ 0
+PB3
+Text Label 3500 3250 0    50   ~ 0
+PB2
+Text Label 3500 3350 0    50   ~ 0
+PB1
+Text Label 3500 3450 0    50   ~ 0
+PB0
+$EndSCHEMATC
