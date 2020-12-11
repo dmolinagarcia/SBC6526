@@ -413,7 +413,6 @@ Wire Wire Line
 	6700 3300 6600 3300
 NoConn ~ 6600 2400
 NoConn ~ 6600 5800
-NoConn ~ 6600 6100
 NoConn ~ 6600 6200
 NoConn ~ 6600 6300
 NoConn ~ 6600 6400
@@ -427,12 +426,16 @@ Wire Wire Line
 	6100 5450 6100 5500
 Wire Wire Line
 	6100 6800 6100 6850
-Wire Bus Line
-	7100 700  7100 2100
-Wire Bus Line
-	5200 800  5200 6300
 Text Label 6700 1500 0    50   ~ 0
 D5
 Text Label 6700 1700 0    50   ~ 0
 D7
+Wire Wire Line
+	6600 6100 9050 6100
+Wire Bus Line
+	7100 700  7100 2100
+Wire Bus Line
+	5200 800  5200 6300
+Text HLabel 9050 6100 2    50   Output ~ 0
+~CIAEXT
 $EndSCHEMATC

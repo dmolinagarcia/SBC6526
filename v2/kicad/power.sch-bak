@@ -34,7 +34,7 @@ AR Path="/5FFACB4D" Ref="U?"  Part="3"
 AR Path="/5FFAA38F/5FFACB4D" Ref="U7"  Part="3" 
 F 0 "U7" V 5150 1900 50  0000 C CNN
 F 1 "74AC74" V 5150 2300 50  0000 C CNN
-F 2 "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" H 5400 2150 50  0001 C CNN
+F 2 "" H 5400 2150 50  0001 C CNN
 F 3 "74xx/74hc_hct74.pdf" H 5400 2150 50  0001 C CNN
 	3    5400 2150
 	0    1    1    0   
@@ -304,10 +304,86 @@ F 3 "~" H 2050 5400 50  0001 C CNN
 $EndComp
 Connection ~ 1900 5400
 Wire Wire Line
-	1900 5400 1900 7100
+	1900 5400 1900 5850
 Wire Wire Line
 	2200 4600 2200 5000
 Connection ~ 2200 5000
 Wire Wire Line
 	2200 5000 2200 5400
+$Comp
+L 74xx:74LS14 U8
+U 3 1 5FBC2197
+P 2200 5850
+F 0 "U8" H 2200 6167 50  0000 C CNN
+F 1 "74AC14" H 2200 6076 50  0000 C CNN
+F 2 "" H 2200 5850 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS14" H 2200 5850 50  0001 C CNN
+	3    2200 5850
+	1    0    0    -1  
+$EndComp
+Connection ~ 1900 5850
+Wire Wire Line
+	1900 5850 1900 6200
+$Comp
+L 74xx:74LS14 U8
+U 4 1 5FBC471A
+P 2200 6200
+F 0 "U8" H 2200 6517 50  0000 C CNN
+F 1 "74AC14" H 2200 6426 50  0000 C CNN
+F 2 "" H 2200 6200 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS14" H 2200 6200 50  0001 C CNN
+	4    2200 6200
+	1    0    0    -1  
+$EndComp
+Connection ~ 1900 6200
+Wire Wire Line
+	1900 6200 1900 6550
+$Comp
+L 74xx:74LS14 U8
+U 5 1 5FBC603E
+P 2200 6550
+F 0 "U8" H 2200 6867 50  0000 C CNN
+F 1 "74AC14" H 2200 6776 50  0000 C CNN
+F 2 "" H 2200 6550 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS14" H 2200 6550 50  0001 C CNN
+	5    2200 6550
+	1    0    0    -1  
+$EndComp
+Connection ~ 1900 6550
+Wire Wire Line
+	1900 6550 1900 6950
+$Comp
+L 74xx:74HC74 U7
+U 1 1 5FBC9A2E
+P 2200 7050
+F 0 "U7" H 2200 7531 50  0000 C CNN
+F 1 "74AC74" H 2200 7440 50  0000 C CNN
+F 2 "" H 2200 7050 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 2200 7050 50  0001 C CNN
+	1    2200 7050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1900 7050 1900 7100
+Wire Wire Line
+	1900 6950 1900 7050
+Connection ~ 1900 6950
+Connection ~ 1900 7050
+Wire Wire Line
+	2200 6750 2650 6750
+Wire Wire Line
+	2200 7350 2650 7350
+Wire Wire Line
+	2650 7350 2650 6750
+Wire Wire Line
+	2650 6750 2650 5400
+Wire Wire Line
+	2650 5400 2200 5400
+Connection ~ 2650 6750
+Connection ~ 2200 5400
+NoConn ~ 2500 5850
+NoConn ~ 2500 6200
+NoConn ~ 2500 6550
+NoConn ~ 2500 6950
+NoConn ~ 2500 7150
 $EndSCHEMATC
