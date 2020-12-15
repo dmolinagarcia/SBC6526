@@ -157,16 +157,6 @@ Wire Wire Line
 	8950 4150 8950 3500
 Wire Wire Line
 	8850 4050 8850 3400
-$Sheet
-S 4200 6050 850  900 
-U 5FB325FD
-F0 "clockmeter" 50
-F1 "clockmeter.sch" 50
-F2 "PHI2" I R 5050 6200 50 
-$EndSheet
-Wire Wire Line
-	5750 4900 5750 6200
-Connection ~ 5750 4900
 Wire Bus Line
 	8900 1000 8900 2000
 Wire Bus Line
@@ -312,8 +302,6 @@ Wire Bus Line
 Connection ~ 900  1100
 Wire Bus Line
 	900  1100 3400 1100
-Wire Wire Line
-	5050 6200 5750 6200
 Wire Bus Line
 	10450 3500 10900 3500
 Wire Bus Line
@@ -328,4 +316,16 @@ F1 "power.sch" 50
 $EndSheet
 Wire Wire Line
 	7700 2950 9150 2950
+$Sheet
+S 4200 6050 850  900 
+U 5FB325FD
+F0 "clockmeter" 50
+F1 "clockmeter.sch" 50
+F2 "~PHI2" I R 5050 6200 50 
+$EndSheet
+Wire Wire Line
+	5050 6200 5650 6200
+Wire Wire Line
+	5650 6200 5650 5000
+Connection ~ 5650 5000
 $EndSCHEMATC

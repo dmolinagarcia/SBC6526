@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 9 10
+Sheet 8 10
 Title ""
 Date ""
 Rev ""
@@ -1029,26 +1029,6 @@ Wire Wire Line
 	8850 2100 8900 2100
 Wire Wire Line
 	8900 2100 8900 1300
-Wire Bus Line
-	7200 3000 7200 5050
-Wire Bus Line
-	7300 3700 7300 5150
-Wire Bus Line
-	9600 3800 9600 6450
-Wire Bus Line
-	6350 3400 6350 5150
-Wire Bus Line
-	4950 3600 4950 5250
-Wire Bus Line
-	6400 2900 6400 5050
-Wire Bus Line
-	1950 3650 1950 6500
-Wire Bus Line
-	3900 5150 3900 6500
-Wire Bus Line
-	4000 3050 4000 5250
-Wire Bus Line
-	1750 2950 1750 5050
 Wire Wire Line
 	5450 3000 4700 3000
 Wire Wire Line
@@ -1077,8 +1057,6 @@ Wire Wire Line
 	6250 4200 5950 4200
 Wire Wire Line
 	5050 4200 5450 4200
-Wire Wire Line
-	5950 4100 7000 4100
 Wire Wire Line
 	5050 4100 5450 4100
 Wire Wire Line
@@ -1118,8 +1096,6 @@ Wire Wire Line
 Wire Wire Line
 	5450 3300 4550 3300
 Wire Wire Line
-	5950 3200 6800 3200
-Wire Wire Line
 	5450 3200 4600 3200
 Wire Wire Line
 	5950 3100 6300 3100
@@ -1140,4 +1116,28 @@ F 3 "~" H 5650 3500 50  0001 C CNN
 	1    5650 3500
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	5950 4100 7000 4100
+Wire Wire Line
+	5950 3200 6800 3200
+Wire Bus Line
+	7200 3000 7200 5050
+Wire Bus Line
+	9600 3800 9600 6450
+Wire Bus Line
+	6400 2900 6400 5050
+Wire Bus Line
+	1750 2950 1750 5050
+Wire Bus Line
+	7300 3700 7300 5150
+Wire Bus Line
+	6350 3400 6350 5150
+Wire Bus Line
+	4950 3600 4950 5250
+Wire Bus Line
+	3900 5150 3900 6500
+Wire Bus Line
+	4000 3050 4000 5250
+Wire Bus Line
+	1950 3650 1950 6500
 $EndSCHEMATC

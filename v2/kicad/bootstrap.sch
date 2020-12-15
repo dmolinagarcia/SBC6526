@@ -89,22 +89,6 @@ Wire Wire Line
 	3950 3150 3500 3150
 Entry Wire Line
 	3500 3150 3400 3050
-Text Label 3650 3150 0    50   ~ 0
-D0
-Text Label 3650 3250 0    50   ~ 0
-D1
-Text Label 3650 3350 0    50   ~ 0
-D2
-Text Label 3650 3450 0    50   ~ 0
-D3
-Text Label 3650 3550 0    50   ~ 0
-D4
-Text Label 3650 3650 0    50   ~ 0
-D5
-Text Label 3650 3750 0    50   ~ 0
-D6
-Text Label 3650 3850 0    50   ~ 0
-D7
 Wire Bus Line
 	2850 2950 3400 2950
 Text HLabel 2850 2950 0    50   Output ~ 0
@@ -412,4 +396,20 @@ Wire Bus Line
 	3400 2950 3400 3750
 Wire Bus Line
 	8950 1750 8950 5200
+Text Label 3750 3150 0    50   ~ 0
+D7
+Text Label 3750 3250 0    50   ~ 0
+D6
+Text Label 3750 3350 0    50   ~ 0
+D5
+Text Label 3750 3450 0    50   ~ 0
+D4
+Text Label 3750 3550 0    50   ~ 0
+D3
+Text Label 3750 3650 0    50   ~ 0
+D2
+Text Label 3750 3750 0    50   ~ 0
+D1
+Text Label 3750 3850 0    50   ~ 0
+D0
 $EndSCHEMATC

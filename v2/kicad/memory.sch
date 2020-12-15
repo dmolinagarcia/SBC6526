@@ -434,10 +434,10 @@ Wire Wire Line
 	6600 6100 9050 6100
 Text HLabel 9050 6100 2    50   Output ~ 0
 ~CIAEXT
+Text Label 6700 6100 0    50   ~ 0
+~CIAEXT
 Wire Bus Line
 	7100 700  7100 2100
 Wire Bus Line
 	5200 800  5200 6300
-Text Label 6700 6100 0    50   ~ 0
-~CIAEXT
 $EndSCHEMATC
