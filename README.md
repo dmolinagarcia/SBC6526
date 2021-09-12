@@ -1,3 +1,26 @@
+# SBC6526
+
+SBC6526 is a single board computer built around A 65c02 CPU. It has been designed with a very specific purpose, that has defined both its name and its specs. I've been working for some time already on a MOS6526 (The famous CIA used in Commodore Computers) replica using 74xx logic series ICs. Testing was done on a real C64, but soon this prove to be a very limiting factor. So I begin working on a small SBC, designed entirely around the 6526, that should allow me to run as many tests, with no limitations at all.
+
+The initial set of requisites was
+
+* Continuosly variable clock, from 1MHz to as far as possible, in order to push my replica to its limits
+* Clock Frequency Display. Useful, and should look very cool.
+* No input at all. Program the ROM (more on this later) and just run a suite of tests for the 6526.
+* Basic output.. Something like a 20x4 Character LCD will do.
+* Easy, quick, and on board ROM programming. I will be modifiying the code continuosly, so this is very important.
+* Include a 6522. Why not!? It can also be useful for the tests
+* Include a socket for a 6526. Compatibility with old NMOS 6526 is not needed, although it would be nice.
+* Allow testing of all 6526 pins. Ports, serial, /FLAG interrupt, etc
+* Independent reset for 6526.
+
+SBCv1 came to life, fulfilling this requirements. Howeever, after using it for some time, it show some weakness. SBCv1 has a 6522 and a 6526. A 4x40 LCD is used as display, driven by the 6526. This causes the display to blank when running some tests, and sometimes, crashed the LCD into an unrecoverable state, that requires a complete power down. This along some layout issues, forced the next revision. 
+
+SBCv2 adds a second 6526. Both 6526 sockets can take either an original MOS6526 or one of my (still unfinished) replicas. The LCD is now driven by the 6522, so both 6526 are 100% usable for testing. 
+
+> ###### IMPORTANT NOTE
+> SBCv1, even with some issues, has been tested. It works, and it's somehow usable. SBCv2 exists only as a schematic. If, by some weird reason, you try and build one of these... I offer no guarantee at all!
+
 # v1
 
 ## SBCv1.sch and SBCv1.brd
