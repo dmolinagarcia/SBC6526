@@ -1,0 +1,1201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>Z:\gitHub\SBC6525_KiCAD\sbc6526.sch</source>
+    <date>08/11/2020 11:23:22</date>
+    <tool>Eeschema (5.1.7)-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>sbc6526.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/peripherals/" tstamps="/5FA75CE1/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>peripherals.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="3" name="/clock/" tstamps="/5FA7BA55/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>clock.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="4" name="/reset/" tstamps="/5FA7BA8E/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>reset.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="5" name="/bootstrap/" tstamps="/5FA7BAC7/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>bootstrap.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="6" name="/memory/" tstamps="/5FA78BCC/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>memory.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="7" name="/cpu/" tstamps="/5FA78AF5/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>cpu.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="IC9">
+      <value>74AC139</value>
+      <footprint>Package_SO:SOIC-16_3.9x9.9mm_P1.27mm</footprint>
+      <datasheet>http://www.ti.com/lit/ds/symlink/sn74ls139a.pdf</datasheet>
+      <libsource lib="74xx" part="74LS139" description="Dual Decoder 1 of 4, Active low outputs"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FAD120E</tstamp>
+    </comp>
+    <comp ref="IC8">
+      <value>74LS14</value>
+      <datasheet>http://www.ti.com/lit/gpn/sn74LS14</datasheet>
+      <libsource lib="74xx" part="74LS14" description="Hex inverter schmitt trigger"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FACEB3F</tstamp>
+    </comp>
+    <comp ref="IC7">
+      <value>74LS74</value>
+      <datasheet>74xx/74hc_hct74.pdf</datasheet>
+      <libsource lib="74xx" part="74LS74" description="Dual D Flip-flop, Set &amp; Reset"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FAD1D6D</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>6526</value>
+      <footprint>Package_DIP:DIP-40_W15.24mm</footprint>
+      <libsource lib="65xx" part="6526" description=""/>
+      <sheetpath names="/peripherals/" tstamps="/5FA75CE1/"/>
+      <tstamp>5FA7774D</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>W65C22SxP</value>
+      <footprint>Package_DIP:DIP-40_W15.24mm</footprint>
+      <libsource lib="65xx" part="W65C22SxP" description=""/>
+      <sheetpath names="/peripherals/" tstamps="/5FA75CE1/"/>
+      <tstamp>5FA77753</tstamp>
+    </comp>
+    <comp ref="U3">
+      <value>NHD-0420H1Z</value>
+      <footprint>Display:NHD-0420H1Z</footprint>
+      <datasheet>http://www.newhavendisplay.com/specs/NHD-0420H1Z-FSW-GBW-33V3.pdf</datasheet>
+      <libsource lib="Display_Character" part="NHD-0420H1Z" description="LCD 20x4 Alphanumeric 16pin Blue/White/Green Backlight, 8bit parallel, 3.3V VDD"/>
+      <sheetpath names="/peripherals/" tstamps="/5FA75CE1/"/>
+      <tstamp>5FA77ECF</tstamp>
+    </comp>
+    <comp ref="U9">
+      <value>74LS14</value>
+      <datasheet>http://www.ti.com/lit/gpn/sn74LS14</datasheet>
+      <libsource lib="74xx" part="74LS14" description="Hex inverter schmitt trigger"/>
+      <sheetpath names="/clock/" tstamps="/5FA7BA55/"/>
+      <tstamp>5FACB82F</tstamp>
+    </comp>
+    <comp ref="U8">
+      <value>74LS74</value>
+      <datasheet>74xx/74hc_hct74.pdf</datasheet>
+      <libsource lib="74xx" part="74LS74" description="Dual D Flip-flop, Set &amp; Reset"/>
+      <sheetpath names="/clock/" tstamps="/5FA7BA55/"/>
+      <tstamp>5FAD165A</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>470p</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/clock/" tstamps="/5FA7BA55/"/>
+      <tstamp>5FAD4E81</tstamp>
+    </comp>
+    <comp ref="RV1">
+      <value>2k</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R_POT_TRIM" description="Trim-potentiometer"/>
+      <sheetpath names="/clock/" tstamps="/5FA7BA55/"/>
+      <tstamp>5FAD531B</tstamp>
+    </comp>
+    <comp ref="IC10">
+      <value>74AC138</value>
+      <footprint>Package_SO:SOIC-16_3.9x9.9mm_P1.27mm</footprint>
+      <datasheet>http://www.ti.com/lit/gpn/sn74LS138</datasheet>
+      <libsource lib="74xx" part="74LS138" description="Decoder 3 to 8 active low outputs"/>
+      <sheetpath names="/memory/" tstamps="/5FA78BCC/"/>
+      <tstamp>5FA89CE1</tstamp>
+    </comp>
+    <comp ref="U6">
+      <value>74AC139</value>
+      <footprint>Package_SO:SOIC-16_3.9x9.9mm_P1.27mm</footprint>
+      <datasheet>http://www.ti.com/lit/ds/symlink/sn74ls139a.pdf</datasheet>
+      <libsource lib="74xx" part="74LS139" description="Dual Decoder 1 of 4, Active low outputs"/>
+      <sheetpath names="/memory/" tstamps="/5FA78BCC/"/>
+      <tstamp>5FA9C2C5</tstamp>
+    </comp>
+    <comp ref="IC4">
+      <value>IS61C1024AL-12KLI</value>
+      <footprint>sbc6526:SOJ-32_10.16x21.08mm_P1.27mm</footprint>
+      <datasheet>http://www.issi.com/WW/pdf/61-64C1024AL.pdf</datasheet>
+      <fields>
+        <field name="Code  JEDEC">MS-027</field>
+        <field name="Component Link 1 Description">Manufacturer URL</field>
+        <field name="Component Link 1 URL">http://www.issi.com/US/index.shtml</field>
+        <field name="Component Link 3 Description">Package Specification</field>
+        <field name="Component Link 3 URL">http://www.issi.com/WW/pdf/61-64C1024AL.pdf</field>
+        <field name="Datasheet Version">Rev. D</field>
+        <field name="Density">1M</field>
+        <field name="Mounting Technology">Surface Mount</field>
+        <field name="Organization">128K x 8</field>
+        <field name="Package Description">32-Pin 400 mil SOJ, Body 20.95 x 10.16 mm, Pitch 1.27 mm</field>
+        <field name="Package Version">Rev. E, 12/2007</field>
+        <field name="Packing">Tray / Tube</field>
+        <field name="Speed ns">12</field>
+        <field name="category">IC</field>
+        <field name="ciiva ids">1246270</field>
+        <field name="imported">yes</field>
+        <field name="library id">9d67895ef7327d77</field>
+        <field name="manufacturer">Integrated Silicon Solution Inc (ISSI)</field>
+        <field name="package">SOJ-32</field>
+        <field name="release date">1382601074</field>
+        <field name="rohs">No</field>
+        <field name="vault revision">2C522BE6-5BF8-4CFD-B3EB-B2739303CE2D</field>
+      </fields>
+      <libsource lib="sbc6526" part="IS61C1024AL-12KLI" description="IS61C1024AL-12KLI"/>
+      <sheetpath names="/memory/" tstamps="/5FA78BCC/"/>
+      <tstamp>5FA7B9BB</tstamp>
+    </comp>
+    <comp ref="IC3">
+      <value>W65C02SxP</value>
+      <footprint>Package_DIP:DIP-40_W15.24mm</footprint>
+      <libsource lib="65xx" part="W65C02SxP" description=""/>
+      <sheetpath names="/cpu/" tstamps="/5FA78AF5/"/>
+      <tstamp>5FA7A0A3</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="65xx" part="6526">
+      <footprints>
+        <fp>DIP-40_W15.24mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">6526</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VSS" type="power_in"/>
+        <pin num="2" name="PA0" type="BiDi"/>
+        <pin num="3" name="PA1" type="BiDi"/>
+        <pin num="4" name="PA2" type="BiDi"/>
+        <pin num="5" name="PA3" type="BiDi"/>
+        <pin num="6" name="PA4" type="BiDi"/>
+        <pin num="7" name="PA5" type="BiDi"/>
+        <pin num="8" name="PA6" type="BiDi"/>
+        <pin num="9" name="PA7" type="BiDi"/>
+        <pin num="10" name="PB0" type="BiDi"/>
+        <pin num="11" name="PB1" type="BiDi"/>
+        <pin num="12" name="PB2" type="BiDi"/>
+        <pin num="13" name="PB3" type="BiDi"/>
+        <pin num="14" name="PB4" type="BiDi"/>
+        <pin num="15" name="PB5" type="BiDi"/>
+        <pin num="16" name="PB6" type="BiDi"/>
+        <pin num="17" name="PB7" type="BiDi"/>
+        <pin num="18" name="~PC" type="output"/>
+        <pin num="19" name="TOD" type="input"/>
+        <pin num="20" name="VCC" type="power_in"/>
+        <pin num="21" name="~IRQ" type="openCol"/>
+        <pin num="22" name="R/~W" type="input"/>
+        <pin num="23" name="~CS" type="input"/>
+        <pin num="24" name="~FLAG" type="input"/>
+        <pin num="25" name="ϕ2" type="input"/>
+        <pin num="26" name="D7" type="BiDi"/>
+        <pin num="27" name="D6" type="BiDi"/>
+        <pin num="28" name="D5" type="BiDi"/>
+        <pin num="29" name="D4" type="BiDi"/>
+        <pin num="30" name="D3" type="BiDi"/>
+        <pin num="31" name="D2" type="BiDi"/>
+        <pin num="32" name="D1" type="BiDi"/>
+        <pin num="33" name="D0" type="BiDi"/>
+        <pin num="34" name="~RES" type="input"/>
+        <pin num="35" name="RS3" type="input"/>
+        <pin num="36" name="RS2" type="input"/>
+        <pin num="37" name="RS1" type="input"/>
+        <pin num="38" name="RS0" type="input"/>
+        <pin num="39" name="SP" type="BiDi"/>
+        <pin num="40" name="CNT" type="BiDi"/>
+      </pins>
+    </libpart>
+    <libpart lib="65xx" part="W65C02SxP">
+      <footprints>
+        <fp>DIP-40_W15.24mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">W65C02SxP</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~VP" type="output"/>
+        <pin num="2" name="RDY" type="openCol"/>
+        <pin num="3" name="ϕ1" type="output"/>
+        <pin num="4" name="~IRQ" type="input"/>
+        <pin num="5" name="~ML" type="output"/>
+        <pin num="6" name="~NMI" type="input"/>
+        <pin num="7" name="SYNC" type="output"/>
+        <pin num="8" name="VDD" type="power_in"/>
+        <pin num="9" name="A0" type="3state"/>
+        <pin num="10" name="A1" type="3state"/>
+        <pin num="11" name="A2" type="3state"/>
+        <pin num="12" name="A3" type="3state"/>
+        <pin num="13" name="A4" type="3state"/>
+        <pin num="14" name="A5" type="3state"/>
+        <pin num="15" name="A6" type="3state"/>
+        <pin num="16" name="A7" type="3state"/>
+        <pin num="17" name="A8" type="3state"/>
+        <pin num="18" name="A9" type="3state"/>
+        <pin num="19" name="A10" type="3state"/>
+        <pin num="20" name="A11" type="3state"/>
+        <pin num="21" name="VSS" type="power_in"/>
+        <pin num="22" name="A12" type="3state"/>
+        <pin num="23" name="A13" type="3state"/>
+        <pin num="24" name="A14" type="3state"/>
+        <pin num="25" name="A15" type="3state"/>
+        <pin num="26" name="D7" type="BiDi"/>
+        <pin num="27" name="D6" type="BiDi"/>
+        <pin num="28" name="D5" type="BiDi"/>
+        <pin num="29" name="D4" type="BiDi"/>
+        <pin num="30" name="D3" type="BiDi"/>
+        <pin num="31" name="D2" type="BiDi"/>
+        <pin num="32" name="D1" type="BiDi"/>
+        <pin num="33" name="D0" type="BiDi"/>
+        <pin num="34" name="R/~W" type="3state"/>
+        <pin num="35" name="nc" type="NotConnected"/>
+        <pin num="36" name="BE" type="input"/>
+        <pin num="37" name="ϕ0" type="input"/>
+        <pin num="38" name="~SO" type="input"/>
+        <pin num="39" name="ϕ2" type="output"/>
+        <pin num="40" name="~RES" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="65xx" part="W65C22SxP">
+      <footprints>
+        <fp>DIP-40_W15.24mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">W65C22SxP</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VSS" type="power_in"/>
+        <pin num="2" name="PA0" type="BiDi"/>
+        <pin num="3" name="PA1" type="BiDi"/>
+        <pin num="4" name="PA2" type="BiDi"/>
+        <pin num="5" name="PA3" type="BiDi"/>
+        <pin num="6" name="PA4" type="BiDi"/>
+        <pin num="7" name="PA5" type="BiDi"/>
+        <pin num="8" name="PA6" type="BiDi"/>
+        <pin num="9" name="PA7" type="BiDi"/>
+        <pin num="10" name="PB0" type="BiDi"/>
+        <pin num="11" name="PB1" type="BiDi"/>
+        <pin num="12" name="PB2" type="BiDi"/>
+        <pin num="13" name="PB3" type="BiDi"/>
+        <pin num="14" name="PB4" type="BiDi"/>
+        <pin num="15" name="PB5" type="BiDi"/>
+        <pin num="16" name="PB6" type="BiDi"/>
+        <pin num="17" name="PB7" type="BiDi"/>
+        <pin num="18" name="CB1" type="input"/>
+        <pin num="19" name="CB2" type="BiDi"/>
+        <pin num="20" name="VCC" type="power_in"/>
+        <pin num="21" name="~IRQ" type="output"/>
+        <pin num="22" name="R/~W" type="input"/>
+        <pin num="23" name="~CS2" type="input"/>
+        <pin num="24" name="CS1" type="input"/>
+        <pin num="25" name="ϕ2" type="input"/>
+        <pin num="26" name="D7" type="BiDi"/>
+        <pin num="27" name="D6" type="BiDi"/>
+        <pin num="28" name="D5" type="BiDi"/>
+        <pin num="29" name="D4" type="BiDi"/>
+        <pin num="30" name="D3" type="BiDi"/>
+        <pin num="31" name="D2" type="BiDi"/>
+        <pin num="32" name="D1" type="BiDi"/>
+        <pin num="33" name="D0" type="BiDi"/>
+        <pin num="34" name="~RES" type="input"/>
+        <pin num="35" name="RS3" type="input"/>
+        <pin num="36" name="RS2" type="input"/>
+        <pin num="37" name="RS1" type="input"/>
+        <pin num="38" name="RS0" type="input"/>
+        <pin num="39" name="CA2" type="BiDi"/>
+        <pin num="40" name="CA1" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="74xx" part="74HC14">
+      <aliases>
+        <alias>74LS14</alias>
+      </aliases>
+      <description>Hex inverter schmitt trigger</description>
+      <docs>http://www.ti.com/lit/gpn/sn74HC14</docs>
+      <footprints>
+        <fp>DIP*W7.62mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74HC14</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="input"/>
+        <pin num="2" name="~" type="output"/>
+        <pin num="3" name="~" type="input"/>
+        <pin num="4" name="~" type="output"/>
+        <pin num="5" name="~" type="input"/>
+        <pin num="6" name="~" type="output"/>
+        <pin num="7" name="GND" type="power_in"/>
+        <pin num="8" name="~" type="output"/>
+        <pin num="9" name="~" type="input"/>
+        <pin num="10" name="~" type="output"/>
+        <pin num="11" name="~" type="input"/>
+        <pin num="12" name="~" type="output"/>
+        <pin num="13" name="~" type="input"/>
+        <pin num="14" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="74xx" part="74LS138">
+      <description>Decoder 3 to 8 active low outputs</description>
+      <docs>http://www.ti.com/lit/gpn/sn74LS138</docs>
+      <footprints>
+        <fp>DIP?16*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LS138</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A0" type="input"/>
+        <pin num="2" name="A1" type="input"/>
+        <pin num="3" name="A2" type="input"/>
+        <pin num="4" name="E1" type="input"/>
+        <pin num="5" name="E2" type="input"/>
+        <pin num="6" name="E3" type="input"/>
+        <pin num="7" name="O7" type="output"/>
+        <pin num="8" name="GND" type="power_in"/>
+        <pin num="9" name="O6" type="output"/>
+        <pin num="10" name="O5" type="output"/>
+        <pin num="11" name="O4" type="output"/>
+        <pin num="12" name="O3" type="output"/>
+        <pin num="13" name="O2" type="output"/>
+        <pin num="14" name="O1" type="output"/>
+        <pin num="15" name="O0" type="output"/>
+        <pin num="16" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="74xx" part="74LS139">
+      <description>Dual Decoder 1 of 4, Active low outputs</description>
+      <docs>http://www.ti.com/lit/ds/symlink/sn74ls139a.pdf</docs>
+      <footprints>
+        <fp>DIP?16*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LS139</field>
+      </fields>
+      <pins>
+        <pin num="1" name="E" type="input"/>
+        <pin num="2" name="A0" type="input"/>
+        <pin num="3" name="A1" type="input"/>
+        <pin num="4" name="O0" type="output"/>
+        <pin num="5" name="O1" type="output"/>
+        <pin num="6" name="O2" type="output"/>
+        <pin num="7" name="O3" type="output"/>
+        <pin num="8" name="GND" type="power_in"/>
+        <pin num="9" name="O3" type="output"/>
+        <pin num="10" name="O2" type="output"/>
+        <pin num="11" name="O1" type="output"/>
+        <pin num="12" name="O0" type="output"/>
+        <pin num="13" name="A1" type="input"/>
+        <pin num="14" name="A0" type="input"/>
+        <pin num="15" name="E" type="input"/>
+        <pin num="16" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="74xx" part="74LS74">
+      <aliases>
+        <alias>74HC74</alias>
+      </aliases>
+      <description>Dual D Flip-flop, Set &amp; Reset</description>
+      <docs>74xx/74hc_hct74.pdf</docs>
+      <footprints>
+        <fp>DIP*W7.62mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LS74</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~R" type="input"/>
+        <pin num="2" name="D" type="input"/>
+        <pin num="3" name="C" type="input"/>
+        <pin num="4" name="~S" type="input"/>
+        <pin num="5" name="Q" type="output"/>
+        <pin num="6" name="~Q" type="output"/>
+        <pin num="7" name="GND" type="power_in"/>
+        <pin num="8" name="~Q" type="output"/>
+        <pin num="9" name="Q" type="output"/>
+        <pin num="10" name="~S" type="input"/>
+        <pin num="11" name="C" type="input"/>
+        <pin num="12" name="D" type="input"/>
+        <pin num="13" name="~R" type="input"/>
+        <pin num="14" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R_POT_TRIM">
+      <description>Trim-potentiometer</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Potentiometer*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">RV</field>
+        <field name="Value">R_POT_TRIM</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Display_Character" part="NHD-0420H1Z">
+      <description>LCD 20x4 Alphanumeric 16pin Blue/White/Green Backlight, 8bit parallel, 3.3V VDD</description>
+      <docs>http://www.newhavendisplay.com/specs/NHD-0420H1Z-FSW-GBW-33V3.pdf</docs>
+      <footprints>
+        <fp>NHD*0420H1Z*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">NHD-0420H1Z</field>
+        <field name="Footprint">Display:NHD-0420H1Z</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VSS" type="power_in"/>
+        <pin num="2" name="VDD" type="power_in"/>
+        <pin num="3" name="VO" type="power_in"/>
+        <pin num="4" name="RS" type="input"/>
+        <pin num="5" name="R/W" type="input"/>
+        <pin num="6" name="E" type="input"/>
+        <pin num="7" name="DB0" type="BiDi"/>
+        <pin num="8" name="DB1" type="BiDi"/>
+        <pin num="9" name="DB2" type="BiDi"/>
+        <pin num="10" name="DB3" type="BiDi"/>
+        <pin num="11" name="DB4" type="BiDi"/>
+        <pin num="12" name="DB5" type="BiDi"/>
+        <pin num="13" name="DB6" type="BiDi"/>
+        <pin num="14" name="DB7" type="BiDi"/>
+        <pin num="15" name="A" type="passive"/>
+        <pin num="16" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="sbc6526" part="IS61C1024AL-12KLI">
+      <description>IS61C1024AL-12KLI</description>
+      <docs>http://www.issi.com/WW/pdf/61-64C1024AL.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">IS61C1024AL-12KLI</field>
+        <field name="Footprint">sbc6526:SOJ-36_10.16x23.49mm_P1.27mm</field>
+        <field name="Code  JEDEC">MS-027</field>
+        <field name="Component Link 1 Description">Manufacturer URL</field>
+        <field name="Component Link 1 URL">http://www.issi.com/US/index.shtml</field>
+        <field name="Component Link 3 Description">Package Specification</field>
+        <field name="Component Link 3 URL">http://www.issi.com/WW/pdf/61-64C1024AL.pdf</field>
+        <field name="Datasheet Version">Rev. D</field>
+        <field name="Density">1M</field>
+        <field name="Mounting Technology">Surface Mount</field>
+        <field name="Organization">128K x 8</field>
+        <field name="Package Description">32-Pin 400 mil SOJ, Body 20.95 x 10.16 mm, Pitch 1.27 mm</field>
+        <field name="Package Version">Rev. E, 12/2007</field>
+        <field name="Packing">Tray / Tube</field>
+        <field name="Speed ns">12</field>
+        <field name="category">IC</field>
+        <field name="ciiva ids">1246270</field>
+        <field name="library id">9d67895ef7327d77</field>
+        <field name="manufacturer">Integrated Silicon Solution Inc (ISSI)</field>
+        <field name="package">SOJ-32</field>
+        <field name="release date">1382601074</field>
+        <field name="rohs">No</field>
+        <field name="vault revision">2C522BE6-5BF8-4CFD-B3EB-B2739303CE2D</field>
+        <field name="imported">yes</field>
+      </fields>
+      <pins>
+        <pin num="1" name="NC" type="passive"/>
+        <pin num="2" name="A16" type="input"/>
+        <pin num="3" name="A14" type="input"/>
+        <pin num="4" name="A12" type="input"/>
+        <pin num="5" name="A7" type="input"/>
+        <pin num="6" name="A6" type="input"/>
+        <pin num="7" name="A5" type="input"/>
+        <pin num="8" name="A4" type="input"/>
+        <pin num="9" name="A3" type="input"/>
+        <pin num="10" name="A2" type="input"/>
+        <pin num="11" name="A1" type="input"/>
+        <pin num="12" name="A0" type="input"/>
+        <pin num="13" name="I/O0" type="BiDi"/>
+        <pin num="14" name="I/O1" type="BiDi"/>
+        <pin num="15" name="I/O2" type="BiDi"/>
+        <pin num="16" name="GND" type="power_in"/>
+        <pin num="17" name="I/O3" type="BiDi"/>
+        <pin num="18" name="I/O4" type="BiDi"/>
+        <pin num="19" name="I/O5" type="BiDi"/>
+        <pin num="20" name="I/O6" type="BiDi"/>
+        <pin num="21" name="I/O7" type="BiDi"/>
+        <pin num="22" name="~CE1~" type="input"/>
+        <pin num="23" name="A10" type="input"/>
+        <pin num="24" name="~OE~" type="input"/>
+        <pin num="25" name="A11" type="input"/>
+        <pin num="26" name="A9" type="input"/>
+        <pin num="27" name="A8" type="input"/>
+        <pin num="28" name="A13" type="input"/>
+        <pin num="29" name="~WE~" type="input"/>
+        <pin num="30" name="CE2" type="input"/>
+        <pin num="31" name="A15" type="input"/>
+        <pin num="32" name="VDD" type="power_in"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="65xx">
+      <uri>Z:\gitHub\SBC6525_KiCAD/65xx.lib</uri>
+    </library>
+    <library logical="74xx">
+      <uri>C:\Program Files\KiCad\share\kicad\library/74xx.lib</uri>
+    </library>
+    <library logical="Device">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Device.lib</uri>
+    </library>
+    <library logical="Display_Character">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Display_Character.lib</uri>
+    </library>
+    <library logical="sbc6526">
+      <uri>Z:\gitHub\SBC6525_KiCAD/sbc6526.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/clock/~PHI2">
+      <node ref="U8" pin="12"/>
+      <node ref="U8" pin="8"/>
+      <node ref="U6" pin="14"/>
+    </net>
+    <net code="2" name="/clock/PHI2">
+      <node ref="U8" pin="9"/>
+      <node ref="IC3" pin="37"/>
+    </net>
+    <net code="3" name="GND">
+      <node ref="IC10" pin="8"/>
+      <node ref="C1" pin="2"/>
+      <node ref="IC4" pin="2"/>
+      <node ref="IC4" pin="16"/>
+      <node ref="U6" pin="15"/>
+      <node ref="IC9" pin="1"/>
+      <node ref="IC9" pin="8"/>
+    </net>
+    <net code="4" name="VCC">
+      <node ref="U8" pin="13"/>
+      <node ref="IC10" pin="16"/>
+      <node ref="IC4" pin="32"/>
+      <node ref="U8" pin="10"/>
+      <node ref="IC9" pin="16"/>
+    </net>
+    <net code="6" name="Net-(IC7-Pad7)">
+      <node ref="IC7" pin="7"/>
+    </net>
+    <net code="7" name="Net-(IC7-Pad14)">
+      <node ref="IC7" pin="14"/>
+    </net>
+    <net code="8" name="Net-(IC8-Pad7)">
+      <node ref="IC8" pin="7"/>
+    </net>
+    <net code="9" name="Net-(IC8-Pad14)">
+      <node ref="IC8" pin="14"/>
+    </net>
+    <net code="10" name="/cpu/R~W">
+      <node ref="IC3" pin="34"/>
+      <node ref="U6" pin="13"/>
+    </net>
+    <net code="12" name="/memory/~CE">
+      <node ref="IC4" pin="22"/>
+    </net>
+    <net code="13" name="/memory/~VIA">
+      <node ref="IC10" pin="13"/>
+    </net>
+    <net code="14" name="/memory/~CIA">
+      <node ref="IC10" pin="14"/>
+    </net>
+    <net code="15" name="Net-(U2-Pad28)">
+      <node ref="U2" pin="28"/>
+    </net>
+    <net code="16" name="Net-(U2-Pad3)">
+      <node ref="U2" pin="3"/>
+    </net>
+    <net code="17" name="Net-(U2-Pad30)">
+      <node ref="U2" pin="30"/>
+    </net>
+    <net code="18" name="Net-(U2-Pad31)">
+      <node ref="U2" pin="31"/>
+    </net>
+    <net code="19" name="Net-(U2-Pad32)">
+      <node ref="U2" pin="32"/>
+    </net>
+    <net code="20" name="Net-(U2-Pad33)">
+      <node ref="U2" pin="33"/>
+    </net>
+    <net code="21" name="Net-(U2-Pad34)">
+      <node ref="U2" pin="34"/>
+    </net>
+    <net code="22" name="Net-(U2-Pad35)">
+      <node ref="U2" pin="35"/>
+    </net>
+    <net code="23" name="Net-(U2-Pad36)">
+      <node ref="U2" pin="36"/>
+    </net>
+    <net code="24" name="Net-(U2-Pad37)">
+      <node ref="U2" pin="37"/>
+    </net>
+    <net code="25" name="Net-(U2-Pad38)">
+      <node ref="U2" pin="38"/>
+    </net>
+    <net code="26" name="Net-(U2-Pad39)">
+      <node ref="U2" pin="39"/>
+    </net>
+    <net code="27" name="Net-(U2-Pad27)">
+      <node ref="U2" pin="27"/>
+    </net>
+    <net code="28" name="Net-(U2-Pad26)">
+      <node ref="U2" pin="26"/>
+    </net>
+    <net code="29" name="Net-(U2-Pad25)">
+      <node ref="U2" pin="25"/>
+    </net>
+    <net code="30" name="Net-(U2-Pad24)">
+      <node ref="U2" pin="24"/>
+    </net>
+    <net code="31" name="Net-(U2-Pad23)">
+      <node ref="U2" pin="23"/>
+    </net>
+    <net code="32" name="Net-(U2-Pad22)">
+      <node ref="U2" pin="22"/>
+    </net>
+    <net code="33" name="Net-(U2-Pad21)">
+      <node ref="U2" pin="21"/>
+    </net>
+    <net code="34" name="Net-(U2-Pad20)">
+      <node ref="U2" pin="20"/>
+    </net>
+    <net code="35" name="Net-(U2-Pad2)">
+      <node ref="U2" pin="2"/>
+    </net>
+    <net code="36" name="Net-(U2-Pad19)">
+      <node ref="U2" pin="19"/>
+    </net>
+    <net code="37" name="Net-(U2-Pad18)">
+      <node ref="U2" pin="18"/>
+    </net>
+    <net code="38" name="Net-(U2-Pad17)">
+      <node ref="U2" pin="17"/>
+    </net>
+    <net code="39" name="Net-(U3-Pad14)">
+      <node ref="U3" pin="14"/>
+    </net>
+    <net code="40" name="Net-(U2-Pad29)">
+      <node ref="U2" pin="29"/>
+    </net>
+    <net code="41" name="Net-(U3-Pad9)">
+      <node ref="U3" pin="9"/>
+    </net>
+    <net code="42" name="Net-(U3-Pad8)">
+      <node ref="U3" pin="8"/>
+    </net>
+    <net code="43" name="Net-(U3-Pad7)">
+      <node ref="U3" pin="7"/>
+    </net>
+    <net code="44" name="Net-(U3-Pad6)">
+      <node ref="U3" pin="6"/>
+    </net>
+    <net code="45" name="Net-(U3-Pad5)">
+      <node ref="U3" pin="5"/>
+    </net>
+    <net code="46" name="Net-(U3-Pad4)">
+      <node ref="U3" pin="4"/>
+    </net>
+    <net code="47" name="Net-(U3-Pad3)">
+      <node ref="U3" pin="3"/>
+    </net>
+    <net code="48" name="Net-(U3-Pad2)">
+      <node ref="U3" pin="2"/>
+    </net>
+    <net code="49" name="Net-(U3-Pad16)">
+      <node ref="U3" pin="16"/>
+    </net>
+    <net code="50" name="Net-(U3-Pad15)">
+      <node ref="U3" pin="15"/>
+    </net>
+    <net code="51" name="Net-(U2-Pad4)">
+      <node ref="U2" pin="4"/>
+    </net>
+    <net code="52" name="Net-(U3-Pad13)">
+      <node ref="U3" pin="13"/>
+    </net>
+    <net code="53" name="Net-(U3-Pad12)">
+      <node ref="U3" pin="12"/>
+    </net>
+    <net code="54" name="Net-(U3-Pad11)">
+      <node ref="U3" pin="11"/>
+    </net>
+    <net code="55" name="Net-(U3-Pad10)">
+      <node ref="U3" pin="10"/>
+    </net>
+    <net code="56" name="Net-(U3-Pad1)">
+      <node ref="U3" pin="1"/>
+    </net>
+    <net code="57" name="Net-(U2-Pad9)">
+      <node ref="U2" pin="9"/>
+    </net>
+    <net code="58" name="Net-(U2-Pad8)">
+      <node ref="U2" pin="8"/>
+    </net>
+    <net code="59" name="Net-(U2-Pad7)">
+      <node ref="U2" pin="7"/>
+    </net>
+    <net code="60" name="Net-(U2-Pad6)">
+      <node ref="U2" pin="6"/>
+    </net>
+    <net code="61" name="Net-(U2-Pad5)">
+      <node ref="U2" pin="5"/>
+    </net>
+    <net code="62" name="Net-(U2-Pad40)">
+      <node ref="U2" pin="40"/>
+    </net>
+    <net code="63" name="Net-(U1-Pad2)">
+      <node ref="U1" pin="2"/>
+    </net>
+    <net code="64" name="Net-(U1-Pad30)">
+      <node ref="U1" pin="30"/>
+    </net>
+    <net code="65" name="Net-(U1-Pad3)">
+      <node ref="U1" pin="3"/>
+    </net>
+    <net code="66" name="Net-(U1-Pad29)">
+      <node ref="U1" pin="29"/>
+    </net>
+    <net code="67" name="Net-(U1-Pad28)">
+      <node ref="U1" pin="28"/>
+    </net>
+    <net code="68" name="Net-(U1-Pad27)">
+      <node ref="U1" pin="27"/>
+    </net>
+    <net code="69" name="Net-(U1-Pad26)">
+      <node ref="U1" pin="26"/>
+    </net>
+    <net code="70" name="Net-(U1-Pad25)">
+      <node ref="U1" pin="25"/>
+    </net>
+    <net code="71" name="Net-(U1-Pad24)">
+      <node ref="U1" pin="24"/>
+    </net>
+    <net code="72" name="Net-(U1-Pad23)">
+      <node ref="U1" pin="23"/>
+    </net>
+    <net code="73" name="Net-(U1-Pad22)">
+      <node ref="U1" pin="22"/>
+    </net>
+    <net code="74" name="Net-(U1-Pad21)">
+      <node ref="U1" pin="21"/>
+    </net>
+    <net code="75" name="Net-(U1-Pad20)">
+      <node ref="U1" pin="20"/>
+    </net>
+    <net code="76" name="Net-(U2-Pad15)">
+      <node ref="U2" pin="15"/>
+    </net>
+    <net code="77" name="Net-(U1-Pad19)">
+      <node ref="U1" pin="19"/>
+    </net>
+    <net code="78" name="Net-(U1-Pad18)">
+      <node ref="U1" pin="18"/>
+    </net>
+    <net code="79" name="Net-(U1-Pad17)">
+      <node ref="U1" pin="17"/>
+    </net>
+    <net code="80" name="Net-(U1-Pad16)">
+      <node ref="U1" pin="16"/>
+    </net>
+    <net code="81" name="Net-(U1-Pad15)">
+      <node ref="U1" pin="15"/>
+    </net>
+    <net code="82" name="Net-(U1-Pad14)">
+      <node ref="U1" pin="14"/>
+    </net>
+    <net code="83" name="Net-(U1-Pad13)">
+      <node ref="U1" pin="13"/>
+    </net>
+    <net code="84" name="Net-(U1-Pad12)">
+      <node ref="U1" pin="12"/>
+    </net>
+    <net code="85" name="Net-(U1-Pad11)">
+      <node ref="U1" pin="11"/>
+    </net>
+    <net code="86" name="Net-(U1-Pad10)">
+      <node ref="U1" pin="10"/>
+    </net>
+    <net code="87" name="Net-(U1-Pad1)">
+      <node ref="U1" pin="1"/>
+    </net>
+    <net code="88" name="Net-(U1-Pad32)">
+      <node ref="U1" pin="32"/>
+    </net>
+    <net code="89" name="Net-(U1-Pad31)">
+      <node ref="U1" pin="31"/>
+    </net>
+    <net code="90" name="Net-(U2-Pad14)">
+      <node ref="U2" pin="14"/>
+    </net>
+    <net code="91" name="Net-(U2-Pad13)">
+      <node ref="U2" pin="13"/>
+    </net>
+    <net code="92" name="Net-(U2-Pad12)">
+      <node ref="U2" pin="12"/>
+    </net>
+    <net code="93" name="Net-(U2-Pad11)">
+      <node ref="U2" pin="11"/>
+    </net>
+    <net code="94" name="Net-(U2-Pad10)">
+      <node ref="U2" pin="10"/>
+    </net>
+    <net code="95" name="Net-(U2-Pad1)">
+      <node ref="U2" pin="1"/>
+    </net>
+    <net code="96" name="Net-(U1-Pad9)">
+      <node ref="U1" pin="9"/>
+    </net>
+    <net code="97" name="Net-(U1-Pad8)">
+      <node ref="U1" pin="8"/>
+    </net>
+    <net code="98" name="Net-(U1-Pad7)">
+      <node ref="U1" pin="7"/>
+    </net>
+    <net code="99" name="Net-(U1-Pad6)">
+      <node ref="U1" pin="6"/>
+    </net>
+    <net code="100" name="Net-(U2-Pad16)">
+      <node ref="U2" pin="16"/>
+    </net>
+    <net code="101" name="Net-(U1-Pad5)">
+      <node ref="U1" pin="5"/>
+    </net>
+    <net code="102" name="Net-(U1-Pad33)">
+      <node ref="U1" pin="33"/>
+    </net>
+    <net code="103" name="Net-(U1-Pad34)">
+      <node ref="U1" pin="34"/>
+    </net>
+    <net code="104" name="Net-(U1-Pad35)">
+      <node ref="U1" pin="35"/>
+    </net>
+    <net code="105" name="Net-(U1-Pad36)">
+      <node ref="U1" pin="36"/>
+    </net>
+    <net code="106" name="Net-(U1-Pad37)">
+      <node ref="U1" pin="37"/>
+    </net>
+    <net code="107" name="Net-(U1-Pad38)">
+      <node ref="U1" pin="38"/>
+    </net>
+    <net code="108" name="Net-(U1-Pad39)">
+      <node ref="U1" pin="39"/>
+    </net>
+    <net code="109" name="Net-(U1-Pad4)">
+      <node ref="U1" pin="4"/>
+    </net>
+    <net code="110" name="Net-(U1-Pad40)">
+      <node ref="U1" pin="40"/>
+    </net>
+    <net code="111" name="Net-(IC3-Pad21)">
+      <node ref="IC3" pin="21"/>
+    </net>
+    <net code="112" name="Net-(IC3-Pad3)">
+      <node ref="IC3" pin="3"/>
+    </net>
+    <net code="113" name="Net-(IC3-Pad2)">
+      <node ref="IC3" pin="2"/>
+    </net>
+    <net code="114" name="Net-(IC3-Pad38)">
+      <node ref="IC3" pin="38"/>
+    </net>
+    <net code="115" name="Net-(IC3-Pad8)">
+      <node ref="IC3" pin="8"/>
+    </net>
+    <net code="116" name="Net-(IC3-Pad7)">
+      <node ref="IC3" pin="7"/>
+    </net>
+    <net code="117" name="Net-(IC3-Pad6)">
+      <node ref="IC3" pin="6"/>
+    </net>
+    <net code="118" name="Net-(IC3-Pad5)">
+      <node ref="IC3" pin="5"/>
+    </net>
+    <net code="119" name="Net-(IC3-Pad40)">
+      <node ref="IC3" pin="40"/>
+    </net>
+    <net code="120" name="Net-(IC3-Pad4)">
+      <node ref="IC3" pin="4"/>
+    </net>
+    <net code="121" name="Net-(IC3-Pad39)">
+      <node ref="IC3" pin="39"/>
+    </net>
+    <net code="122" name="Net-(IC3-Pad36)">
+      <node ref="IC3" pin="36"/>
+    </net>
+    <net code="123" name="Net-(IC3-Pad35)">
+      <node ref="IC3" pin="35"/>
+    </net>
+    <net code="124" name="Net-(IC3-Pad1)">
+      <node ref="IC3" pin="1"/>
+    </net>
+    <net code="125" name="Net-(IC10-Pad9)">
+      <node ref="IC10" pin="9"/>
+    </net>
+    <net code="126" name="Net-(IC10-Pad7)">
+      <node ref="IC10" pin="7"/>
+    </net>
+    <net code="127" name="Net-(IC10-Pad15)">
+      <node ref="IC10" pin="15"/>
+    </net>
+    <net code="128" name="Net-(IC10-Pad12)">
+      <node ref="IC10" pin="12"/>
+    </net>
+    <net code="129" name="Net-(IC10-Pad11)">
+      <node ref="IC10" pin="11"/>
+    </net>
+    <net code="130" name="Net-(IC10-Pad10)">
+      <node ref="IC10" pin="10"/>
+    </net>
+    <net code="131" name="/memory/~WE">
+      <node ref="IC4" pin="29"/>
+      <node ref="U6" pin="12"/>
+    </net>
+    <net code="132" name="/memory/~OE">
+      <node ref="IC4" pin="24"/>
+      <node ref="U6" pin="10"/>
+    </net>
+    <net code="133" name="Net-(IC9-Pad7)">
+      <node ref="IC9" pin="7"/>
+    </net>
+    <net code="134" name="Net-(U6-Pad11)">
+      <node ref="U6" pin="11"/>
+    </net>
+    <net code="135" name="Net-(U6-Pad9)">
+      <node ref="U6" pin="9"/>
+    </net>
+    <net code="136" name="Net-(IC9-Pad5)">
+      <node ref="IC9" pin="5"/>
+    </net>
+    <net code="137" name="/memory/RAMCE">
+      <node ref="IC4" pin="30"/>
+      <node ref="IC9" pin="6"/>
+    </net>
+    <net code="138" name="Net-(IC9-Pad4)">
+      <node ref="IC9" pin="4"/>
+    </net>
+    <net code="139" name="Net-(IC4-Pad1)">
+      <node ref="IC4" pin="1"/>
+    </net>
+    <net code="140" name="Net-(C1-Pad1)">
+      <node ref="U9" pin="1"/>
+      <node ref="RV1" pin="1"/>
+      <node ref="C1" pin="1"/>
+    </net>
+    <net code="141" name="Net-(RV1-Pad3)">
+      <node ref="RV1" pin="3"/>
+    </net>
+    <net code="142" name="Net-(U8-Pad11)">
+      <node ref="U9" pin="4"/>
+      <node ref="U8" pin="11"/>
+    </net>
+    <net code="143" name="Net-(RV1-Pad2)">
+      <node ref="U9" pin="2"/>
+      <node ref="RV1" pin="2"/>
+      <node ref="U9" pin="3"/>
+    </net>
+    <net code="144" name="Net-(U9-Pad12)">
+      <node ref="U9" pin="12"/>
+    </net>
+    <net code="145" name="Net-(U9-Pad13)">
+      <node ref="U9" pin="13"/>
+    </net>
+    <net code="146" name="/cpu/A2">
+      <node ref="IC4" pin="10"/>
+      <node ref="IC3" pin="11"/>
+    </net>
+    <net code="147" name="/cpu/A1">
+      <node ref="IC4" pin="11"/>
+      <node ref="IC3" pin="10"/>
+    </net>
+    <net code="148" name="/cpu/A0">
+      <node ref="IC3" pin="9"/>
+      <node ref="IC4" pin="12"/>
+    </net>
+    <net code="149" name="/cpu/A3">
+      <node ref="IC3" pin="12"/>
+      <node ref="IC4" pin="9"/>
+    </net>
+    <net code="150" name="/cpu/D7">
+      <node ref="IC3" pin="26"/>
+      <node ref="IC4" pin="13"/>
+    </net>
+    <net code="151" name="/cpu/D6">
+      <node ref="IC3" pin="27"/>
+      <node ref="IC4" pin="14"/>
+    </net>
+    <net code="152" name="/cpu/D5">
+      <node ref="IC4" pin="15"/>
+      <node ref="IC3" pin="28"/>
+    </net>
+    <net code="153" name="/cpu/D4">
+      <node ref="IC4" pin="21"/>
+      <node ref="IC3" pin="29"/>
+    </net>
+    <net code="154" name="/cpu/D3">
+      <node ref="IC3" pin="30"/>
+      <node ref="IC4" pin="20"/>
+    </net>
+    <net code="155" name="/cpu/D1">
+      <node ref="IC4" pin="18"/>
+      <node ref="IC3" pin="32"/>
+    </net>
+    <net code="156" name="/cpu/D2">
+      <node ref="IC4" pin="19"/>
+      <node ref="IC3" pin="31"/>
+    </net>
+    <net code="157" name="/cpu/D0">
+      <node ref="IC3" pin="33"/>
+      <node ref="IC4" pin="17"/>
+    </net>
+    <net code="158" name="/cpu/A15">
+      <node ref="IC3" pin="25"/>
+      <node ref="IC9" pin="3"/>
+      <node ref="IC10" pin="6"/>
+      <node ref="IC4" pin="26"/>
+    </net>
+    <net code="159" name="/cpu/A14">
+      <node ref="IC3" pin="24"/>
+      <node ref="IC4" pin="27"/>
+      <node ref="IC10" pin="4"/>
+      <node ref="IC10" pin="5"/>
+      <node ref="IC9" pin="2"/>
+    </net>
+    <net code="160" name="/cpu/A13">
+      <node ref="IC4" pin="28"/>
+      <node ref="IC3" pin="23"/>
+      <node ref="IC10" pin="3"/>
+    </net>
+    <net code="161" name="/cpu/A12">
+      <node ref="IC4" pin="31"/>
+      <node ref="IC10" pin="2"/>
+      <node ref="IC3" pin="22"/>
+    </net>
+    <net code="162" name="/cpu/A11">
+      <node ref="IC4" pin="3"/>
+      <node ref="IC3" pin="20"/>
+      <node ref="IC10" pin="1"/>
+    </net>
+    <net code="163" name="/cpu/A10">
+      <node ref="IC3" pin="19"/>
+      <node ref="IC4" pin="4"/>
+    </net>
+    <net code="164" name="/cpu/A9">
+      <node ref="IC3" pin="18"/>
+      <node ref="IC4" pin="5"/>
+    </net>
+    <net code="165" name="/cpu/A8">
+      <node ref="IC3" pin="17"/>
+      <node ref="IC4" pin="6"/>
+    </net>
+    <net code="166" name="/cpu/A7">
+      <node ref="IC4" pin="7"/>
+      <node ref="IC3" pin="16"/>
+    </net>
+    <net code="167" name="/cpu/A6">
+      <node ref="IC3" pin="15"/>
+      <node ref="IC4" pin="25"/>
+    </net>
+    <net code="168" name="/cpu/A5">
+      <node ref="IC3" pin="14"/>
+      <node ref="IC4" pin="8"/>
+    </net>
+    <net code="169" name="/cpu/A4">
+      <node ref="IC3" pin="13"/>
+      <node ref="IC4" pin="23"/>
+    </net>
+  </nets>
+</export>

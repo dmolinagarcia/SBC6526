@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name sbc6526)(type Legacy)(uri ${KIPRJMOD}/sbc6526.kicad_sym)(options "")(descr ""))
+  (lib (name 65xx)(type Legacy)(uri ${KIPRJMOD}/65xx.kicad_sym)(options "")(descr ""))
+  (lib (name sbc6526-rescue)(type Legacy)(uri ${KIPRJMOD}/sbc6526-rescue.lib)(options "")(descr ""))
+)
