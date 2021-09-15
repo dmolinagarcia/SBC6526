@@ -413,6 +413,7 @@
     )
   )
 
+
   (junction (at 185.42 74.93) (diameter 1.016) (color 0 0 0 0))
   (junction (at 189.23 87.63) (diameter 1.016) (color 0 0 0 0))
   (junction (at 193.04 74.93) (diameter 1.016) (color 0 0 0 0))
@@ -655,6 +656,9 @@
     (stroke (width 0) (type solid) (color 0 0 0 0))
   )
 
+  (label "LEDBUS" (at 104.14 90.17 270)
+    (effects (font (size 1.27 1.27)) (justify right bottom))
+  )
   (label "D" (at 107.95 50.8 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
   )

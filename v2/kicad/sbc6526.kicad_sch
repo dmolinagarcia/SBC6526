@@ -5,6 +5,7 @@
   (lib_symbols
   )
 
+
   (junction (at 130.81 73.66) (diameter 1.016) (color 0 0 0 0))
   (junction (at 130.81 100.33) (diameter 1.016) (color 0 0 0 0))
   (junction (at 143.51 127) (diameter 1.016) (color 0 0 0 0))
@@ -15,6 +16,8 @@
   (junction (at 88.9 25.4) (diameter 1.016) (color 0 0 0 0))
   (junction (at 153.67 27.94) (diameter 1.016) (color 0 0 0 0))
   (junction (at 156.21 25.4) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 223.52 27.94) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 226.06 25.4) (diameter 1.016) (color 0 0 0 0))
 
   (wire (pts (xy 62.23 49.53) (xy 66.04 49.53))
     (stroke (width 0) (type solid) (color 0 0 0 0))
@@ -265,6 +268,9 @@
   (bus (pts (xy 223.52 27.94) (xy 223.52 53.34))
     (stroke (width 0) (type solid) (color 0 0 0 0))
   )
+  (bus (pts (xy 223.52 27.94) (xy 242.57 27.94))
+    (stroke (width 0) (type solid) (color 0 0 0 0))
+  )
   (bus (pts (xy 223.52 53.34) (xy 232.41 53.34))
     (stroke (width 0) (type solid) (color 0 0 0 0))
   )
@@ -272,6 +278,9 @@
     (stroke (width 0) (type solid) (color 0 0 0 0))
   )
   (bus (pts (xy 226.06 25.4) (xy 226.06 50.8))
+    (stroke (width 0) (type solid) (color 0 0 0 0))
+  )
+  (bus (pts (xy 226.06 25.4) (xy 242.57 25.4))
     (stroke (width 0) (type solid) (color 0 0 0 0))
   )
   (bus (pts (xy 226.06 50.8) (xy 232.41 50.8))
@@ -325,6 +334,19 @@
   )
   (label "R~W" (at 134.62 95.25 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
+  )
+
+  (global_label "A[0..15]" (shape input) (at 242.57 25.4 0)    (property "Intersheet References" "${INTERSHEET_REFS}" (id 0) (at 254.1271 25.3206 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+
+    (effects (font (size 1.27 1.27)) (justify left))
+  )
+  (global_label "D[0..7]" (shape bidirectional) (at 242.57 27.94 0)    (property "Intersheet References" "${INTERSHEET_REFS}" (id 0) (at 253.099 27.8606 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+
+    (effects (font (size 1.27 1.27)) (justify left))
   )
 
   (sheet (at 29.21 45.72) (size 33.02 39.37)
@@ -505,9 +527,6 @@
     (pin "A[0..15]" output (at 232.41 50.8 180)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (pin "D[0..7]" output (at 232.41 53.34 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
     (pin "PB[0..7]" bidirectional (at 265.43 88.9 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
@@ -536,6 +555,9 @@
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (pin "~CIAEXT" input (at 232.41 74.93 180)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (pin "D[0..7]" bidirectional (at 232.41 53.34 180)
       (effects (font (size 1.27 1.27)) (justify left))
     )
   )
@@ -842,9 +864,6 @@
     (path "/00000000-0000-0000-0000-00005fa7ba55/00000000-0000-0000-0000-00005faccf6d"
       (reference "U8") (unit 2) (value "74AC14") (footprint "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm")
     )
-    (path "/00000000-0000-0000-0000-00005fa75ce1/00000000-0000-0000-0000-00005fb33a3e"
-      (reference "#PWR0116") (unit 1) (value "GND") (footprint "")
-    )
     (path "/00000000-0000-0000-0000-00005fa75ce1/00000000-0000-0000-0000-00005fb341f3"
       (reference "#PWR0117") (unit 1) (value "GND") (footprint "")
     )
@@ -939,7 +958,7 @@
       (reference "#PWR0150") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005fb72ec4/00000000-0000-0000-0000-00005ff8340c"
-      (reference "J1") (unit 1) (value "Conn_01x10_Female") (footprint "Connector_PinSocket_2.54mm:PinSocket_2x05_P2.54mm_Vertical")
+      (reference "PORTB1") (unit 1) (value "Conn_01x10_Female") (footprint "Connector_PinSocket_2.54mm:PinSocket_2x05_P2.54mm_Vertical")
     )
     (path "/00000000-0000-0000-0000-00005fb72ec4/00000000-0000-0000-0000-00005ff9158a"
       (reference "R15") (unit 1) (value "3.3k") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")

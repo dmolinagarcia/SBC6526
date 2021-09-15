@@ -355,6 +355,7 @@
     )
   )
 
+
   (junction (at 241.3 76.2) (diameter 1.016) (color 0 0 0 0))
   (junction (at 241.3 90.17) (diameter 1.016) (color 0 0 0 0))
   (junction (at 241.3 104.14) (diameter 1.016) (color 0 0 0 0))
@@ -881,7 +882,7 @@
   (symbol (lib_id "Connector:Conn_01x10_Female") (at 99.06 77.47 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005ff8340c")
-    (property "Reference" "J1" (id 0) (at 99.7712 78.0796 0)
+    (property "Reference" "PORTB1" (id 0) (at 99.7712 78.0796 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Conn_01x10_Female" (id 1) (at 99.7712 80.391 0)

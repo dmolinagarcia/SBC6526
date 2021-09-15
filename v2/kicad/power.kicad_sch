@@ -783,6 +783,7 @@
     )
   )
 
+
   (junction (at 48.26 43.18) (diameter 1.016) (color 0 0 0 0))
   (junction (at 48.26 53.34) (diameter 1.016) (color 0 0 0 0))
   (junction (at 48.26 63.5) (diameter 1.016) (color 0 0 0 0))
@@ -816,10 +817,10 @@
   (junction (at 157.48 67.31) (diameter 1.016) (color 0 0 0 0))
 
   (no_connect (at 63.5 157.48))
-  (no_connect (at 63.5 166.37))
   (no_connect (at 63.5 176.53))
   (no_connect (at 63.5 181.61))
   (no_connect (at 63.5 148.59))
+  (no_connect (at 63.5 166.37))
 
   (wire (pts (xy 48.26 33.02) (xy 48.26 43.18))
     (stroke (width 0) (type solid) (color 0 0 0 0))

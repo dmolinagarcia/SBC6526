@@ -517,19 +517,20 @@
     )
   )
 
+
   (junction (at 139.7 162.56) (diameter 1.016) (color 0 0 0 0))
 
+  (no_connect (at 167.64 60.96))
+  (no_connect (at 167.64 105.41))
   (no_connect (at 167.64 160.02))
   (no_connect (at 167.64 162.56))
-  (no_connect (at 167.64 105.41))
-  (no_connect (at 167.64 60.96))
-  (no_connect (at 167.64 123.19))
+  (no_connect (at 167.64 147.32))
+  (no_connect (at 167.64 128.27))
   (no_connect (at 167.64 165.1))
   (no_connect (at 167.64 107.95))
-  (no_connect (at 167.64 157.48))
-  (no_connect (at 167.64 128.27))
-  (no_connect (at 167.64 147.32))
   (no_connect (at 167.64 113.03))
+  (no_connect (at 167.64 157.48))
+  (no_connect (at 167.64 123.19))
 
   (bus_entry (at 134.62 38.1) (size -2.54 -2.54)
     (stroke (width 0.1524) (type solid) (color 0 0 0 0))
