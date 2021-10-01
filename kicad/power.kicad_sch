@@ -2,6 +2,13 @@
 
   (paper "A4")
 
+  (title_block
+    (title "SBC6526 - Power")
+    (date "2021-10-01")
+    (rev "2.0")
+    (company "Daniel Molina García")
+  )
+
   (lib_symbols
     (symbol "74xx:74HC74" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at -7.62 8.89 0)
@@ -1087,9 +1094,9 @@
 
   (no_connect (at 63.5 181.61))
   (no_connect (at 64.77 148.59))
-  (no_connect (at 63.5 157.48))
-  (no_connect (at 63.5 176.53))
   (no_connect (at 63.5 166.37))
+  (no_connect (at 63.5 176.53))
+  (no_connect (at 63.5 157.48))
 
   (wire (pts (xy 48.26 33.02) (xy 48.26 43.18))
     (stroke (width 0) (type solid) (color 0 0 0 0))

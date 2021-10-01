@@ -2,6 +2,13 @@
 
   (paper "A4")
 
+  (title_block
+    (title "SBC6526 - Peripherals")
+    (date "2021-10-01")
+    (rev "2.0")
+    (company "Daniel Molina García")
+  )
+
   (lib_symbols
     (symbol "65xx:6526" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at -10.16 33.02 0)
@@ -1089,12 +1096,12 @@
   (junction (at 162.56 128.27) (diameter 1.016) (color 0 0 0 0))
   (junction (at 243.84 163.83) (diameter 1.016) (color 0 0 0 0))
 
-  (no_connect (at 224.79 76.2))
+  (no_connect (at 224.79 96.52))
   (no_connect (at 224.79 106.68))
   (no_connect (at 224.79 78.74))
-  (no_connect (at 224.79 109.22))
   (no_connect (at 224.79 101.6))
-  (no_connect (at 224.79 96.52))
+  (no_connect (at 224.79 76.2))
+  (no_connect (at 224.79 109.22))
 
   (bus_entry (at 46.99 72.39) (size -2.54 2.54)
     (stroke (width 0.1524) (type solid) (color 0 0 0 0))
@@ -2507,13 +2514,6 @@
   )
   (label "TOD" (at 233.68 99.06 180)
     (effects (font (size 1.27 1.27)) (justify right bottom))
-  )
-
-  (global_label "D[0..7]" (shape bidirectional) (at 185.42 130.81 0)    (property "Intersheet References" "${INTERSHEET_REFS}" (id 0) (at 195.949 130.7306 0)
-      (effects (font (size 1.27 1.27)) (justify left) hide)
-    )
-
-    (effects (font (size 1.27 1.27)) (justify left))
   )
 
   (hierarchical_label "TODENABLE" (shape output) (at 35.56 22.86 180)

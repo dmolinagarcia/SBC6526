@@ -2,6 +2,13 @@
 
   (paper "A4")
 
+  (title_block
+    (title "SBC6526 - ClockMeter")
+    (date "2021-10-01")
+    (rev "2.0")
+    (company "Daniel Molina García")
+  )
+
   (lib_symbols
     (symbol "Device:C" (pin_numbers hide) (pin_names (offset 0.254)) (in_bom yes) (on_board yes)
       (property "Reference" "C" (id 0) (at 0.635 2.54 0)

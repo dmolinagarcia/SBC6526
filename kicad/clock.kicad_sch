@@ -2,6 +2,13 @@
 
   (paper "A4")
 
+  (title_block
+    (title "SBC6526 - Clock Generator")
+    (date "2021-10-01")
+    (rev "2.0")
+    (company "Daniel Molina García")
+  )
+
   (lib_symbols
     (symbol "74xx:74LS14" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at 0 1.27 0)

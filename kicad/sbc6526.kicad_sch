@@ -2,6 +2,13 @@
 
   (paper "A4")
 
+  (title_block
+    (title "SBC6526 - Block Diagram")
+    (date "2021-10-01")
+    (rev "2.0")
+    (company "Daniel Molina García")
+  )
+
   (lib_symbols
   )
 
