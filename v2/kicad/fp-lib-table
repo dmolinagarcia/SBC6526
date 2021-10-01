@@ -1,3 +1,0 @@
-(fp_lib_table
-  (lib (name sbc6526)(type KiCad)(uri ${KIPRJMOD}/sbc6526.pretty)(options "")(descr ""))
-)
