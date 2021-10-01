@@ -1,118 +1,178 @@
-#include "RAM595.h"
+/**********************************
+ * ROM PROGRAMMER FOR SBC TESTBED *
+ **********************************/
 
-#define TOD 13
-
+// Define control signals
+#define TOD   13
 #define CLOCK 14
 #define LATCH 15
-#define BE 16
-#define DS 18
-
-#define D0  2
-#define D1  3
-#define D2  4
-#define D3  5
-#define D4  6
-#define D5  7
-#define D6  8
-#define D7  9
-
+#define BE    16
+#define DS    18
+#define TODE  21
+#define D0    2
+#define D1    3
+#define D2    4
+#define D3    5
+#define D4    6
+#define D5    7
+#define D6    8
+#define D7    9
 #define RESET 11
+#define CE    10
+#define RW    12
 
-#define CE 10
-#define RW 12
-
+// Buffer for serial buik write 
 #define BUFFERSIZE 1024
 byte buffer[BUFFERSIZE];
 
 /**********************************
-   SETUP
-*/
-
-
-// timer interrupt to toggle tod
-ISR(TIMER1_COMPA_vect){
-        PINB = PINB | 0b00100000; // toggle TOD
-        PINB = PINB | 0b00100000; // toggle TOD
-}
-
-RAM595 ram(BE, CLOCK, LATCH, DS);
+ * SETUP
+ */
 
 void setup() {
-// TIMER 1 for interrupt frequency 50 Hz:
-cli(); // stop interrupts
-TCCR1A = 0; // set entire TCCR1A register to 0
-TCCR1B = 0; // same for TCCR1B
-TCNT1  = 0; // initialize counter value to 0
-// set compare match register for 120 Hz increments
-OCR1A = 33332; // = 16000000 / (8 * 60) - 1 (must be <65536)
-// turn on CTC mode
-TCCR1B |= (1 << WGM12);
-// Set CS12, CS11 and CS10 bits for 8 prescaler
-TCCR1B |= (0 << CS12) | (1 << CS11) | (0 << CS10);
-// enable timer compare interrupt
-TIMSK1 |= (1 << OCIE1A);
-sei(); // allow interrupts
+
+  // Configure TIMER1 to generate a 60Hz Interrupt
+    cli();                      // stop interrupts
+    TCCR1A = 0;                 // set entire TCCR1A register to 0
+    TCCR1B = 0;                 // same for TCCR1B
+    TCNT1  = 0;                 // initialize counter value to 0
+  // set compare match register for 60 Hz increments
+    OCR1A = 33332;              // = 16000000 / (8 * 60) - 1 
+  // turn on CTC mode
+    TCCR1B |= (1 << WGM12);
+  // Set CS12, CS11 and CS10 bits for 8 prescaler
+    TCCR1B |= (0 << CS12) | (1 << CS11) | (0 << CS10);
+  // enable timer compare interrupt
+    TIMSK1 |= (1 << OCIE1A);
+    sei();                      // allow interrupts
    
-  // Set TOD as OUTPUT
-  pinMode(TOD, OUTPUT);
-  pinMode(RESET, INPUT);
-  pinMode(CE, OUTPUT);
-  pinMode(RW, OUTPUT);
-  digitalWrite (RESET, HIGH);
-  digitalWrite (CE, LOW);
-  digitalWrite (RW, HIGH);
-  Serial.begin(115200);
+  // Configure control signals
+    pinMode(RESET, INPUT);
+    digitalWrite (RESET, HIGH);
+    pinMode(CE, OUTPUT);
+    digitalWrite (CE, LOW);
+    pinMode(RW, OUTPUT);
+    digitalWrite (RW, HIGH);
 
-  pinMode(D0, INPUT);
-  pinMode(D1, INPUT);
-  pinMode(D2, INPUT);
-  pinMode(D3, INPUT);
-  pinMode(D4, INPUT);
-  pinMode(D5, INPUT);
-  pinMode(D6, INPUT);
-  pinMode(D7, INPUT);
+  // Shift Registers
+    pinMode(CLOCK, OUTPUT);
+    digitalWrite(CLOCK, LOW);
+    pinMode(LATCH, OUTPUT);
+    digitalWrite(LATCH, LOW);
+    pinMode(DS, OUTPUT);
+    digitalWrite(DS, LOW);
 
-  setBusInput();
+  // BE acts as bus arbitrer
+  // BE HIGH : Shift Registers disabled   65c02 enabled   >>  65c02 owns the bus  
+  // BE LOW  : Shift Registers enabled    65c02 disabled  >>  Nano  owns the bus
+    pinMode(BE, OUTPUT);
+    digitalWrite(BE, LOW);
 
+  // Data Bus. Start as input to avoid bus contention
+    pinMode(D0, INPUT);
+    pinMode(D1, INPUT);
+    pinMode(D2, INPUT);
+    pinMode(D3, INPUT);
+    pinMode(D4, INPUT);
+    pinMode(D5, INPUT);
+    pinMode(D6, INPUT);
+    pinMode(D7, INPUT);
+
+  // Initialize Serial Port
+    Serial.begin(115200);
 }
 
-byte read_data_bus() {  // REVISAR
-  byte leer = (
-                (digitalRead(D7) << 7) +
-                (digitalRead(D6) << 6) +
-                (digitalRead(D5) << 5) +
-                (digitalRead(D4) << 4) +
-                (digitalRead(D3) << 3) +
-                (digitalRead(D2) << 2) +
-                (digitalRead(D1) << 1) +
-                (digitalRead(D0))
-              );
-  return leer;
+ISR(TIMER1_COMPA_vect){
+  // timer interrupt to toggle TOD
+  // TO-DO if todenable=1, set pin as input
+  if (analogRead(7) > 250) 
+    pinMode (TOD, INPUT);
+  else
+    pinMode (TOD, OUTPUT);
+  
+    PINB = PINB | 0b00100000; // toggle TOD
+    PINB = PINB | 0b00100000; // toggle TOD
 }
 
-// Configura el data Bus como output
+// REVISAR
+
+byte read_data_bus() {
+  // Returns current byte on the data bus  
+    byte readByte = (
+      (digitalRead(D7) << 7) +
+      (digitalRead(D6) << 6) +
+      (digitalRead(D5) << 5) +
+      (digitalRead(D4) << 4) +
+      (digitalRead(D3) << 3) +
+      (digitalRead(D2) << 2) +
+      (digitalRead(D1) << 1) +
+      (digitalRead(D0))
+    );
+    return readByte;
+}
+
 void setBusOutput() {
-  pinMode(D0, OUTPUT);
-  pinMode(D1, OUTPUT);
-  pinMode(D2, OUTPUT);
-  pinMode(D3, OUTPUT);
-  pinMode(D4, OUTPUT);
-  pinMode(D5, OUTPUT);
-  pinMode(D6, OUTPUT);
-  pinMode(D7, OUTPUT);
+  // Sets data bus as output
+    pinMode(D0, OUTPUT);
+    pinMode(D1, OUTPUT);
+    pinMode(D2, OUTPUT);
+    pinMode(D3, OUTPUT);
+    pinMode(D4, OUTPUT);
+    pinMode(D5, OUTPUT);
+    pinMode(D6, OUTPUT);
+    pinMode(D7, OUTPUT);
 }
 
-// Configura el data Bus como input
 void setBusInput() {
-  pinMode(D0, INPUT);
-  pinMode(D1, INPUT);
-  pinMode(D2, INPUT);
-  pinMode(D3, INPUT);
-  pinMode(D4, INPUT);
-  pinMode(D5, INPUT);
-  pinMode(D6, INPUT);
-  pinMode(D7, INPUT);
+  // Sets data bus as input
+    pinMode(D0, INPUT);
+    pinMode(D1, INPUT);
+    pinMode(D2, INPUT);
+    pinMode(D3, INPUT);
+    pinMode(D4, INPUT);
+    pinMode(D5, INPUT);
+    pinMode(D6, INPUT);
+    pinMode(D7, INPUT);
 }
+
+void setAddress (long address) {
+  // Sets address bus
+    digitalWrite(CLOCK, LOW);
+    digitalWrite(LATCH, LOW);
+  //get high - byte of 16 bit address
+    byte hi = address >> 8;
+  //get low - byte of 16 bit address
+    byte lo = address & 0xff;
+    fastShiftOut (hi);
+    fastShiftOut (lo);
+    digitalWrite(LATCH, HIGH);
+}
+
+
+
+//faster shiftOut function then normal IDE function (about 4 times)
+void fastShiftOut (byte data) {
+  //clear data pin
+  bitClear(PORTC,4);
+  //Send each bit of the myDataOut byte MSBFIRST
+  for (int i=7; i>=0; i--)  {
+    bitClear(PORTC,0);
+    //--- Turn data on or off based on value of bit
+    if ( bitRead(data,i) == 1) {
+      bitSet(PORTC,4);
+    }
+    else {      
+      bitClear(PORTC,4);
+    }
+    //register shifts bits on upstroke of clock pin  
+    bitSet(PORTC,0);
+    //zero the data pin after shift to prevent bleed through
+    bitClear(PORTC,4);
+  }
+  //stop shifting
+  bitClear(PORTC,0);
+}
+
 
 // Modo lectura
 void readMem() {
@@ -141,7 +201,7 @@ byte readAddress(long address)
 {
   setBusInput();
   readMem();
-  ram.setAddress(address);
+  setAddress(address);
   delay(1);
   byte ret = read_data_bus();
   delay(1);
@@ -149,12 +209,12 @@ byte readAddress(long address)
 }
 
 void writeAddress(long address, byte value) {
-  ram.setAddress(address);
+  setAddress(address);
   setData(value);
   digitalWrite(RW, LOW);
-  // setBusOutput();
+  setBusOutput();
   digitalWrite(RW, HIGH);
-  // setBusInput();
+  setBusInput();
 }
 
 /**********************************
@@ -239,7 +299,7 @@ void loop() {
   switch (cmdbuf[0]) {
     case 'A':
       outputString = outputString + "A:" + Address;
-      ram.setAddress(Address);
+      setAddress(Address);
       break;
     case 'R':
       outputString = outputString + "READ :" + Address;
@@ -266,14 +326,13 @@ void loop() {
     case 'S':
       // STOP
       pinMode(RW, INPUT_PULLUP);
-      ram.setAddress(32768);
+      setAddress(32768);
       digitalWrite (BE, LOW);     // Sacabmos el 6502 del bus
       pinMode(RW, OUTPUT);
       outputString = "Retomando control del bus";
       break;
     case 'B':
       // Bulk
-      setBusOutput();
       outputString = "Bulk Start : ";
       outputString = outputString + Address;
       outputString = outputString + " Length : ";
@@ -286,7 +345,6 @@ void loop() {
       for (unsigned int i = 0; i < Length; i++) {
         writeAddress(Address + i, buffer[i]);
       }
-      setBusInput();
       break;
     default:
       outputString = "Comando no reconocido";

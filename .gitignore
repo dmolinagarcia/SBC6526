@@ -1,5 +1,1 @@
-SBCV1_Firmware_v1/bin/
-SBCV1_Firmware_v2/bin/
-SBCV1_Firmware_v2/old/
-.gitignore
-.gitattributes
+kicad/sbc6526-backups/
