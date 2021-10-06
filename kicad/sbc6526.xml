@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="D">
   <design>
-    <source>Z:\gitHub\SBC6526\v2\kicad\sbc6526.kicad_sch</source>
-    <date>26/09/2021 12:51:08</date>
+    <source>Z:\gitHub\SBC6526\kicad\sbc6526.kicad_sch</source>
+    <date>03/10/2021 0:20:59</date>
     <tool>Eeschema (5.99.0-7833-g0d57f90982)</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
-        <title/>
-        <company/>
-        <rev/>
-        <date/>
+        <title>SBC6526 - Block Diagram</title>
+        <company>Daniel Molina García</company>
+        <rev>2.0</rev>
+        <date>2021-10-01</date>
         <source>sbc6526.kicad_sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -24,10 +24,10 @@
     </sheet>
     <sheet number="2" name="/power/" tstamps="/00000000-0000-0000-0000-00005ffaa38f/">
       <title_block>
-        <title/>
-        <company/>
-        <rev/>
-        <date/>
+        <title>SBC6526 - Power</title>
+        <company>Daniel Molina García</company>
+        <rev>2.0</rev>
+        <date>2021-10-01</date>
         <source>power.kicad_sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -42,10 +42,10 @@
     </sheet>
     <sheet number="3" name="/bootstrap/" tstamps="/00000000-0000-0000-0000-00005fa7bac7/">
       <title_block>
-        <title/>
-        <company/>
-        <rev/>
-        <date/>
+        <title>SBC6526 - RAM Bootstrap</title>
+        <company>Daniel Molina García</company>
+        <rev>2.0</rev>
+        <date>2021-10-01</date>
         <source>bootstrap.kicad_sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -60,10 +60,10 @@
     </sheet>
     <sheet number="4" name="/cpu/" tstamps="/00000000-0000-0000-0000-00005fa78af5/">
       <title_block>
-        <title/>
-        <company/>
-        <rev/>
-        <date/>
+        <title>SBC6526 - CPU</title>
+        <company>Daniel Molina García</company>
+        <rev>2.0</rev>
+        <date>2021-10-01</date>
         <source>cpu.kicad_sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -78,10 +78,10 @@
     </sheet>
     <sheet number="5" name="/reset/" tstamps="/00000000-0000-0000-0000-00005fa7ba8e/">
       <title_block>
-        <title/>
-        <company/>
-        <rev/>
-        <date/>
+        <title>SBC6526 - Reset</title>
+        <company>Daniel Molina García</company>
+        <rev>2.0</rev>
+        <date>2021-10-01</date>
         <source>reset.kicad_sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -96,10 +96,10 @@
     </sheet>
     <sheet number="6" name="/clockmeter/" tstamps="/00000000-0000-0000-0000-00005fb325fd/">
       <title_block>
-        <title/>
-        <company/>
-        <rev/>
-        <date/>
+        <title>SBC6526 - ClockMeter</title>
+        <company>Daniel Molina García</company>
+        <rev>2.0</rev>
+        <date>2021-10-01</date>
         <source>clockmeter.kicad_sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -114,10 +114,10 @@
     </sheet>
     <sheet number="7" name="/memory/" tstamps="/00000000-0000-0000-0000-00005fa78bcc/">
       <title_block>
-        <title/>
-        <company/>
-        <rev/>
-        <date/>
+        <title>SBC6526 - Memory</title>
+        <company>Daniel Molina García</company>
+        <rev>2.0</rev>
+        <date>2021-10-01</date>
         <source>memory.kicad_sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -132,10 +132,10 @@
     </sheet>
     <sheet number="8" name="/clock/" tstamps="/00000000-0000-0000-0000-00005fa7ba55/">
       <title_block>
-        <title/>
-        <company/>
-        <rev/>
-        <date/>
+        <title>SBC6526 - Clock Generator</title>
+        <company>Daniel Molina García</company>
+        <rev>2.0</rev>
+        <date>2021-10-01</date>
         <source>clock.kicad_sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -150,10 +150,10 @@
     </sheet>
     <sheet number="9" name="/peripherals/" tstamps="/00000000-0000-0000-0000-00005fa75ce1/">
       <title_block>
-        <title/>
-        <company/>
-        <rev/>
-        <date/>
+        <title>SBC6526 - Peripherals</title>
+        <company>Daniel Molina García</company>
+        <rev>2.0</rev>
+        <date>2021-10-01</date>
         <source>peripherals.kicad_sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -168,10 +168,10 @@
     </sheet>
     <sheet number="10" name="/io/" tstamps="/00000000-0000-0000-0000-00005fb72ec4/">
       <title_block>
-        <title/>
-        <company/>
-        <rev/>
-        <date/>
+        <title>SBC6526 - IO</title>
+        <company>Daniel Molina García</company>
+        <rev>2.0</rev>
+        <date>2021-10-01</date>
         <source>io.kicad_sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -1547,7 +1547,7 @@
       <uri>Z:\kicad\share\kicad\library/Switch.kicad_sym</uri>
     </library>
     <library logical="sbc6526">
-      <uri>Z:\gitHub\SBC6526\v2\kicad/sbc6526.kicad_sym</uri>
+      <uri>Z:\gitHub\SBC6526\kicad/sbc6526.kicad_sym</uri>
     </library>
   </libraries>
   <nets>
@@ -1657,59 +1657,123 @@
       <node ref="U5" pin="13" pinfunction="~OE"/>
       <node ref="U6" pin="13" pinfunction="~OE"/>
     </net>
-    <net code="18" name="/PB0">
+    <net code="18" name="/D0">
+      <node ref="EXT6526" pin="16" pinfunction="Pin_16"/>
+      <node ref="NANO1" pin="12" pinfunction="D9"/>
+      <node ref="U11" pin="11" pinfunction="B7"/>
+      <node ref="U2" pin="33" pinfunction="D0"/>
+      <node ref="U3" pin="33" pinfunction="D0"/>
+      <node ref="U4" pin="17" pinfunction="I/O3"/>
+    </net>
+    <net code="19" name="/D1">
+      <node ref="EXT6526" pin="18" pinfunction="Pin_18"/>
+      <node ref="NANO1" pin="11" pinfunction="D8"/>
+      <node ref="U11" pin="12" pinfunction="B6"/>
+      <node ref="U2" pin="32" pinfunction="D1"/>
+      <node ref="U3" pin="32" pinfunction="D1"/>
+      <node ref="U4" pin="18" pinfunction="I/O4"/>
+    </net>
+    <net code="20" name="/D2">
+      <node ref="EXT6526" pin="20" pinfunction="Pin_20"/>
+      <node ref="NANO1" pin="10" pinfunction="D7"/>
+      <node ref="U11" pin="13" pinfunction="B5"/>
+      <node ref="U2" pin="31" pinfunction="D2"/>
+      <node ref="U3" pin="31" pinfunction="D2"/>
+      <node ref="U4" pin="19" pinfunction="I/O5"/>
+    </net>
+    <net code="21" name="/D3">
+      <node ref="EXT6526" pin="22" pinfunction="Pin_22"/>
+      <node ref="NANO1" pin="9" pinfunction="D6"/>
+      <node ref="U11" pin="14" pinfunction="B4"/>
+      <node ref="U2" pin="30" pinfunction="D3"/>
+      <node ref="U3" pin="30" pinfunction="D3"/>
+      <node ref="U4" pin="20" pinfunction="I/O6"/>
+    </net>
+    <net code="22" name="/D4">
+      <node ref="EXT6526" pin="24" pinfunction="Pin_24"/>
+      <node ref="NANO1" pin="8" pinfunction="D5"/>
+      <node ref="U11" pin="15" pinfunction="B3"/>
+      <node ref="U2" pin="29" pinfunction="D4"/>
+      <node ref="U3" pin="29" pinfunction="D4"/>
+      <node ref="U4" pin="21" pinfunction="I/O7"/>
+    </net>
+    <net code="23" name="/D5">
+      <node ref="EXT6526" pin="26" pinfunction="Pin_26"/>
+      <node ref="NANO1" pin="7" pinfunction="D4"/>
+      <node ref="U11" pin="16" pinfunction="B2"/>
+      <node ref="U2" pin="28" pinfunction="D5"/>
+      <node ref="U3" pin="28" pinfunction="D5"/>
+      <node ref="U4" pin="13" pinfunction="I/O0"/>
+    </net>
+    <net code="24" name="/D6">
+      <node ref="EXT6526" pin="28" pinfunction="Pin_28"/>
+      <node ref="NANO1" pin="6" pinfunction="D3"/>
+      <node ref="U11" pin="17" pinfunction="B1"/>
+      <node ref="U2" pin="27" pinfunction="D6"/>
+      <node ref="U3" pin="27" pinfunction="D6"/>
+      <node ref="U4" pin="14" pinfunction="I/O1"/>
+    </net>
+    <net code="25" name="/D7">
+      <node ref="EXT6526" pin="30" pinfunction="Pin_30"/>
+      <node ref="NANO1" pin="5" pinfunction="D2"/>
+      <node ref="U11" pin="18" pinfunction="B0"/>
+      <node ref="U2" pin="26" pinfunction="D7"/>
+      <node ref="U3" pin="26" pinfunction="D7"/>
+      <node ref="U4" pin="15" pinfunction="I/O2"/>
+    </net>
+    <net code="26" name="/PB0">
       <node ref="EXT6526" pin="19" pinfunction="Pin_19"/>
       <node ref="PORTB1" pin="9" pinfunction="Pin_9"/>
       <node ref="U1" pin="10" pinfunction="PB0"/>
     </net>
-    <net code="19" name="/PB1">
+    <net code="27" name="/PB1">
       <node ref="EXT6526" pin="21" pinfunction="Pin_21"/>
       <node ref="PORTB1" pin="8" pinfunction="Pin_8"/>
       <node ref="U1" pin="11" pinfunction="PB1"/>
     </net>
-    <net code="20" name="/PB2">
+    <net code="28" name="/PB2">
       <node ref="EXT6526" pin="23" pinfunction="Pin_23"/>
       <node ref="PORTB1" pin="7" pinfunction="Pin_7"/>
       <node ref="U1" pin="12" pinfunction="PB2"/>
     </net>
-    <net code="21" name="/PB3">
+    <net code="29" name="/PB3">
       <node ref="EXT6526" pin="25" pinfunction="Pin_25"/>
       <node ref="PORTB1" pin="6" pinfunction="Pin_6"/>
       <node ref="U1" pin="13" pinfunction="PB3"/>
     </net>
-    <net code="22" name="/PB4">
+    <net code="30" name="/PB4">
       <node ref="EXT6526" pin="27" pinfunction="Pin_27"/>
       <node ref="PORTB1" pin="5" pinfunction="Pin_5"/>
       <node ref="U1" pin="14" pinfunction="PB4"/>
     </net>
-    <net code="23" name="/PB5">
+    <net code="31" name="/PB5">
       <node ref="EXT6526" pin="29" pinfunction="Pin_29"/>
       <node ref="PORTB1" pin="4" pinfunction="Pin_4"/>
       <node ref="U1" pin="15" pinfunction="PB5"/>
     </net>
-    <net code="24" name="/PB6">
+    <net code="32" name="/PB6">
       <node ref="EXT6526" pin="31" pinfunction="Pin_31"/>
       <node ref="PORTB1" pin="3" pinfunction="Pin_3"/>
       <node ref="U1" pin="16" pinfunction="PB6"/>
     </net>
-    <net code="25" name="/PB7">
+    <net code="33" name="/PB7">
       <node ref="EXT6526" pin="33" pinfunction="Pin_33"/>
       <node ref="PORTB1" pin="2" pinfunction="Pin_2"/>
       <node ref="U1" pin="17" pinfunction="PB7"/>
     </net>
-    <net code="26" name="/PHI2">
+    <net code="34" name="/PHI2">
       <node ref="EXT6526" pin="32" pinfunction="Pin_32"/>
       <node ref="U1" pin="25" pinfunction="ϕ2"/>
       <node ref="U2" pin="25" pinfunction="ϕ2"/>
       <node ref="U3" pin="37" pinfunction="ϕ0"/>
       <node ref="U7" pin="9" pinfunction="Q"/>
     </net>
-    <net code="27" name="/RESET">
+    <net code="35" name="/RESET">
       <node ref="NANO1" pin="14" pinfunction="D11"/>
       <node ref="R12" pin="1"/>
       <node ref="U8" pin="13"/>
     </net>
-    <net code="28" name="/R~W">
+    <net code="36" name="/R~W">
       <node ref="EXT6526" pin="38" pinfunction="Pin_38"/>
       <node ref="NANO1" pin="15" pinfunction="D12"/>
       <node ref="U1" pin="22" pinfunction="R/~W"/>
@@ -1718,328 +1782,264 @@
       <node ref="U3" pin="34" pinfunction="R/~W"/>
       <node ref="U9" pin="13" pinfunction="A1"/>
     </net>
-    <net code="29" name="/TOD">
+    <net code="37" name="/TOD">
       <node ref="EXT6526" pin="37" pinfunction="Pin_37"/>
       <node ref="NANO1" pin="16" pinfunction="D13"/>
       <node ref="U1" pin="19" pinfunction="TOD"/>
       <node ref="U2" pin="16" pinfunction="PB6"/>
     </net>
-    <net code="30" name="/TODENABLE">
+    <net code="38" name="/TODENABLE">
       <node ref="NANO1" pin="26" pinfunction="A7"/>
       <node ref="U2" pin="10" pinfunction="PB0"/>
     </net>
-    <net code="31" name="/VPB1">
+    <net code="39" name="/VPB1">
       <node ref="R18" pin="2"/>
       <node ref="SW4" pin="3" pinfunction="B"/>
       <node ref="SW4" pin="4" pinfunction="B"/>
       <node ref="U2" pin="11" pinfunction="PB1"/>
     </net>
-    <net code="32" name="/VPB2">
+    <net code="40" name="/VPB2">
       <node ref="R17" pin="2"/>
       <node ref="SW3" pin="3" pinfunction="B"/>
       <node ref="SW3" pin="4" pinfunction="B"/>
       <node ref="U2" pin="12" pinfunction="PB2"/>
     </net>
-    <net code="33" name="/VPB3">
+    <net code="41" name="/VPB3">
       <node ref="R16" pin="2"/>
       <node ref="SW2" pin="3" pinfunction="B"/>
       <node ref="SW2" pin="4" pinfunction="B"/>
       <node ref="U2" pin="13" pinfunction="PB3"/>
     </net>
-    <net code="34" name="/VPB4">
+    <net code="42" name="/VPB4">
       <node ref="R15" pin="2"/>
       <node ref="SW1" pin="3" pinfunction="B"/>
       <node ref="SW1" pin="4" pinfunction="B"/>
       <node ref="U2" pin="14" pinfunction="PB4"/>
     </net>
-    <net code="35" name="/bootstrap/CLOCK">
+    <net code="43" name="/bootstrap/CLOCK">
       <node ref="NANO1" pin="19" pinfunction="A0"/>
       <node ref="U5" pin="11" pinfunction="SRCLK"/>
       <node ref="U6" pin="11" pinfunction="SRCLK"/>
     </net>
-    <net code="36" name="/bootstrap/DS">
+    <net code="44" name="/bootstrap/DS">
       <node ref="NANO1" pin="23" pinfunction="A4"/>
       <node ref="U5" pin="14" pinfunction="SER"/>
     </net>
-    <net code="37" name="/bootstrap/LATCH">
+    <net code="45" name="/bootstrap/LATCH">
       <node ref="NANO1" pin="20" pinfunction="A1"/>
       <node ref="U5" pin="12" pinfunction="RCLK"/>
       <node ref="U6" pin="12" pinfunction="RCLK"/>
     </net>
-    <net code="38" name="/clockmeter/C1">
+    <net code="46" name="/clockmeter/C1">
       <node ref="LED1" pin="12" pinfunction="C1"/>
       <node ref="PIC1" pin="2" pinfunction="CMP1/AN3/RA3"/>
     </net>
-    <net code="39" name="/clockmeter/C2">
+    <net code="47" name="/clockmeter/C2">
       <node ref="LED1" pin="9" pinfunction="C2"/>
       <node ref="PIC1" pin="1" pinfunction="Vref/AN2/RA2"/>
     </net>
-    <net code="40" name="/clockmeter/C3">
+    <net code="48" name="/clockmeter/C3">
       <node ref="LED1" pin="8" pinfunction="C3"/>
       <node ref="PIC1" pin="17" pinfunction="AN0/RA0"/>
     </net>
-    <net code="41" name="/clockmeter/DISP0">
+    <net code="49" name="/clockmeter/DISP0">
       <node ref="LED1" pin="11" pinfunction="A"/>
       <node ref="R7" pin="2"/>
     </net>
-    <net code="42" name="/clockmeter/DISP1">
+    <net code="50" name="/clockmeter/DISP1">
       <node ref="LED1" pin="7" pinfunction="B"/>
       <node ref="R8" pin="2"/>
     </net>
-    <net code="43" name="/clockmeter/DISP2">
+    <net code="51" name="/clockmeter/DISP2">
       <node ref="LED1" pin="4" pinfunction="C"/>
       <node ref="R3" pin="2"/>
     </net>
-    <net code="44" name="/clockmeter/DISP3">
+    <net code="52" name="/clockmeter/DISP3">
       <node ref="LED1" pin="2" pinfunction="D"/>
       <node ref="R1" pin="2"/>
     </net>
-    <net code="45" name="/clockmeter/DISP4">
+    <net code="53" name="/clockmeter/DISP4">
       <node ref="LED1" pin="1" pinfunction="E"/>
       <node ref="R4" pin="2"/>
     </net>
-    <net code="46" name="/clockmeter/DISP5">
+    <net code="54" name="/clockmeter/DISP5">
       <node ref="LED1" pin="10" pinfunction="F"/>
       <node ref="R5" pin="2"/>
     </net>
-    <net code="47" name="/clockmeter/DISP6">
+    <net code="55" name="/clockmeter/DISP6">
       <node ref="LED1" pin="5" pinfunction="G"/>
       <node ref="R6" pin="2"/>
     </net>
-    <net code="48" name="/clockmeter/DISP7">
+    <net code="56" name="/clockmeter/DISP7">
       <node ref="LED1" pin="3" pinfunction="DP"/>
       <node ref="R2" pin="2"/>
     </net>
-    <net code="49" name="/cpu/RDY">
+    <net code="57" name="/cpu/RDY">
       <node ref="R11" pin="1"/>
       <node ref="U3" pin="2" pinfunction="RDY"/>
     </net>
-    <net code="50" name="/memory/RAMCE">
+    <net code="58" name="/memory/RAMCE">
       <node ref="U4" pin="30" pinfunction="CE2"/>
       <node ref="U9" pin="6" pinfunction="O2"/>
     </net>
-    <net code="51" name="/memory/~OE">
+    <net code="59" name="/memory/~OE">
       <node ref="U4" pin="24" pinfunction="~OE~"/>
       <node ref="U9" pin="10" pinfunction="O2"/>
     </net>
-    <net code="52" name="/memory/~WE">
+    <net code="60" name="/memory/~WE">
       <node ref="U4" pin="29" pinfunction="~WE~"/>
       <node ref="U9" pin="12" pinfunction="O0"/>
     </net>
-    <net code="53" name="/peripherals/DB0">
+    <net code="61" name="/peripherals/DB0">
       <node ref="U1" pin="33" pinfunction="D0"/>
       <node ref="U11" pin="9" pinfunction="A7"/>
     </net>
-    <net code="54" name="/peripherals/DB1">
+    <net code="62" name="/peripherals/DB1">
       <node ref="U1" pin="32" pinfunction="D1"/>
       <node ref="U11" pin="8" pinfunction="A6"/>
     </net>
-    <net code="55" name="/peripherals/DB2">
+    <net code="63" name="/peripherals/DB2">
       <node ref="U1" pin="31" pinfunction="D2"/>
       <node ref="U11" pin="7" pinfunction="A5"/>
     </net>
-    <net code="56" name="/peripherals/DB3">
+    <net code="64" name="/peripherals/DB3">
       <node ref="U1" pin="30" pinfunction="D3"/>
       <node ref="U11" pin="6" pinfunction="A4"/>
     </net>
-    <net code="57" name="/peripherals/DB4">
+    <net code="65" name="/peripherals/DB4">
       <node ref="U1" pin="29" pinfunction="D4"/>
       <node ref="U11" pin="5" pinfunction="A3"/>
     </net>
-    <net code="58" name="/peripherals/DB5">
+    <net code="66" name="/peripherals/DB5">
       <node ref="U1" pin="28" pinfunction="D5"/>
       <node ref="U11" pin="4" pinfunction="A2"/>
     </net>
-    <net code="59" name="/peripherals/DB6">
+    <net code="67" name="/peripherals/DB6">
       <node ref="U1" pin="27" pinfunction="D6"/>
       <node ref="U11" pin="3" pinfunction="A1"/>
     </net>
-    <net code="60" name="/peripherals/DB7">
+    <net code="68" name="/peripherals/DB7">
       <node ref="U1" pin="26" pinfunction="D7"/>
       <node ref="U11" pin="2" pinfunction="A0"/>
     </net>
-    <net code="61" name="/peripherals/LCD_D4">
+    <net code="69" name="/peripherals/LCD_D4">
       <node ref="LCD1" pin="11" pinfunction="DB4"/>
       <node ref="U2" pin="6" pinfunction="PA4"/>
     </net>
-    <net code="62" name="/peripherals/LCD_D5">
+    <net code="70" name="/peripherals/LCD_D5">
       <node ref="LCD1" pin="12" pinfunction="DB5"/>
       <node ref="U2" pin="7" pinfunction="PA5"/>
     </net>
-    <net code="63" name="/peripherals/LCD_D6">
+    <net code="71" name="/peripherals/LCD_D6">
       <node ref="LCD1" pin="13" pinfunction="DB6"/>
       <node ref="U2" pin="8" pinfunction="PA6"/>
     </net>
-    <net code="64" name="/peripherals/LCD_D7">
+    <net code="72" name="/peripherals/LCD_D7">
       <node ref="LCD1" pin="14" pinfunction="DB7"/>
       <node ref="U2" pin="9" pinfunction="PA7"/>
     </net>
-    <net code="65" name="/peripherals/LCD_E">
+    <net code="73" name="/peripherals/LCD_E">
       <node ref="LCD1" pin="6" pinfunction="E"/>
       <node ref="U2" pin="5" pinfunction="PA3"/>
     </net>
-    <net code="66" name="/peripherals/LCD_RS">
+    <net code="74" name="/peripherals/LCD_RS">
       <node ref="LCD1" pin="4" pinfunction="RS"/>
       <node ref="U2" pin="3" pinfunction="PA1"/>
     </net>
-    <net code="67" name="/peripherals/LCD_RW">
+    <net code="75" name="/peripherals/LCD_RW">
       <node ref="LCD1" pin="5" pinfunction="R/W"/>
       <node ref="U2" pin="4" pinfunction="PA2"/>
     </net>
-    <net code="68" name="/peripherals/PA0">
+    <net code="76" name="/peripherals/PA0">
       <node ref="EXT6526" pin="3" pinfunction="Pin_3"/>
       <node ref="U1" pin="2" pinfunction="PA0"/>
     </net>
-    <net code="69" name="/peripherals/PA1">
+    <net code="77" name="/peripherals/PA1">
       <node ref="EXT6526" pin="5" pinfunction="Pin_5"/>
       <node ref="U1" pin="3" pinfunction="PA1"/>
     </net>
-    <net code="70" name="/peripherals/PA2">
+    <net code="78" name="/peripherals/PA2">
       <node ref="EXT6526" pin="7" pinfunction="Pin_7"/>
       <node ref="U1" pin="4" pinfunction="PA2"/>
     </net>
-    <net code="71" name="/peripherals/PA3">
+    <net code="79" name="/peripherals/PA3">
       <node ref="EXT6526" pin="9" pinfunction="Pin_9"/>
       <node ref="U1" pin="5" pinfunction="PA3"/>
     </net>
-    <net code="72" name="/peripherals/PA4">
+    <net code="80" name="/peripherals/PA4">
       <node ref="EXT6526" pin="11" pinfunction="Pin_11"/>
       <node ref="U1" pin="6" pinfunction="PA4"/>
     </net>
-    <net code="73" name="/peripherals/PA5">
+    <net code="81" name="/peripherals/PA5">
       <node ref="EXT6526" pin="13" pinfunction="Pin_13"/>
       <node ref="U1" pin="7" pinfunction="PA5"/>
     </net>
-    <net code="74" name="/peripherals/PA6">
+    <net code="82" name="/peripherals/PA6">
       <node ref="EXT6526" pin="15" pinfunction="Pin_15"/>
       <node ref="U1" pin="8" pinfunction="PA6"/>
     </net>
-    <net code="75" name="/peripherals/PA7">
+    <net code="83" name="/peripherals/PA7">
       <node ref="EXT6526" pin="17" pinfunction="Pin_17"/>
       <node ref="U1" pin="9" pinfunction="PA7"/>
     </net>
-    <net code="76" name="/peripherals/SERCLK">
+    <net code="84" name="/peripherals/SERCLK">
       <node ref="EXT6526" pin="2" pinfunction="Pin_2"/>
       <node ref="U1" pin="40" pinfunction="CNT"/>
     </net>
-    <net code="77" name="/peripherals/SERDAT">
+    <net code="85" name="/peripherals/SERDAT">
       <node ref="EXT6526" pin="4" pinfunction="Pin_4"/>
       <node ref="U1" pin="39" pinfunction="SP"/>
     </net>
-    <net code="78" name="/peripherals/~CIARES">
+    <net code="86" name="/peripherals/~CIARES">
       <node ref="EXT6526" pin="14" pinfunction="Pin_14"/>
       <node ref="U1" pin="34" pinfunction="~RES"/>
       <node ref="U2" pin="2" pinfunction="PA0"/>
     </net>
-    <net code="79" name="/peripherals/~EXTFLAG">
+    <net code="87" name="/peripherals/~EXTFLAG">
       <node ref="EXT6526" pin="35" pinfunction="Pin_35"/>
       <node ref="U1" pin="24" pinfunction="~FLAG"/>
     </net>
-    <net code="80" name="/peripherals/~EXTPC">
+    <net code="88" name="/peripherals/~EXTPC">
       <node ref="EXT6526" pin="34" pinfunction="Pin_34"/>
       <node ref="U1" pin="18" pinfunction="~PC"/>
     </net>
-    <net code="81" name="/~CE">
+    <net code="89" name="/~CE">
       <node ref="NANO1" pin="13" pinfunction="D10"/>
       <node ref="U4" pin="22" pinfunction="~CE1~"/>
     </net>
-    <net code="82" name="/~CIA">
+    <net code="90" name="/~CIA">
       <node ref="U1" pin="23" pinfunction="~CS"/>
       <node ref="U10" pin="14" pinfunction="O1"/>
       <node ref="U11" pin="19" pinfunction="CE"/>
     </net>
-    <net code="83" name="/~CIAEXT">
+    <net code="91" name="/~CIAEXT">
       <node ref="EXT6526" pin="36" pinfunction="Pin_36"/>
       <node ref="U10" pin="12" pinfunction="O3"/>
     </net>
-    <net code="84" name="/~IRQ">
+    <net code="92" name="/~IRQ">
       <node ref="EXT6526" pin="40" pinfunction="Pin_40"/>
       <node ref="R19" pin="1"/>
       <node ref="U1" pin="21" pinfunction="~IRQ"/>
       <node ref="U3" pin="4" pinfunction="~IRQ"/>
     </net>
-    <net code="85" name="/~PHI2">
+    <net code="93" name="/~PHI2">
       <node ref="PIC1" pin="3" pinfunction="TOCKI/CMP2/RA4"/>
       <node ref="U7" pin="12" pinfunction="D"/>
       <node ref="U7" pin="8" pinfunction="~Q"/>
       <node ref="U9" pin="14" pinfunction="A0"/>
     </net>
-    <net code="86" name="/~RES">
+    <net code="94" name="/~RES">
       <node ref="U2" pin="34" pinfunction="~RES"/>
       <node ref="U3" pin="40" pinfunction="~RES"/>
       <node ref="U8" pin="12"/>
     </net>
-    <net code="87" name="/~VIA">
+    <net code="95" name="/~VIA">
       <node ref="U10" pin="13" pinfunction="O2"/>
       <node ref="U2" pin="23" pinfunction="~CS2"/>
     </net>
-    <net code="88" name="/~VIAIRQ">
+    <net code="96" name="/~VIAIRQ">
       <node ref="U2" pin="21" pinfunction="~IRQ"/>
       <node ref="U3" pin="6" pinfunction="~NMI"/>
-    </net>
-    <net code="89" name="D0">
-      <node ref="EXT6526" pin="16" pinfunction="Pin_16"/>
-      <node ref="NANO1" pin="12" pinfunction="D9"/>
-      <node ref="U11" pin="11" pinfunction="B7"/>
-      <node ref="U2" pin="33" pinfunction="D0"/>
-      <node ref="U3" pin="33" pinfunction="D0"/>
-      <node ref="U4" pin="17" pinfunction="I/O3"/>
-    </net>
-    <net code="90" name="D1">
-      <node ref="EXT6526" pin="18" pinfunction="Pin_18"/>
-      <node ref="NANO1" pin="11" pinfunction="D8"/>
-      <node ref="U11" pin="12" pinfunction="B6"/>
-      <node ref="U2" pin="32" pinfunction="D1"/>
-      <node ref="U3" pin="32" pinfunction="D1"/>
-      <node ref="U4" pin="18" pinfunction="I/O4"/>
-    </net>
-    <net code="91" name="D2">
-      <node ref="EXT6526" pin="20" pinfunction="Pin_20"/>
-      <node ref="NANO1" pin="10" pinfunction="D7"/>
-      <node ref="U11" pin="13" pinfunction="B5"/>
-      <node ref="U2" pin="31" pinfunction="D2"/>
-      <node ref="U3" pin="31" pinfunction="D2"/>
-      <node ref="U4" pin="19" pinfunction="I/O5"/>
-    </net>
-    <net code="92" name="D3">
-      <node ref="EXT6526" pin="22" pinfunction="Pin_22"/>
-      <node ref="NANO1" pin="9" pinfunction="D6"/>
-      <node ref="U11" pin="14" pinfunction="B4"/>
-      <node ref="U2" pin="30" pinfunction="D3"/>
-      <node ref="U3" pin="30" pinfunction="D3"/>
-      <node ref="U4" pin="20" pinfunction="I/O6"/>
-    </net>
-    <net code="93" name="D4">
-      <node ref="EXT6526" pin="24" pinfunction="Pin_24"/>
-      <node ref="NANO1" pin="8" pinfunction="D5"/>
-      <node ref="U11" pin="15" pinfunction="B3"/>
-      <node ref="U2" pin="29" pinfunction="D4"/>
-      <node ref="U3" pin="29" pinfunction="D4"/>
-      <node ref="U4" pin="21" pinfunction="I/O7"/>
-    </net>
-    <net code="94" name="D5">
-      <node ref="EXT6526" pin="26" pinfunction="Pin_26"/>
-      <node ref="NANO1" pin="7" pinfunction="D4"/>
-      <node ref="U11" pin="16" pinfunction="B2"/>
-      <node ref="U2" pin="28" pinfunction="D5"/>
-      <node ref="U3" pin="28" pinfunction="D5"/>
-      <node ref="U4" pin="13" pinfunction="I/O0"/>
-    </net>
-    <net code="95" name="D6">
-      <node ref="EXT6526" pin="28" pinfunction="Pin_28"/>
-      <node ref="NANO1" pin="6" pinfunction="D3"/>
-      <node ref="U11" pin="17" pinfunction="B1"/>
-      <node ref="U2" pin="27" pinfunction="D6"/>
-      <node ref="U3" pin="27" pinfunction="D6"/>
-      <node ref="U4" pin="14" pinfunction="I/O1"/>
-    </net>
-    <net code="96" name="D7">
-      <node ref="EXT6526" pin="30" pinfunction="Pin_30"/>
-      <node ref="NANO1" pin="5" pinfunction="D2"/>
-      <node ref="U11" pin="18" pinfunction="B0"/>
-      <node ref="U2" pin="26" pinfunction="D7"/>
-      <node ref="U3" pin="26" pinfunction="D7"/>
-      <node ref="U4" pin="15" pinfunction="I/O2"/>
     </net>
     <net code="97" name="GND">
       <node ref="C1" pin="2"/>
