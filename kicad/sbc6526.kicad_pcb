@@ -52,7 +52,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory "")
+      (outputdirectory "Gerber/")
     )
   )
 
@@ -3670,6 +3670,9 @@
   (gr_line (start 100 150) (end 200 150) (layer "Edge.Cuts") (width 0.05) (tstamp 370c72de-a3f5-46fe-ae43-fc38725151ca))
   (gr_line (start 200 150) (end 200 50) (layer "Edge.Cuts") (width 0.05) (tstamp 387e94d8-f22e-4127-8330-81cb2a962821))
   (gr_line (start 100 50) (end 100 150) (layer "Edge.Cuts") (width 0.05) (tstamp f234d91f-e3f5-4e9f-b60b-5cf5d89aa1ee))
+  (gr_text "sbc6526 v2.0.1" (at 183.475 146.05) (layer "F.SilkS") (tstamp 7cb77fac-1783-4b28-8ea7-fb4d6747e989)
+    (effects (font (size 1.5 1.5) (thickness 0.2) italic))
+  )
 
   (segment (start 118.930501 100.870501) (end 118.930501 102.175441) (width 0.127) (layer "F.Cu") (net 1) (tstamp 2420a591-1736-484b-86ec-a85f0fd4272c))
   (segment (start 116.16203 70.890642) (end 116.16203 82.318582) (width 0.127) (layer "F.Cu") (net 1) (tstamp 2d9e6967-1364-455a-af74-f2ac42a18198))

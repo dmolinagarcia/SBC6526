@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>Z:\gitHub\SBC6526\kicad\sbc6526.kicad_sch</source>
-    <date>03/10/2021 0:20:59</date>
+    <date>16/10/2021 23:15:06</date>
     <tool>Eeschema (5.99.0-7833-g0d57f90982)</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -1536,12 +1536,6 @@
     </library>
     <library logical="Display_Character">
       <uri>Z:\kicad\share\kicad\library/Display_Character.kicad_sym</uri>
-    </library>
-    <library logical="MCU_Microchip_PIC16">
-      <uri>Z:\kicad\share\kicad\library/MCU_Microchip_PIC16.kicad_sym</uri>
-    </library>
-    <library logical="MCU_Module">
-      <uri>Z:\kicad\share\kicad\library/MCU_Module.kicad_sym</uri>
     </library>
     <library logical="Switch">
       <uri>Z:\kicad\share\kicad\library/Switch.kicad_sym</uri>
