@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 39,
+    "active_layer": 31,
     "active_layer_preset": "",
     "hidden_nets": [],
     "high_contrast_mode": 0,
@@ -60,7 +60,7 @@
       37,
       38
     ],
-    "visible_layers": "00030fc_80000001"
+    "visible_layers": "ffd3fff_fffffffd"
   },
   "meta": {
     "filename": "sbc6526.kicad_prl",
