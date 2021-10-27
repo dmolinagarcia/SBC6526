@@ -1,0 +1,14 @@
+parsing
+Got 2 errors and 0 warnings while executing:
+  (Z:\gitHub\SBC6526\SBC6526_v2_Firmware\00.sbc6526_v2.asm 10:16) Error: Unknown symbol 'viaISR'
+  (Z:\gitHub\SBC6526\SBC6526_v2_Firmware\00.sbc6526_v2.asm 11:16) Error: Unknown symbol 'reset'
+
+
+
+*=$FFFA "VECTORS"
+vecNMI:  .word viaISR    // NMI
+               ^
+
+Error: Unknown symbol 'viaISR'
+
+

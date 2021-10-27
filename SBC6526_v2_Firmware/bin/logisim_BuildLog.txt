@@ -1,0 +1,13 @@
+parsing
+flex pass 1
+flex pass 2
+Output pass
+Writing prg file: logisim.bin
+
+Memory Map
+----------
+ROM-segment:
+  $e000-$e02b RAM
+  $fc00-$fc41 ROM
+  $fffa-$ffff VECTORS
+
