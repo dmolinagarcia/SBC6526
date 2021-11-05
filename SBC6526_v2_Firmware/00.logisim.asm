@@ -1,74 +1,50 @@
+// -----------------------------------------------------------------------------
+// 
+// LOGISIM 6526 SBC Firmware
+//
+// Write to $A000 outputs to TERM
+// Write to $A001 Resets CIAS
+//
+// 0300 - 7FFF Free RAM
+// 8000 - BFFF 8 Blocks IO
+// 8800 - CIA1
+// 9800 - CIA2
+// C000 - FEFF Free RAM
+// FF00 - FFFF Minimun Kernel
+//
+// Author : Daniel Molina 
+// https://github.com/dmolinagarcia
+//
+// 2018 - 2021
+//
+// -----------------------------------------------------------------------------
+
 .cpu _65c02
 .file [name="logisim.bin", type="bin", segments="ROM"]
-
 .segment ROM [min=$0000, max=$FFFF, fill]
 
-#import "10.addresing.asm"
+			#import "10.addresing.asm"
 
-//////////////////////////////////////////////////////////////////////////////
-//////   RAM                                                            //////
-//////////////////////////////////////////////////////////////////////////////
-
-*=$E000 "RAM"  
-program:
-		lda CIA1_DDRA
-		inc
-		sta CIA1_DDRA
-		inc CIA2_DDRA
-		sta CIA2_PRTB
-
-		ldx #<str_title				// Print title			
-		ldy #>str_title
-		jsr scrPrintStr
-
-
-programEnd:		jmp program
-
-str_title:
-	.text "-= 74HCT6526 TEST =-"
-	.byte $00
-
-// RAM ///////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//////   ROM                                                            //////
-//////////////////////////////////////////////////////////////////////////////
-
-*=$FC00 "ROM"
-
-reset:
-// Reset Routine
-// Sets up screen and resets CIAs
-// Jumps back to program
-			jsr scrInitialize
-			jsr ciaReset
+*=$0300 "CODE" 
+program: 	
+			lda #$FF
+			sta CIA1_PRTB
 			jmp program
+			
+			#import "90.ciaTests.asm"
 
-scrInitialize:
-// Sets up screen pointers
-			pha
-			lda #<SCREEN_BASE
-			sta SCREEN_POINTER
-			sta SCREEN_CURSOR_POINTER
-			lda #>SCREEN_BASE
-			sta SCREEN_POINTER+1 					// Set up base window
-			sta SCREEN_CURSOR_POINTER+1
-			lda #$00
-			sta SCREEN_CURSOR						// Initialize cursor 
-													// position to 0
-			pla
+*=$FF00 "KERNEL"
+ciaReset:
+			sta $A001
 			rts
 
-ciaReset:
-// Resets the 6526s
-// In logisim model, any write to $4000 resets CIAs
-			sta $4000
+scrPrintChar:
+			sta $A000
 			rts
 
 scrPrintStr:
 // Prints string stored at X_Y
 			pha
-			phy
 			stx STRING_POINTER
 			sty STRING_POINTER+1
 
@@ -77,40 +53,32 @@ scrPrintStr1:
 			lda (STRING_POINTER),y 
 			cmp #$00
 			beq scrPrintStrEnd
-			sta $7000								// TERM sits at $7000
+			sta $A000
 			inc STRING_POINTER
 			bne scrPrintStr1
 			inc STRING_POINTER+1
 			jmp scrPrintStr1
 
 scrPrintStrEnd:
-			ply 
 			pla
 			rts
 
-scrPrintChar:
-			sta $7000
-			rts
-
-
 // TODO. Ported form v1 'as is'
 // Dummy functions for logisim
-// kbd and lcd functions not loadesd
+// kbd and lcd functions not loaded
+// Where are these used???
 kbdWaitOK:
 lcdReset:
 krnShortDelay:
 			rts
-
-
-// ROM ///////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //////   VECTORS                                                        //////
 //////////////////////////////////////////////////////////////////////////////
 
 *=$FFFA "VECTORS"
-vecNMI:		.word reset 			// NMI
-vecRES:		.word reset  			// Reset
-vecIRQ:		.word reset  			// IRQ/BRK
+vecNMI:		.word program 			// NMI
+vecRES:		.word program  			// Reset
+vecIRQ:		.word program  			// IRQ/BRK
 
 // VECTORS ///////////////////////////////////////////////////////////////////

@@ -26,7 +26,7 @@
 .const CIA1_TODS		= $8809
 .const CIA1_TODM		= $880A
 .const CIA1_TODH		= $880B
-.const CIA1_SDR   	    = $800C
+.const CIA1_SDR   	    = $880C
 .const CIA1_ICR			= $880D
 .const CIA1_CRGA		= $880E
 .const CIA1_CRGB		= $880F
@@ -44,7 +44,7 @@
 .const CIA2_TODS		= $9809
 .const CIA2_TODM		= $980A
 .const CIA2_TODH		= $980B
-.const CIA2_SDR  	    = $900C
+.const CIA2_SDR  	    = $980C
 .const CIA2_ICR			= $980D
 .const CIA2_CRGA		= $980E
 .const CIA2_CRGB		= $980F
@@ -52,8 +52,7 @@
 // SCREEN 
 //////////////////////////////////////////////////////////////////////////////
 
-// Buffer Starts at 7000
-// Screen memory es 4 KB. hasta $7FFF
+// Screen memory is 4 KB. $7000-$7FFF
 
 // Top left corner of screen at startup
 .const SCREEN_BASE      = $7000
