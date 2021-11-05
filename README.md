@@ -18,7 +18,16 @@ SBCv1 came to life, fulfilling this requirements. Howeever, after using it for s
 
 ## Memory Map
 
-(TBD)
+0000 - 7FFF RAM
+8000 - 87FF I/O BANK 0 - FREE
+8800 - 8FFF I/O BANK 1 - CIA1
+9000 - 97FF I/O BANK 2 - VIA
+9800 - 9FFF I/O BANK 3 - CIAEXT
+A000 - A7FF I/O BANK 4
+A800 - AFFF I/O BANK 5
+B000 - B7FF I/O BANK 6
+B800 - BFFF I/O BANK 7
+C000 - FFFF RAM
 
 # v2
 Being my first attempt at creating a SBC, v1 had many flaws. There were some pull-up resistors missing, the PCB layout was a mess, the bootstrap code was... well... unreadable to be honest. Moreover, the CAD tool I choose for v1, Eagle Cad, has a nasty licensing which is pulling away many users. I decided to make the transition to KiCAD for the v2. It's still a work in progress, and completely untested, but feel free to take a look if you like.
@@ -47,7 +56,15 @@ With little architectural changes from v1, original firmware will need just some
 
 Firmware for v2 does not yet exist.
 
+## RamFlasher
+
+Java code to upload memory image to SBC
+
 ## Changelog
+
+### Unreleased
+
+* First draft of firmware, only for LOGISIM version
 
 ### v2.0.0 10-19-2021
 
