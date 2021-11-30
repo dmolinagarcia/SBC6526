@@ -1,17 +1,35 @@
+// -----------------------------------------------------------------------------
+// 
+// SBC6526v2 Firmware
+//
+// 0000 - 7FFF Free RAM
+// 8000 - BFFF 8 Blocks IO
+// 8800 - 8FFF CIA1
+// 9000 - 97FF VIA
+// 9800 - 9FFF CIA2
+// C000 - FFFF Free RAM
+//
+// Author : Daniel Molina 
+// https://github.com/dmolinagarcia
+//
+// 2018 - 2021
+//
+// -----------------------------------------------------------------------------
+
 .cpu _65c02
 .file [name="sbc6526_v2.bin", type="bin", segments="ROM"]
 
-.segment ROM [min=$E000, max=$FFFF, fill]
-
 #import "10.addresing.asm"
+
+.segment ROM [min=$E000, max=$FFFF, fill]
 
 //////////////////////////////////////////////////////////////////////////////
 //////   RAM                                                            //////
 //////////////////////////////////////////////////////////////////////////////
 
 *=$E000 "RAM"  
-program:
-
+program: 	
+			#import "90.ciaTests.asm"
 
 programEnd:		jmp programEnd
 
