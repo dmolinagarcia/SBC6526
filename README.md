@@ -64,10 +64,20 @@ Java code to upload memory image to SBC
 
 ### Unreleased
 
+* Nothing
+
+### v2.0.1 29-12-2021
+
+* Fixed a bug on LCD frequency meter footprint. Top row pads were reversed
 * First draft of firmware, only for LOGISIM version
+* Initial draft of bootstrap loader. Still not working.
 
 ### v2.0.0 10-19-2021
 
 * First v2 release
 * First PCB run
 
+### v1.0.0 xx-xx-2020
+
+* First and last v1 release
+* It works, which is enough.
