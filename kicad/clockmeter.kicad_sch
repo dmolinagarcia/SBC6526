@@ -421,7 +421,6 @@
   )
 
   (bus_alias "LEDBUS" (members "A" "B" "C" "D" "E" "F" "G" "DP"))
-
   (junction (at 185.42 74.93) (diameter 1.016) (color 0 0 0 0))
   (junction (at 189.23 87.63) (diameter 1.016) (color 0 0 0 0))
   (junction (at 193.04 74.93) (diameter 1.016) (color 0 0 0 0))

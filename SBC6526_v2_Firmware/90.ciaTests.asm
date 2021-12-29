@@ -408,21 +408,6 @@ str_txtKO:
 // tests. PORTS _ TEST PC PULSE!
 //        PORTS _ irq ON pc PULSE VIA FLAG?
 
-//	TEST 0005.	PORTA Reset
-				jsr printTest
-				jsr ciaReset
-				lda CIA2_PRTA
-				cmp #$FF
-				beq test5_ok
-				jsr printKO
-				jmp test5_end
-test5_ok:		jsr printOK
-test5_end:			
-				lda CIA2_PRTB
-			
-
- 				jmp programEnd
-
 testAlarmIRQ:
 	// SET IRQ VECTOR
 				sei

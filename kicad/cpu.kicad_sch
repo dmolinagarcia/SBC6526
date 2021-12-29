@@ -324,11 +324,11 @@
 
   (junction (at 71.12 93.98) (diameter 1.016) (color 0 0 0 0))
 
-  (no_connect (at 142.24 127))
   (no_connect (at 142.24 86.36))
+  (no_connect (at 142.24 127))
   (no_connect (at 142.24 83.82))
-  (no_connect (at 142.24 121.92))
   (no_connect (at 142.24 124.46))
+  (no_connect (at 142.24 121.92))
 
   (bus_entry (at 181.61 73.66) (size 2.54 -2.54)
     (stroke (width 0.1524) (type solid) (color 0 0 0 0))

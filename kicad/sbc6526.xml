@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>Z:\gitHub\SBC6526\kicad\sbc6526.kicad_sch</source>
-    <date>16/10/2021 23:15:06</date>
+    <date>26/12/2021 14:58:51</date>
     <tool>Eeschema (5.99.0-7833-g0d57f90982)</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -1523,22 +1523,25 @@
   </libparts>
   <libraries>
     <library logical="74xx">
-      <uri>Z:\kicad\share\kicad\library/74xx.kicad_sym</uri>
+      <uri>C:\Program Files\kicad\share\kicad\library/74xx.kicad_sym</uri>
     </library>
     <library logical="Connector">
-      <uri>Z:\kicad\share\kicad\library/Connector.kicad_sym</uri>
+      <uri>C:\Program Files\kicad\share\kicad\library/Connector.kicad_sym</uri>
     </library>
     <library logical="Connector_Generic">
-      <uri>Z:\kicad\share\kicad\library/Connector_Generic.kicad_sym</uri>
+      <uri>C:\Program Files\kicad\share\kicad\library/Connector_Generic.kicad_sym</uri>
     </library>
     <library logical="Device">
-      <uri>Z:\kicad\share\kicad\library/Device.kicad_sym</uri>
+      <uri>C:\Program Files\kicad\share\kicad\library/Device.kicad_sym</uri>
     </library>
     <library logical="Display_Character">
-      <uri>Z:\kicad\share\kicad\library/Display_Character.kicad_sym</uri>
+      <uri>C:\Program Files\kicad\share\kicad\library/Display_Character.kicad_sym</uri>
+    </library>
+    <library logical="MCU_Module">
+      <uri>C:\Program Files\kicad\share\kicad\library/MCU_Module.kicad_sym</uri>
     </library>
     <library logical="Switch">
-      <uri>Z:\kicad\share\kicad\library/Switch.kicad_sym</uri>
+      <uri>C:\Program Files\kicad\share\kicad\library/Switch.kicad_sym</uri>
     </library>
     <library logical="sbc6526">
       <uri>Z:\gitHub\SBC6526\kicad/sbc6526.kicad_sym</uri>
