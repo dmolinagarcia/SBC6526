@@ -64,7 +64,11 @@ Java code to upload memory image to SBC
 
 ### Unreleased
 
-* Nothing
+* Minor fixes to routing
+* Right VCC hole was slightly offset. Fixed
+* Removed /CE from arduino to RAM. As RAMCE pulses with PHI, it's not necessary, and we leave /CE tied to GND.
+* Fixed RAM footprint, as it was too wide. Improved routing.
+* Added current limiting resistor to LCD Contrast
 
 ### v2.0.1 29-12-2021
 

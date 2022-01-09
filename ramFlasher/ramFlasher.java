@@ -3,7 +3,7 @@ import java.util.*;
 import java.io.*;
 import java.util.Scanner;
 
-/* Cargador de memoria ram para SBCv1
+/* Cargador de memoria ram para SBCv2
  *
  */
  
@@ -46,17 +46,16 @@ public class ramFlasher {
 	
 	public static void main(String[] args) throws InterruptedException,IOException {
 
-
 		String binFile = args[0];
 		
-	// START FF00 END FF00
+	// START F000 END FF00
 	// AMPLIAR SEGUN SE NECESITE
-		int startAddress = 0xE000;
+		int startAddress = 0xF000;
 		int endAddress   = 0xFFFF;
 		int block_size   = 0x0400;
 		int blocks		 = (endAddress - startAddress + 1) / block_size ;
 		
-		System.out.println(" --= Programador para SBCv1 =--");
+		System.out.println(" --= Programador para SBCv2 =--");
 		System.out.println(" Programando fichero " + binFile);
 		
 	// Abrimos el puerto	
@@ -76,7 +75,6 @@ public class ramFlasher {
 		long startTime = System.nanoTime();
 
 	// Abrimos el fichero
-		// File file = new File("Z:\\proyectos\\SBCv1\\RAMFlasher\\sbcv1.bin");
 		File file = new File (binFile);
 		
 		byte[] ram = new byte[(int) file.length()];

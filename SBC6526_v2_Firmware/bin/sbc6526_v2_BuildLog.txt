@@ -1,14 +1,12 @@
 parsing
-Got 2 errors and 0 warnings while executing:
-  (Z:\gitHub\SBC6526\SBC6526_v2_Firmware\00.sbc6526_v2.asm 10:16) Error: Unknown symbol 'viaISR'
-  (Z:\gitHub\SBC6526\SBC6526_v2_Firmware\00.sbc6526_v2.asm 11:16) Error: Unknown symbol 'reset'
+flex pass 1
+flex pass 2
+Output pass
+Writing prg file: sbc6526_v2.bin
 
-
-
-*=$FFFA "VECTORS"
-vecNMI:  .word viaISR    // NMI
-               ^
-
-Error: Unknown symbol 'viaISR'
-
+Memory Map
+----------
+ROM-segment:
+  $f000-$f128 RAM
+  $fffa-$ffff VECTORS
 

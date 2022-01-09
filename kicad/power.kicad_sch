@@ -1091,9 +1091,9 @@
   (junction (at 157.48 54.61) (diameter 1.016) (color 0 0 0 0))
   (junction (at 157.48 67.31) (diameter 1.016) (color 0 0 0 0))
 
-  (no_connect (at 63.5 157.48))
-  (no_connect (at 63.5 166.37))
   (no_connect (at 64.77 148.59))
+  (no_connect (at 63.5 166.37))
+  (no_connect (at 63.5 157.48))
   (no_connect (at 63.5 181.61))
   (no_connect (at 63.5 176.53))
 

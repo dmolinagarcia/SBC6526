@@ -281,9 +281,8 @@ test0012_end:		lda #$00
 // End of Tests
 // -----------------------------------------------------------------------------
 
-// Halt at end
-programEnd:
-			jmp programEnd
+// Exit
+			jmp ciaTestsEnd
 
 // -----------------------------------------------------------------------------
 // Functions
@@ -679,3 +678,5 @@ flipTODIN:
 				rts
 
 
+ciaTestsEnd:
+				nop

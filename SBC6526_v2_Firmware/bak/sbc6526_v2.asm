@@ -5,28 +5,9 @@
 .const OK 				= %00000010
 .const CANCEL 			= %00000001
 
-// FREQ METER
-//////////////////////////////////////////////////////////////////////////////
-
-	// A0 A1 A2
-		// A0 A1  counter
-		// A2 hundreds of KHz
-		// A3 counter to time interrupts
-
-.const FREQ_COUNTER_LO	= $A0
-.const FREQ_COUNTER_HI	= $A1
-.const FREQ_METER		= $A2
-.const IRQ_COUNTER		= $A3
-
-
-
-
-
-
 
 reset:
-			lda #20						    // DEFAULT 20.0 MHz
-			sta FREQ_METER					// Needed to reset CIA in worst case scenario
+
 			jsr ciaReset					
 			jsr ciaTodStart
 			jsr krnFreqMeter
@@ -37,18 +18,7 @@ reset:
 			jsr viaSetTimerInterrupt
 			jmp program
 
-ciaReset:
-// Resets the 6526
-			pha
-			lda #$20
-			sta VIA_DDRA			// PA5 (/CIARES) set as output
-			lda #$00	
-			sta VIA_PRTA			// /CIARES PULLED LOW
-			jsr krnShortDelay
-			lda #$FF	
-			sta VIA_PRTA			// /CIARES PULLED HIGH
-			pla
-			rts
+
 
 ciaTodStart:
 // Sets TOD and starts it
@@ -100,17 +70,6 @@ krnFreqMeterWait3:
 			pla
 			rts	 
 
-krnShortDelay:		
-// Short Delay. Constant depending on FREQ_METER
-			phx
-     		ldx FREQ_METER						// Delay, dependent on the clock
-krnShortDelayLoop:  	
-			jsr krnShortDelayEnd
-     		dex
-     		bne krnShortDelayLoop
-     		plx
-krnShortDelayEnd:	
-			rts
 
 #import "lcdFunctions.asm"
 #import "scrFunctions.asm"

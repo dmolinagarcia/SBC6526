@@ -70,3 +70,16 @@
 
 // 20 21 string pointer
 .const STRING_POINTER	= $20
+
+// FREQ METER
+//////////////////////////////////////////////////////////////////////////////
+
+	// A0 A1 A2
+		// A0 A1  counter
+		// A2 hundreds of KHz
+		// A3 counter to time interrupts
+
+.const FREQ_COUNTER_LO	= $A0
+.const FREQ_COUNTER_HI	= $A1
+.const FREQ_METER		= $A2
+.const IRQ_COUNTER		= $A3
