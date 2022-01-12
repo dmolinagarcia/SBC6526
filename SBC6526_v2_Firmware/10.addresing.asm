@@ -83,3 +83,22 @@
 .const FREQ_COUNTER_HI	= $A1
 .const FREQ_METER		= $A2
 .const IRQ_COUNTER		= $A3
+
+// Keyboard
+//////////////////////////////////////////////////////////////////////////////
+
+	// 30 Key pressed : Currrent pressed key
+.const KEY_PRESSED		= $30
+.const UP 				= %00010000
+.const DOWN 			= %00001000
+.const OK 				= %00000100
+.const CANCEL 			= %00000010
+
+// Machine Type
+//////////////////////////////////////////////////////////////////////////////
+
+	// 31
+	// 31 = 0 SBC 
+	// 31 = 1 LOGISIM
+
+.const MACHINE_TYPE		= $31

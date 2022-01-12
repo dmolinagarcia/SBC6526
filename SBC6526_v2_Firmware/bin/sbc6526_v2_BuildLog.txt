@@ -7,6 +7,6 @@ Writing prg file: sbc6526_v2.bin
 Memory Map
 ----------
 ROM-segment:
-  $f000-$f128 RAM
+  $f000-$f755 ROM
   $fffa-$ffff VECTORS
 

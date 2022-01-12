@@ -1,13 +1,16 @@
 // -----------------------------------------------------------------------------
 // 
-// 6526 Test Suite for SBC v2
+// 6526 Test Suite for SBC6526 v2 v2.0.2
+//
+// -----------------------------------------------------------------------------
+//  
 // CIA2 is assumed to be 74HCT6526
 // CIA1 can be MOS6526 or 74HCT6526
 //
 // Author : Daniel Molina 
 // https://github.com/dmolinagarcia
 //
-// 2018 - 2021
+// 2018 - 2022
 //
 // -----------------------------------------------------------------------------
 
@@ -296,15 +299,14 @@ printTest:
 			ldx #<str_test
 			ldy #>str_test
 			jsr scrPrintStr
-				
+			
 		// Print number
 			lda testNo+1
-			and #$F0
-			clc
 			ror
 			ror
 			ror
 			ror
+			and #$0F
 			clc
 			adc #$30
 			jsr scrPrintChar
@@ -315,11 +317,11 @@ printTest:
 			jsr scrPrintChar
 
 			lda testNo
-			and #$F0
 			ror
 			ror
 			ror
 			ror
+			and #$0F
 			clc
 			adc #$30
 			jsr scrPrintChar
