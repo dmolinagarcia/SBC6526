@@ -54,8 +54,6 @@ Full schematic and PCB. The migration from EagleCAD to KiCAD has not been easy, 
 
 With little architectural changes from v1, original firmware will need just some minor changes. Most important one, LCD screen is now driven by the 6522 instead of the 6526. Also, the internal clock measurement has to be done also with the 6522. Memory map will be the same, with just a second CIA added into an empty IO Slot.
 
-Firmware for v2 does not yet exist.
-
 ## RamFlasher
 
 Java code to upload memory image to SBC
@@ -64,11 +62,16 @@ Java code to upload memory image to SBC
 
 ### Unreleased
 
+* Nothing
+
+### v2.0.2 12-01-2022
+
 * Minor fixes to routing
 * Right VCC hole was slightly offset. Fixed
 * Removed /CE from arduino to RAM. As RAMCE pulses with PHI, it's not necessary, and we leave /CE tied to GND.
 * Fixed RAM footprint, as it was too wide. Improved routing.
 * Added current limiting resistor to LCD Contrast
+* Bootstrap and Firmware published. Not completed, but working.
 
 ### v2.0.1 29-12-2021
 
