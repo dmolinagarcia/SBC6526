@@ -62,7 +62,7 @@
 .const SCREEN_CURSOR_POINTER = $12
 // 14   . Cursor, next position to print (SCREEN_CURSOR_POINTER),SCREEN_CURSOR
 .const SCREEN_CURSOR	= $14
-// 15 16 . temporal para calculos de screen windows
+// 15 16 . temporal para calculos de screen window
 .const SCREEN_WINDOW_TEMP = $15
 
 // Kernal variables

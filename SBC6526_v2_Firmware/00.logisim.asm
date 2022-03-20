@@ -28,11 +28,37 @@
 
 *=$0300 "CODE" 
 program: 	
+	
+				jsr ciaReset
+
+				lda #$10
+				sta CIA1_TALO
+				lda #$00
+				sta CIA1_TAHI
+
+				lda #$01
+				sta CIA1_CRGA			// Start CIA1 Timer a
+				nop
+				nop
+				nop
+				nop
+				nop
+				lda #$00
+				sta CIA1_CRGA			// Stop CIA1 Timer a
+
+
+
+				jmp codeEnd
+
+
+
+
+
 			lda #$01
 			sta MACHINE_TYPE				// LOGISIM
 			#import "90.ciaTests.asm"
 
-codeEnd:		jmp codeEnd
+codeEnd:	jmp codeEnd
 
 *=$FF00 "KERNEL"
 ciaReset:
@@ -69,9 +95,41 @@ scrPrintStrEnd:
 // kbd and lcd functions not loaded
 // Where are these used???
 kbdWaitOK:
-lcdReset:
 krnShortDelay:
+scrScrollUp:
+scrScrollDown:
+scrInitialize:
+scrClear:
+krnDoNothing:
 			rts
+
+kbdUp:
+	jmp (keyUp)
+kbdDown:
+	jmp (keyDown)
+kbdOk:
+    jmp (keyOk)
+kbdCancel:
+	jmp (keyCancel)
+
+keyUp: 		.word scrScrollUp 		// keyUp
+keyDown:	.word scrScrollDown     // keydown
+keyOk:		.word krnDoNothing      // keyOk
+keyCancel:	.word krnDoNothing      // keyCancel
+
+
+nib2hex:
+// Converts lower nibble in A into hexadecimal ascci
+// We don't save A in stack, as it's our return value
+				cmp #$0a
+         		bcc nib2hex0_9           
+		        ora #$30
+		        clc
+		        adc #$07
+		        rts
+nib2hex0_9:		ora #$30         
+				rts
+
 
 //////////////////////////////////////////////////////////////////////////////
 //////   VECTORS                                                        //////

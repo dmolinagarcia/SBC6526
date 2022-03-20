@@ -4,8 +4,8 @@
 //
 // -----------------------------------------------------------------------------
 //  
-// CIA2 is assumed to be 74HCT6526
-// CIA1 can be MOS6526 or 74HCT6526
+// Target Test is CIA2 (CIAEXT)
+// CIA1 should be regular CIA
 //
 // Author : Daniel Molina 
 // https://github.com/dmolinagarcia
@@ -14,23 +14,162 @@
 //
 // -----------------------------------------------------------------------------
 
+// -----------------------------------------------------------------------------
 // Initialization
-
-					lda #$01 					// Reset test value to 1
-					sta testNo					
-            		dec
-            		sta testNo+1
-
-            		jsr ciaReset				// Safe Reset CIAs
-
-			     	ldx #<str_title				// Print title			
+// -----------------------------------------------------------------------------
+ciaTestStart:
+					ldx #<str_title				// Print title			
 					ldy #>str_title
 					jsr scrPrintStr		
 
+					lda #$01
+					cmp MACHINE_TYPE 
+					beq jmp_testCIA2			// In logisim, skip to TEST
+
+					ldx #<str_menu
+					ldy #>str_menu				// Print Menu
+					jsr scrPrintStr
+
+					lda #$70
+					sta SCREEN_POINTER+1
+					stz SCREEN_POINTER			// Move screen window to menu
+
+					ldx #$15  					// 21 2 row 2 col
+					stx SCREEN_CURSOR_POINTER   // Seleccionamos opcion 1
+
+					lda #<menuKeyDown
+					sta keyDown
+					lda #>menuKeyDown
+					sta keyDown+1
+
+					lda #<menuKeyUp
+					sta keyUp
+					lda #>menuKeyUp
+					sta keyUp+1 				// Remay UP/DOWN for MENU		
+
+					jsr kbdWaitOK 				// Wait for SEL
+
+					cpx #$15 					// TEST CIA 2
+					beq jmp_testCIA2
+					cpx #$29 					// DISPLAY CIA 1
+					beq jmp_displayCIA1
+					cpx #$3D					// DISPLAY CIA 2
+					beq jmp_displayCIA2
+					jmp ciaTestStart
+
+jmp_displayCIA1:
+					lda #$88
+					sta $FF
+					lda #$00
+					sta $FE
+					jsr scrClear
+					jsr ciaReset
+					jmp displayCIA
+jmp_displayCIA2:
+					lda #$98
+					sta $FF
+					lda #$00
+					sta $FE		
+					jsr scrClear
+					jsr ciaReset			
+					jmp displayCIA
+
+jmp_testCIA2:					
+					lda #<scrScrollDown
+					sta keyDown
+					lda #>scrScrollDown
+					sta keyDown+1
+
+					lda #<scrScrollUp
+					sta keyUp
+					lda #>scrScrollUp
+					sta keyUp+1 				// Restore UP/DOWN for scroll
+
+					jsr scrInitialize
+					jsr scrClear					
+			     	ldx #<str_title				// Print title			
+					ldy #>str_title
+					jsr scrPrintStr	
+
+					jmp testCIA2 				// Jump to option
 
 // -----------------------------------------------------------------------------
-// Begin of Tests
+// CIA DISPLAY
 // -----------------------------------------------------------------------------
+displayCIA:			
+					ldx #$00
+					ldy #$00
+displayCIAnext:					
+					lda ($FE),y 				// LDA PRTA
+
+					and #$F0
+					ror
+					ror
+					ror
+					ror
+					jsr nib2hex
+					sta $7000,x 				// Sta en screen
+					inx 
+					lda ($FE),y 				// LDA PRTA again
+				
+					and #$0F
+					jsr nib2hex
+					sta $7000,x 
+					inx
+					inx
+					inx 						// TWo blancs
+					iny 						// next register
+					cpy #$10
+					beq displayCIA 				// Rollover. Restart
+					jmp displayCIAnext	        // no, next register
+
+
+
+// -----------------------------------------------------------------------------
+// Selection Menu Handler
+// -----------------------------------------------------------------------------
+menuKeyDown:
+					pha
+					lda #' '
+					sta ($7000),x
+					cpx #$15
+					bne mKD_1
+					ldx #$29
+					jmp menuKeyEnd
+
+mKD_1: 				cpx #$29
+					bne menuKeyEnd
+					ldx #$3D
+ 					jmp menuKeyEnd			
+
+menuKeyUp:
+					pha
+					lda #' '
+					sta ($7000),x			
+					cpx #$3D
+					bne mKU_1
+					ldx #$29
+					jmp menuKeyEnd 
+
+mKU_1:				cpx #$29
+					bne menuKeyEnd
+					ldx #$15
+
+menuKeyEnd:			pla
+					stx SCREEN_CURSOR_POINTER
+					rts
+
+// -----------------------------------------------------------------------------
+// Begin of CIA2 Testing
+// -----------------------------------------------------------------------------
+
+testCIA2:
+
+					lda #$01 					// Reset test value to 1
+					sta testNo					// TestNo holds running test
+            		dec
+	           		sta testNo+1 				// as a 2 byte decimal
+            		jsr ciaReset				// Local Reset CIAs
 
 //  TEST 0001. DDRA Initialization Value
 //		RESET
@@ -280,12 +419,59 @@ test0012_ok:		jsr printOK
 test0012_end:		lda #$00
 					sta CIA2_DDRB
 
-// -----------------------------------------------------------------------------
-// End of Tests
-// -----------------------------------------------------------------------------
+//  TEST 0013. CRGA Initialization Value
+//		RESET
+//		READ and CMP #$0
+//		EQ OK NE KO
+
+test0013:			jsr printTest				// Test header
+					jsr ciaReset				// Reset CIA
+					lda CIA2_CRGA
+					cmp #$00					// Compare reset value
+					beq test0013_ok
+					jsr printKO 				// KO
+					jmp test0013_end
+test0013_ok:		jsr printOK 				// OK
+test0013_end:
+
+//  TEST 0014. CRGB Initialization Value
+//		RESET
+//		READ and CMP #$0
+//		EQ OK NE KO
+
+test0014:			jsr printTest				// Test header
+					jsr ciaReset				// Reset CIA
+					lda CIA2_CRGB
+					cmp #$00					// Compare reset value
+					beq test0014_ok
+					jsr printKO 				// KO
+					jmp test0014_end
+test0014_ok:		jsr printOK 				// OK
+test0014_end:
+
+//  TEST 0015. CRGA Write and read
+//      WRITE FF to CRGA
+//		READ Should be 11101111
+
+test0015:			jsr printTest				// Test header
+					lda #$FF
+					sta CIA2_CRGA
+					lda CIA2_CRGA
+					cmp #%11101111				// Compare
+					beq test0015_ok
+					jsr printKO 				// KO
+					jmp test0015_end
+test0015_ok:		jsr printOK 				// OK
+test0015_end:
+
+
 
 // Exit
 			jmp ciaTestsEnd
+
+// -----------------------------------------------------------------------------
+// End of Tests
+// -----------------------------------------------------------------------------
 
 // -----------------------------------------------------------------------------
 // Functions
@@ -387,6 +573,11 @@ str_title:
 			.text "-= 74HCT6526 TEST =-"
 			.byte $00
 
+str_menu:
+			.text "   TEST CIA 2       "
+			.text "   DISPLAY CIA 1    "
+			.text "   DISPLAY CIA 2    "
+			.byte $00
 str_test:
 			.text " TEST "
 			.byte $00
@@ -439,17 +630,6 @@ todtest:
 				jsr tickTod
 				jmp todtest
 
-// Functions
-//////////////////////////////////////
-nib2hex:
-				cmp #$0a
-         		bcc nib2hex0_9           
-		        ora #$30
-		        clc
-		        adc #$07
-		        rts
-nib2hex0_9:		ora #$30         
-				rts
 
 //////////////////////////////////////
 tickTod:
@@ -547,11 +727,6 @@ loadTenths:
 				pla
 				rts
 
-//////////////////////////////////////
-localReset:
-				jsr ciaReset
-				jsr lcdReset
-				rts
 
 //////////////////////////////////////
 ciaIRQ:

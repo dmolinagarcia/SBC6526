@@ -47,6 +47,7 @@ reset:
 			jsr kbdSetup
 			jsr lcdReset
 			jsr viaSetTimerInterrupt
+			sei 
 			jmp program
 
 // -----------------------------------------------------------------------------
@@ -102,6 +103,15 @@ viaISR:
 			sta (SCREEN_CURSOR_POINTER)
 			pla
 viaISRend:  rti
+
+viaDisableInterrupt:
+			pha
+
+			lda #%01000000
+			sta VIA_IER 				// Disable Timer 1 interrupts
+
+			pla
+			rts
 
 // -----------------------------------------------------------------------------
 // CIA
@@ -560,6 +570,81 @@ scrSetWindowEnd:
 			pla
 			rts
 
+scrPrint8:
+// Prints in HEX 8bit value in AA
+				pha
+				pha 
+				and #$F0
+				ror
+				ror
+				ror
+				ror
+				jsr nib2hex
+				jsr scrPrintChar
+				
+				pla
+				and #$0F
+				jsr nib2hex
+				jsr scrPrintChar	
+
+				pla 
+				rts
+
+scrPrint16:
+// Prints in HEX 16bit value in YYXX
+				pha 
+				phy 
+				phx
+				
+				tya
+				and #$F0
+				ror
+				ror
+				ror
+				ror
+				jsr nib2hex
+				jsr scrPrintChar
+				
+				tya
+				and #$0F
+				jsr nib2hex
+				jsr scrPrintChar
+
+				txa
+	            and #$F0
+				ror
+				ror
+				ror
+				ror
+				jsr nib2hex
+				jsr scrPrintChar
+				
+				txa
+				and #$0F
+				jsr nib2hex
+				jsr scrPrintChar			
+
+				plx 
+				ply 
+				pla
+				rts
+
+
+
+nib2hex:
+// Converts lower nibble in A into hexadecimal ascci
+// We don't save A in stack, as it's our return value
+				cmp #$0a
+         		bcc nib2hex0_9           
+		        ora #$30
+		        clc
+		        adc #$07
+		        rts
+nib2hex0_9:		ora #$30         
+				rts
+
+
+
 // -----------------------------------------------------------------------------
 // Keyboard
 // -----------------------------------------------------------------------------
@@ -595,8 +680,6 @@ kbdSetup:
 
 kbdScan:
 chkbtn:		pha		
-			phx
-			phy
 
 			lda VIA_PRTB       		// Read Port B
 			sta $94
@@ -639,8 +722,6 @@ noKeyKbdScan:
 			sta KEY_PRESSED
 
 endKbdScan:
-		    ply
-			plx
 			pla
 			rts
 
@@ -652,9 +733,8 @@ w1:
 
 // ROM ///////////////////////////////////////////////////////////////////////
 
-program:		
-#import "90.ciaTests.asm"
-
+program:	  	
+				#import "90.ciaTests.asm"
 programEnd:		jmp programEnd
 
 //////////////////////////////////////////////////////////////////////////////
