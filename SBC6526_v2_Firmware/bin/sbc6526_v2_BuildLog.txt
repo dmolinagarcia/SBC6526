@@ -2,12 +2,11 @@ parsing
 flex pass 1
 flex pass 2
 Output pass
-Writing prg file: logisim.bin
+Writing prg file: sbc6526_v2.bin
 
 Memory Map
 ----------
 ROM-segment:
-  $0300-$0c38 CODE
-  $ff00-$ff44 KERNEL
+  $e000-$ed90 ROM
   $fffa-$ffff VECTORS
 

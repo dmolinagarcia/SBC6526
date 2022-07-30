@@ -25,35 +25,9 @@
 			#import "10.addresing.asm"
 
 .segment ROM [min=$0000, max=$FFFF, fill]
-
+ 
 *=$0300 "CODE" 
 program: 	
-	
-				jsr ciaReset
-
-				lda #$10
-				sta CIA1_TALO
-				lda #$00
-				sta CIA1_TAHI
-
-				lda #$01
-				sta CIA1_CRGA			// Start CIA1 Timer a
-				nop
-				nop
-				nop
-				nop
-				nop
-				lda #$00
-				sta CIA1_CRGA			// Stop CIA1 Timer a
-
-
-
-				jmp codeEnd
-
-
-
-
-
 			lda #$01
 			sta MACHINE_TYPE				// LOGISIM
 			#import "90.ciaTests.asm"
@@ -96,6 +70,7 @@ scrPrintStrEnd:
 // Where are these used???
 kbdWaitOK:
 krnShortDelay:
+krnLongDelay:
 scrScrollUp:
 scrScrollDown:
 scrInitialize:

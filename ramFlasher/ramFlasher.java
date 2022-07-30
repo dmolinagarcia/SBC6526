@@ -50,7 +50,7 @@ public class ramFlasher {
 		
 	// START F000 END FF00
 	// AMPLIAR SEGUN SE NECESITE
-		int startAddress = 0xF000;
+		int startAddress = 0xE000;
 		int endAddress   = 0xFFFF;
 		int block_size   = 0x0400;
 		int blocks		 = (endAddress - startAddress + 1) / block_size ;
@@ -60,12 +60,14 @@ public class ramFlasher {
 		
 	// Abrimos el puerto	
 		SerialPort port = getPort();
+		port.setFlowControl( SerialPort.FLOW_CONTROL_DISABLED );
+		port.clearDTR();
 		port.openPort();
 		port.setComPortParameters(115200, 8, 1, 0);
 		port.setComPortTimeouts(SerialPort.TIMEOUT_READ_SEMI_BLOCKING, 0, 0);
 		
 	// Esperamos 5 segundos, que se abra y reinicie el NANO
-		Thread.sleep(2000);
+		Thread.sleep(1500);
 		
 	// Iniciamos bulk bytes
 		System.out.println ("Start program at      : " + startAddress);

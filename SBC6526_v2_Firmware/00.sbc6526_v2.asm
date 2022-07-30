@@ -22,12 +22,11 @@
 
 .cpu _65c02
 .file [name="sbc6526_v2.bin", type="bin", segments="ROM"]
-.segment ROM [min=$F000, max=$FFFF, fill]
+.segment ROM [min=$E000, max=$FFFF, fill]
 
 #import "10.addresing.asm"
 
-*=$F000 "ROM" 
-
+*=$E000 "ROM" 
 // -----------------------------------------------------------------------------
 // Reset
 // -----------------------------------------------------------------------------
@@ -43,7 +42,7 @@ reset:
 			jsr ciaTodStart
 			jsr krnFreqMeter
 			jsr scrClear
-			jsr scrInitialize
+//			jsr scrInitialize				Clear also initializes
 			jsr kbdSetup
 			jsr lcdReset
 			jsr viaSetTimerInterrupt
@@ -156,6 +155,18 @@ krnShortDelay:
      		plx
 	krnShortDelayEnd:	
 			rts		
+
+krnLongDelay:		
+// Long Delay. Constant depending on FREQ_METER
+			phx
+     		ldx #$FF						// Delay, dependent on the clock
+	krnLongDelayLoop:  	
+			jsr krnLongDelayEnd
+     		dex
+     		bne krnLongDelayLoop
+     		plx
+	krnLongDelayEnd:	
+			rts				
 
 krnDoNothing:
 			rts
@@ -341,7 +352,7 @@ sS_clear:	sta $7000,x
 
 			plx
 			pla
-			rts
+			// rts  So clear also initializes
 
 scrInitialize:
 			pha
@@ -724,6 +735,12 @@ noKeyKbdScan:
 endKbdScan:
 			pla
 			rts
+	lda #$00
+	sta $00
+	lda #$FF
+	sta $01
+
+	jmp programEnd
 
 kbdWaitOK:
 	bbr2 KEY_PRESSED, kbdWaitOK	// Si no esta pulsado, esperamos

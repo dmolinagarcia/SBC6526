@@ -158,10 +158,6 @@
     (stroke (width 0) (type solid) (color 0 0 0 0))
     (uuid 483c6d94-68c1-4f1b-8e98-c40bca319724)
   )
-  (bus (pts (xy 276.86 137.16) (xy 259.08 137.16))
-    (stroke (width 0) (type solid) (color 0 0 0 0))
-    (uuid 4c846c75-57c1-4353-aab3-322d6b315f3c)
-  )
 
   (wire (pts (xy 64.77 123.19) (xy 106.68 123.19))
     (stroke (width 0) (type solid) (color 0 0 0 0))
@@ -289,6 +285,10 @@
     (stroke (width 0) (type solid) (color 0 0 0 0))
     (uuid a2fb9939-5074-47b6-a3d8-5ee482f6fc93)
   )
+  (bus (pts (xy 259.08 137.16) (xy 276.86 137.16))
+    (stroke (width 0) (type default) (color 0 0 0 0))
+    (uuid a5b9cacb-8945-49fb-a28d-25676b5b8cc4)
+  )
 
   (wire (pts (xy 68.58 33.02) (xy 68.58 52.07))
     (stroke (width 0) (type solid) (color 0 0 0 0))
@@ -298,11 +298,6 @@
     (stroke (width 0) (type solid) (color 0 0 0 0))
     (uuid ac0fdd10-9761-4658-ba85-47930bfcdb33)
   )
-  (bus (pts (xy 265.43 88.9) (xy 276.86 88.9))
-    (stroke (width 0) (type solid) (color 0 0 0 0))
-    (uuid b0b79f94-6bf0-4bcb-9894-bc49a99f940b)
-  )
-
   (wire (pts (xy 143.51 76.2) (xy 143.51 127))
     (stroke (width 0) (type solid) (color 0 0 0 0))
     (uuid b0e9b7d5-48a4-40cb-9eac-90ed7046b9a5)
@@ -314,6 +309,10 @@
   (wire (pts (xy 64.77 82.55) (xy 64.77 123.19))
     (stroke (width 0) (type solid) (color 0 0 0 0))
     (uuid b3b930ea-c8f1-4d60-a53e-dcedf539c8f2)
+  )
+  (bus (pts (xy 265.43 88.9) (xy 276.86 88.9))
+    (stroke (width 0) (type default) (color 0 0 0 0))
+    (uuid b62d4631-8d49-450b-9e9f-16485d5f3082)
   )
   (bus (pts (xy 95.25 53.34) (xy 86.36 53.34))
     (stroke (width 0) (type solid) (color 0 0 0 0))
@@ -755,6 +754,9 @@
     (path "/00000000-0000-0000-0000-00005ffaa38f/00000000-0000-0000-0000-00005fff3be5"
       (reference "#PWR02") (unit 1) (value "VCC") (footprint "")
     )
+    (path "/00000000-0000-0000-0000-00005fa75ce1/18c0bcb6-b0de-425a-9e6e-f50e9332b6dd"
+      (reference "#PWR03") (unit 1) (value "VCC") (footprint "")
+    )
     (path "/00000000-0000-0000-0000-00005fa7ba55/00000000-0000-0000-0000-00005fad6588"
       (reference "#PWR0101") (unit 1) (value "GND") (footprint "")
     )
@@ -1048,6 +1050,12 @@
     )
     (path "/00000000-0000-0000-0000-00005fa75ce1/c089f098-3c93-481b-9af1-e975d87219d5"
       (reference "R20") (unit 1) (value "1k") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+    )
+    (path "/00000000-0000-0000-0000-00005fa75ce1/e2debc15-c16a-4456-93cc-3069d0c14761"
+      (reference "R21") (unit 1) (value "3k3") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+    )
+    (path "/00000000-0000-0000-0000-00005fa75ce1/d897c21c-f312-4d4e-9a00-c62704dfa6c1"
+      (reference "R22") (unit 1) (value "3k3") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-00005fb72ec4/00000000-0000-0000-0000-00005ff85c1a"
       (reference "SW1") (unit 1) (value "UP") (footprint "sbc6526:SW_TH_Tactile_Omron_B3F-10xx")
