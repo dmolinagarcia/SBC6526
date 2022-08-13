@@ -30,6 +30,7 @@
 program: 	
 			lda #$01
 			sta MACHINE_TYPE				// LOGISIM
+
 			#import "90.ciaTests.asm"
 
 codeEnd:	jmp codeEnd

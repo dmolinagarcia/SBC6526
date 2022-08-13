@@ -16,6 +16,8 @@
 
 					// bypass menu
  					// jmp test0026
+
+
 // -----------------------------------------------------------------------------
 // Initialization
 // -----------------------------------------------------------------------------
@@ -97,6 +99,9 @@ jmp_testCIA2:
 // CIA DISPLAY
 // -----------------------------------------------------------------------------
 displayCIA:			
+					lda #%11000000
+					sta VIA_IER					// just in case, enable VIA int
+
 					ldx #$00
 					ldy #$00
 displayCIAnext:					
@@ -538,6 +543,7 @@ test0017_end:
 //      74HCT6526 stops at EEF8. Reload happens a cycle earlier.
 //      MOS6526 will end OK
 //      74HCT6526 will end as PR (Partial Result)
+// 			FIX: Removed one FF in the FORCELOAD chain
 
 
 test0018:			jsr ciaReset
@@ -552,6 +558,8 @@ test0018:			jsr ciaReset
 					jsr krnLongDelay
 					lda #$00 					
 					sta CIA2_CRGA 				// Stop Timer
+					nop
+					nop
 					lda CIA2_TALO 
 					cmp #$F7
 					beq test0018_cont
@@ -826,7 +834,9 @@ test0023:  			jsr printTest
 					jsr printOK
 					jmp test0023_end
 test0023_ko:		jsr printKO
-test0023_end: 												
+test0023_end: 				
+
+
 
 // TEST 0024. Double Count on underflow under PHI2
 //		Reset CIA
@@ -976,7 +986,9 @@ test0025:  			jsr printTest
 test0025_ko:		jsr printKO
 test0025_end:					
 
-// TEST 0026. Stop timer on underflow. Even in continuos mode, it should stop a 0
+// TEST 0026. 
+// Stop timer on underflow. Even in continuos mode, it should stop a 0
+
 test0026: 			jsr printTest
 					jsr ciaReset
 					lda #$06
