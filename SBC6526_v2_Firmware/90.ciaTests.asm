@@ -540,19 +540,13 @@ test0017_end:
 //			Test value.
 //			Reload and test
 //	Tests show that original MOS6526 stops at EEF7
-//      74HCT6526 stops at EEF8. Reload happens a cycle earlier.
-//      MOS6526 will end OK
-//      74HCT6526 will end as PR (Partial Result)
-// 			FIX: Removed one FF in the FORCELOAD chain
 
 
 test0018:			jsr ciaReset
 					jsr printTest
-					lda #$00
-					sta part 					// Flag de resultado parcial a 0
 					lda #$01
 					sta CIA2_CRGA				// Start Timer
-					jsr krnLongDelay 			// Wait for delay
+					jsr krnLongDelay	 		// Wait for delay
 					lda #$11 					
 					sta CIA2_CRGA 				// Force LOAD
 					jsr krnLongDelay
@@ -562,11 +556,7 @@ test0018:			jsr ciaReset
 					nop
 					lda CIA2_TALO 
 					cmp #$F7
-					beq test0018_cont
-					cmp #$F8
 					bne test0018_ko
-					lda #$FF
-					sta part
 test0018_cont:		lda CIA2_TAHI
 					cmp #$EE 
 					bne test0018_ko 			// Test EEF7
@@ -578,16 +568,9 @@ test0018_cont:		lda CIA2_TAHI
 					lda CIA2_TAHI
 					cmp #$FF 
 					bne test0018_ko 			// Test FFFF
-					lda part
-					cmp #$00
-					bne test0018_part
 					jsr printOK
 					jmp test0018_end
 test0018_ko:		jsr printKO
-					jmp test0018_end
-test0018_part:		jsr printPR
-					jmp test0018_end
-part:				.byte 00					
 test0018_end:
 
 // 	TEST 0019. TIMERA reload on OVERFLOW
@@ -1123,19 +1106,6 @@ printKO:
 			sta VIA_IER 				// Enable Timer 1 interrupts
 			rts
 
-printPR:
-			phx
-			phy
-			ldx #<str_txtPR
-			ldy #>str_txtPR
-			jsr scrPrintStr
-			ply
-			plx
-			lda #%11000000
-			sta VIA_IER 				// Enable Timer 1 interrupts
-			rts			
-
-
 printOK:
 			phx
 			phy
@@ -1198,10 +1168,6 @@ str_txtOK:
 
 str_txtKO:
 			.text "   ( KO ) "
-			.byte $00
-
-str_txtPR:
-			.text "   ( PR ) "
 			.byte $00
 
 str_total:  .text "   OK "

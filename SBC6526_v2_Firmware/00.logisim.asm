@@ -70,14 +70,30 @@ scrPrintStrEnd:
 // kbd and lcd functions not loaded
 // Where are these used???
 kbdWaitOK:
-krnShortDelay:
-krnLongDelay:
 scrScrollUp:
 scrScrollDown:
 scrInitialize:
 scrClear:
 krnDoNothing:
 			rts
+
+
+krnShortDelay:		
+			rts		
+
+krnLongDelay:		
+			phx
+     		ldx #$FF
+	krnLongDelayLoop:  	
+			jsr krnLongDelayEnd
+     		dex
+     		bne krnLongDelayLoop
+     		plx
+	krnLongDelayEnd:	
+			rts	
+
+
+
 
 kbdUp:
 	jmp (keyUp)
