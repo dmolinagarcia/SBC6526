@@ -27,12 +27,9 @@
 .segment ROM [min=$0000, max=$FFFF, fill]
  
 *=$0300 "CODE" 
-program: 	
-			lda #$01
+program: 	lda #$01
 			sta MACHINE_TYPE				// LOGISIM
-
 			#import "90.ciaTests.asm"
-
 codeEnd:	jmp codeEnd
 
 *=$FF00 "KERNEL"
@@ -75,6 +72,7 @@ scrScrollDown:
 scrInitialize:
 scrClear:
 krnDoNothing:
+scrRefresh:
 			rts
 
 
@@ -122,14 +120,17 @@ nib2hex:
 nib2hex0_9:		ora #$30         
 				rts
 
+irqHand:		lda CIA2_ICR	
+				rti				
+
 
 //////////////////////////////////////////////////////////////////////////////
 //////   VECTORS                                                        //////
 //////////////////////////////////////////////////////////////////////////////
 
 *=$FFFA "VECTORS"
-vecNMI:		.word program 			// NMI
+vecNMI:		.word irqHand 			// NMI
 vecRES:		.word program  			// Reset
-vecIRQ:		.word program  			// IRQ/BRK
+vecIRQ:		.word irqHand  			// IRQ/BRK
 
 // VECTORS ///////////////////////////////////////////////////////////////////

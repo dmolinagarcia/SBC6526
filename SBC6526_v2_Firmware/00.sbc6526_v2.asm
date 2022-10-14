@@ -42,7 +42,6 @@ reset:
 			jsr ciaTodStart
 			jsr krnFreqMeter
 			jsr scrClear
-//			jsr scrInitialize				Clear also initializes
 			jsr kbdSetup
 			jsr lcdReset
 			jsr viaSetTimerInterrupt
