@@ -29,7 +29,26 @@
 *=$0300 "CODE" 
 program: 	lda #$01
 			sta MACHINE_TYPE				// LOGISIM
-			#import "90.ciaTests.asm"
+			// #import "90.ciaTests.asm"
+
+					jsr ciaReset
+
+					lda #%01000000
+					sta CIA2_CRGA				// CIA1 SPMODE = OUTPUT											
+
+					lda #$20
+					sta CIA2_TALO 				// CIA1 TA = 00FF
+					lda #$00
+					sta CIA2_TAHI
+
+					lda #%01000001				
+					sta CIA2_CRGA 				// START timera and SPOUT
+					ldx #$AA
+					ldy #$55
+					sty CIA2_SDR 				// Write to PORT OUT
+					// sty CIA2_SDR
+
+
 codeEnd:	jmp codeEnd
 
 *=$FF00 "KERNEL"
