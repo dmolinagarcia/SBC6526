@@ -26,7 +26,6 @@
 #define CE    10
 #define RW    12
 #define TOD   13
-#define TODE  21
 #define RESET 11
 
 
@@ -79,6 +78,7 @@ void setup() {
     digitalWrite (RW, HIGH);
     pinMode(RESET, INPUT);         
     digitalWrite (RESET, LOW);
+
   
   // Initialize Serial Port
     Serial.begin(115200);
@@ -87,14 +87,16 @@ void setup() {
 ISR(TIMER1_COMPA_vect){
   // timer interrupt to toggle TOD
   // TO-DO if todenable=1, set pin as input
-  if (analogRead(7) > 250) 
+  // Something wrong with analog read inside ISR
+  // Never reads,so it's always stopped
+  // if (analogRead(A7) > 250) 
     pinMode (TOD, INPUT);
-    
-  else
-    pinMode (TOD, OUTPUT);
-    PINB = PINB | 0b00100000; // toggle TOD
-    delayMicroseconds(4);
-    PINB = PINB | 0b00100000; // toggle TOD
+  //else {
+  //  pinMode (TOD, OUTPUT);
+  //  PINB = PINB | 0b00100000; // toggle TOD
+  //  delayMicroseconds(4);
+  //  PINB = PINB | 0b00100000; // toggle TOD
+  //}
 }
 
 // Fast Shiftout

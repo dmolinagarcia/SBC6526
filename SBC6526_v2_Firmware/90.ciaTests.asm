@@ -14,19 +14,6 @@
 //
 // -----------------------------------------------------------------------------
 
-					// bypass menu
- 					// jmp test0041
-
- 					lda #$08
- 					sta CIA1_CRGA			// CIA 1 oneshot
- 					lda #$FE
- 					sta CIA1_TAHI			// LOAD CIA2
- 					lda CIA1_TALO
- 					sta CIA1_DDRA
-
- 					jmp jmp_displayCIA1
-
-
 // -----------------------------------------------------------------------------
 // Initialization
 // -----------------------------------------------------------------------------
@@ -909,6 +896,7 @@ test0025:  			jsr printTest
 
 					lda #%01000001				
 					sta CIA1_CRGA 				// START timera and SPOUT
+
 					ldx #$AA
 					stx CIA1_SDR 				// Write to PORT OUT
 
@@ -1243,56 +1231,57 @@ test0035:  			jsr printTest
 					and CIA2_PRTB
 					bne test0035_ko 			// If PB7 != 0
 
-					lda #$07
-					sta CIA2_CRGB 				// Start time, PB7 as out,
-												// And toggle
 
-					lda #$80
-					and CIA2_PRTB
-					beq	test0035_ko				// Just started, if PB6 7=1
-												// This loop takes 7 cycles
-												// So each test, it should've
-												// toggled!
-
-					lda #$80
-					and CIA2_PRTB
-					bne	test0035_ko
-
-					lda #$80
-					and CIA2_PRTB
-					beq	test0035_ko
-
-					lda #$80
-					and CIA2_PRTB
-					bne	test0035_ko
-
-					lda #$80
-					and CIA2_PRTB
-					beq	test0035_ko															
-
-					lda #$80
-					and CIA2_PRTB
-					bne	test0035_ko
-
-					lda #$80
-					and CIA2_PRTB
-					beq	test0035_ko															
-
-					lda #$80
-					and CIA2_PRTB
-					bne	test0035_ko
-
-					lda #$80
-					and CIA2_PRTB
-					beq	test0035_ko															
-
-					lda #$80
-					and CIA2_PRTB
-					bne	test0035_ko
-
-					lda #$80
-					and CIA2_PRTB
-					beq	test0035_ko															
+ 					lda #$07
+ 					sta CIA2_CRGB 				// Start time, PB7 as out,
+ 												// And toggle
+ 
+ 					lda #$80
+ 					and CIA2_PRTB
+ 					beq	test0035_ko				// Just started, if PB6 7=1
+ 												// This loop takes 7 cycles
+ 												// So each test, it should've
+ 												// toggled!
+ 
+ 					lda #$80
+ 					and CIA2_PRTB
+ 					bne	test0035_ko
+ 
+ 					lda #$80
+ 					and CIA2_PRTB
+ 					beq	test0035_ko
+ 
+ 					lda #$80
+ 					and CIA2_PRTB
+ 					bne	test0035_ko
+ 
+ 					lda #$80
+ 					and CIA2_PRTB
+ 					beq	test0035_ko															
+ 
+ 					lda #$80
+ 					and CIA2_PRTB
+ 					bne	test0035_ko
+ 
+ 					lda #$80
+ 					and CIA2_PRTB
+ 					beq	test0035_ko															
+ 
+ 					lda #$80
+ 					and CIA2_PRTB
+ 					bne	test0035_ko
+ 
+ 					lda #$80
+ 					and CIA2_PRTB
+ 					beq	test0035_ko															
+ 
+ 					lda #$80
+ 					and CIA2_PRTB
+ 					bne	test0035_ko
+ 
+ 					lda #$80
+ 					and CIA2_PRTB
+ 					beq	test0035_ko															
 					jsr printOK	
 					jmp test0035_end
 test0035_ko:  		jsr printKO
@@ -1657,6 +1646,90 @@ test0041: 			jsr printTest
 test0041_ko:		jsr printKO
 test0041_end:
 
+// Start OF ICR tests. First, just test if IRQ is detected
+
+// Init. ACK and disable all interrupt sources
+					jsr ciaReset
+					jsr krnLongDelay
+ 					sei 					// disable CPU IRQ
+ 											// VIA's on NMI
+ 					lda #%01000000
+ 					sta VIA_IER				// Disable VIA INTERRUPT
+
+ 					lda #%00011111
+ 					sta CIA2_ICR
+ 					lda CIA2_ICR			// DISABLE and CLEAR ICR
+
+// STOP 60Hz tod ticker
+					// PB0 en la via se debe poner HIGH (es tod enable)
+					lda VIA_DDRB
+					ora #%00000001    
+					sta VIA_DDRB			// PB0 as output, (TODENABLE) others unchanged
+	
+					lda VIA_PRTB
+					ora #%00000001
+					sta VIA_PRTB			// PB0 high, others, unchanged
+	
+					lda VIA_DDRB
+					ora #%01000000    
+					sta VIA_DDRB			// PB6 as output, (TOD) others unchanged
+
+					jsr krnLongDelay		// arduino ha soltado tod	
+
+// Test 0042
+// Tests if TA interrupt is detected and then cleared
+
+test0042: 			jsr printTest
+					jsr ciaReset
+
+ 					lda #$01
+ 					sta CIA2_TAHI
+ 					sta CIA2_CRGA			// START TA
+ 											// Overflow should set TA BIT
+
+       				jsr krnLongDelay 		// Wait some time for IRQ
+ 					lda CIA2_ICR			// LOAD ICR
+ 					cmp #$01  				// TA SET
+ 					bne test0042_ko
+
+ 					lda CIA2_ICR			// LOAD ICR . Should be 0
+ 					beq test0042_ok			// If 0
+
+test0042_ko:		jsr printKO
+					jmp test0042_end
+test0042_ok:		jsr printOK
+test0042_end:	
+
+// Test 0043
+// Tests if TB interrupt is detected and then cleared
+
+test0043: 			jsr printTest
+					jsr ciaReset
+
+ 					lda #$01
+ 					sta CIA2_TBHI
+ 					sta CIA2_CRGB			// START TA
+ 											// Overflow should set TA BIT
+
+       				jsr krnLongDelay 		// Wait some time for IRQ
+ 					lda CIA2_ICR			// LOAD ICR
+ 					cmp #$02  				// TA SET
+ 					bne test0043_ko
+
+ 					lda CIA2_ICR			// LOAD ICR . Should be 0
+ 					beq test0043_ok			// If 0
+ 					
+test0043_ko:		
+					jsr printKO
+ 					jmp test0043_end
+test0043_ok:		
+					jsr printOK
+test0043_end:					
+
+
+
+
+
 // Exit
 			jmp ciaTestsEnd
 
@@ -1925,11 +1998,15 @@ printTotal:
 			lda #%11000000
 			sta VIA_IER					// Reenable VIA IRQ
 				
-			jmp endendendend
 
 // -----------------------------------------------------------------------------
 // Draft Area
 // -----------------------------------------------------------------------------
+
+// Skip execution of all this sh**
+
+			jmp endendendend
+
 
 
 // tests. PORTS _ TEST PC PULSE!
@@ -2066,7 +2143,7 @@ loadTenths:
 //////////////////////////////////////
 ciaIRQ:
 				inc $7008
-				lda CIA2_ICR		// CREAR CIA IRQ
+				lda CIA2_ICR		// CLEAR CIA IRQ
 				jsr printTOD2
 				rti
 

@@ -121,7 +121,7 @@ ciaReset:
 			lda VIA_PRTA
 			and #$FE 				
 			sta VIA_PRTA			// /CIARES PULLED LOW
-			jsr krnShortDelay
+			jsr krnLongDelay
 			ora #$01
 			sta VIA_PRTA			// /CIARES PULLED HIGH
 			pla
@@ -734,12 +734,6 @@ noKeyKbdScan:
 endKbdScan:
 			pla
 			rts
-	lda #$00
-	sta $00
-	lda #$FF
-	sta $01
-
-	jmp programEnd
 
 kbdWaitOK:
 	bbr2 KEY_PRESSED, kbdWaitOK	// Si no esta pulsado, esperamos
@@ -760,6 +754,6 @@ programEnd:		jmp programEnd
 *=$FFFA "VECTORS"
 vecNMI:		.word viaISR 			// NMI
 vecRES:		.word reset  			// Reset
-vecIRQ:		.word reset  			// IRQ/BRK
+vecIRQ:		.word viaISR  			// IRQ/BRK
 
 // VECTORS ///////////////////////////////////////////////////////////////////
