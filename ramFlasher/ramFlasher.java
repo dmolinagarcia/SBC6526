@@ -103,14 +103,13 @@ public class ramFlasher {
 			} catch (Exception e) { e.printStackTrace(); }
 			Thread.sleep(10);
 
-		
 		for (int block = 0; block < blocks; block++) {
 			
 			comando = "B " + Integer.toHexString(startAddress+block_size*block).toUpperCase() + " 00 " + 
 			                        padLeftZeros(Integer.toHexString(block_size).toUpperCase() + "\n",5);
 			b = comando.getBytes();
 		    port.writeBytes(b, b.length);
-	        Thread.sleep(5);
+	        Thread.sleep(4);
 			try {
 				while (true) {
 					caracter = (char)in.read();
@@ -123,7 +122,7 @@ public class ramFlasher {
 			} catch (Exception e) { e.printStackTrace(); }
 			//Thread.sleep(5);
 			port.writeBytes (ram, block_size, block*block_size);
-			Thread.sleep(5);
+			Thread.sleep(4);
 			
 			try {
 				while (true) {
