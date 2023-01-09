@@ -89,14 +89,11 @@ ISR(TIMER1_COMPA_vect){
   // TO-DO if todenable=1, set pin as input
   // Something wrong with analog read inside ISR
   // Never reads,so it's always stopped
-  // if (analogRead(A7) > 250) 
-    pinMode (TOD, INPUT);
-  //else {
-  //  pinMode (TOD, OUTPUT);
-  //  PINB = PINB | 0b00100000; // toggle TOD
-  //  delayMicroseconds(4);
-  //  PINB = PINB | 0b00100000; // toggle TOD
-  //}
+  if (DDRB & 0b00100000) {  // If output
+     PINB = PINB | 0b00100000; // toggle TOD
+     delayMicroseconds(4);
+     PINB = PINB | 0b00100000; // toggle TOD
+  }
 }
 
 // Fast Shiftout
@@ -204,6 +201,8 @@ void readCommand() {
       c = Serial.read();
       cmdbuf[idx++] = c;
     }
+    if (analogRead(A7) > 250)  pinMode (TOD, INPUT);
+    else                       pinMode (TOD, OUTPUT);
   }
   while (c != '\n' && idx < (COMMANDSIZE)); //save the last '\0' for string end
   //change last newline to '\0' termination

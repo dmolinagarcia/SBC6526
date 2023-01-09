@@ -14,11 +14,14 @@
 //
 // -----------------------------------------------------------------------------
 
-// lda #$48
-// sta testNo 
-// dec
-// sta testOK 
-// jmp testIRQfire
+
+// STOP 60Hz tod ticker
+
+lda #$42
+sta testNo 
+dec
+sta testOK 
+// jmp testIRQ
 
 #import "91.ciaTestsInit.asm"
 #import "92.ciaTestsDdrPort.asm"

@@ -13,22 +13,7 @@ testIRQ:
  					sta CIA2_ICR
  					lda CIA2_ICR			// DISABLE and CLEAR ICR
 
-// STOP 60Hz tod ticker
-					// PB0 en la via se debe poner HIGH (es tod enable)
-					lda VIA_DDRB
-					ora #%00000001    
-					sta VIA_DDRB			// PB0 as output, (TODENABLE) others unchanged
-	
-					lda VIA_PRTB
-					ora #%00000001
-					sta VIA_PRTB			// PB0 high, others, unchanged
-	
-					lda VIA_DDRB
-					ora #%01000000    
-					sta VIA_DDRB			// PB6 as output, (TOD) others unchanged
-
-					jsr krnLongDelay		// arduino ha soltado tod	
-
+ 					jsr enableTodFromVia    // Disable Tod from Arduino
 // Test 0042
 // Tests if TA interrupt is detected and then cleared
 
@@ -111,13 +96,7 @@ test0044: 			jsr printTest
 					sta CIA2_TODT
 // TICK tod using VIA
 					ldx #$FF
-tictoc1:			lda VIA_PRTB
-					ora #%01000000
-					sta VIA_PRTB			// PB6 high, others, unchanged
-					and #%10111111
-					sta VIA_PRTB			// PB6 low, others, unchanged
-					dex 
-					bne tictoc1
+					jsr tickTodFromVia		// Tick FF times
 
  					lda CIA2_ICR			// LOAD ICR
  					cmp #$04  				// TOD SET
@@ -256,6 +235,8 @@ irqTestVector:
 					ldy CIA1_TBHI
 					ldx CIA1_TBLO		// Return TBHI TBLO in YYXX
 										// Ready for the scrPrint16
+                    sty $C0
+                    stx $C1										
 					rti									
 
 // test0048
@@ -303,3 +284,96 @@ test0049:			jsr printTest
 					jmp test0049_end
 test0049_ko:		jsr printKO
 test0049_end:
+
+// Test 0050
+// Test TOD Alarm IRQ
+
+					lda #$00
+					sta $C0 
+					sta $C1
+
+test0050:			jsr printTest
+					jsr ciaReset			// Reset both cias
+					lda #$01
+					sta CIA1_CRGB			// CIA1 TB is our timestamp
+					lda #%10000100
+ 					sta CIA2_ICR			// Enable TOD IRQs
+// Set Alarm
+// 01.01.02.09
+					lda #$80
+					sta CIA2_CRGB 					// ALARM=1
+					lda #$01
+					sta CIA2_TODH
+					lda #$01
+					sta CIA2_TODM
+					lda #$02
+					sta CIA2_TODS
+					lda #$09
+					sta CIA2_TODT
+					lda #$00
+					sta CIA2_CRGB 					// ALARM=0
+// Set TOD
+// 01.01.00.01
+					lda #$01
+					sta CIA2_TODH
+					lda #$01
+					sta CIA2_TODM
+					lda #$00
+					sta CIA2_TODS
+					lda #$01
+					sta CIA2_TODT
+ 					jsr enableTodFromVia    // Disable Tod from Arduino
+
+// TICK tod using VIA
+					ldx #$FF
+					jsr tickTodFromVia
+
+					ldy $c0						// Reload TB vales
+					ldx $c1
+
+					cpy #$F1					// F1A1 or F19F
+					bne test0050_ko		
+					cpx #$A1
+					beq test0050_ok
+					cpx #$9F
+					beq test0050_ok
+test0050_ko:		jsr printKO
+					jmp test0050_end
+test0050_ok:		jsr printOK
+test0050_end:	
+
+// Test 0051
+// Test SDR interrupt on send
+
+test0051:			jsr printTest
+					jsr ciaReset				// Reset both cias
+					lda #$01
+					sta CIA1_CRGB				// CIA1 TB is our timestamp
+
+					lda #%10001000
+					sta CIA2_ICR				// Enable SDR IRQs
+
+					lda #%01000000
+					sta CIA2_CRGA				// CIA2 SPMODE = OUTPUT											
+
+					lda #$FC
+					sta CIA2_TALO 				// CIA2 TA = 02FC
+					lda #$02
+					sta CIA2_TAHI
+
+					lda #%01000001				
+					sta CIA2_CRGA 				// START timera and SPOUT
+
+					ldx #$AA
+					stx CIA2_SDR 				// Write to PORT OUT		
+
+					wai 	
+
+					cpy #$D2
+					bne test0051_ko
+					cpx #$EB
+					bne test0051_ko
+					jsr printOK
+					jmp test0051_end
+test0051_ko:		jsr printKO
+test0051_end:

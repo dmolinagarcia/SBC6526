@@ -63,6 +63,16 @@ viaInit:
 			sta VIA_DDRA			// PA0     : ciaReset
 									// PA1-PA7 : LCD
 									// PA      : All Outputs
+
+									// Enable TOD from arduino
+			lda VIA_DDRB
+			ora #%00000001    
+			sta VIA_DDRB			// PB0 as output, (TODENABLE) others unchanged
+	
+			lda VIA_PRTB
+			and #%11111110
+			sta VIA_PRTB			// PB0 Low, others, unchanged
+
 			pla
 			rts
 
@@ -132,12 +142,60 @@ ciaTodStart:
 			pha
 	 		lda #$12			
 	 		sta CIA1_TODH			// 12 AM
+	 		sta CIA2_TODH
 	 		lda #$00
  			sta CIA1_TODM
 			sta CIA1_TODS
 			sta CIA1_TODT			// AM 12:00:00.0
+			sta CIA2_TODM
+			sta CIA2_TODS
+			sta CIA2_TODT
  			pla
 			rts
+
+// -----------------------------------------------------------------------------
+// TOD
+// -----------------------------------------------------------------------------
+
+enableTodFromVia:	
+					pha 
+
+					lda VIA_PRTB
+					ora #%00000001
+					sta VIA_PRTB			// PB0 high, others, unchanged
+	
+					lda VIA_DDRB
+					ora #%01000000    
+					sta VIA_DDRB			// PB6 as output, (TOD) others unchanged
+
+					pla
+					rts
+
+disableTodFromVia:					
+					pha 
+
+					lda VIA_DDRB
+					and #%10111111
+					sta VIA_DDRB			// PB6 as input, (TOD) others unchanged
+
+					lda VIA_PRTB
+					and #%11111110
+					sta VIA_PRTB			// PB0 Low, others, unchanged	
+
+					pla
+					rts		
+
+tickTodFromVia:
+											// Ticks TOD X times
+					lda VIA_PRTB
+					ora #%01000000
+					sta VIA_PRTB			// PB6 high, others, unchanged
+					and #%10111111
+					sta VIA_PRTB			// PB6 low, others, unchanged	
+					dex 
+					bne tickTodFromVia					
+					rts
+
 
 // -----------------------------------------------------------------------------
 // Kernal
@@ -584,6 +642,7 @@ scrPrint8:
 // Prints in HEX 8bit value in AA
 				pha
 				pha 
+				clc
 				and #$F0
 				ror
 				ror
@@ -606,6 +665,7 @@ scrPrint16:
 				phy 
 				phx
 				
+				clc 
 				tya
 				and #$F0
 				ror
@@ -616,11 +676,13 @@ scrPrint16:
 				jsr scrPrintChar
 				
 				tya
+				clc
 				and #$0F
 				jsr nib2hex
 				jsr scrPrintChar
 
 				txa
+				clc
 	            and #$F0
 				ror
 				ror
