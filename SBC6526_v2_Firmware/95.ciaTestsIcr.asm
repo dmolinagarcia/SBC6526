@@ -377,3 +377,73 @@ test0051:			jsr printTest
 					jmp test0051_end
 test0051_ko:		jsr printKO
 test0051_end:
+
+// Test 0052
+// Test SDR interrupt on receive
+
+test0052:			jsr printTest
+					jsr ciaReset				// Reset both cias
+					lda #$01
+					sta CIA1_CRGB				// CIA1 TB is our timestamp
+
+					lda #%10001000
+					sta CIA2_ICR				// Enable SDR IRQs
+
+					lda #%01000000
+					sta CIA1_CRGA				// CIA1 SPMODE = OUTPUT		
+
+					lda #$F3
+					sta CIA1_TALO 				// CIA1 TA = 00FF
+					lda #$05
+					sta CIA1_TAHI
+
+					lda #%01000001				
+					sta CIA1_CRGA 				// CIA1  START timera and SPOUT
+
+					ldx #$AA
+					stx CIA1_SDR 				// Write to CIA 1 PORT OUT	
+
+					wai 
+
+					cpy #$A0 
+					bne test0052_ko
+					cpx #$7B
+					bne test0052_ko
+					jsr printOK
+					jmp test0052_end
+test0052_ko:		jsr printKO
+test0052_end:
+
+// Test 0053
+// Interrupt on Flag
+
+test0053:			jsr printTest
+					jsr ciaReset				// Reset both cias
+					lda #$01
+					sta CIA1_CRGB				// CIA1 TB is our timestamp
+
+					lda #$00
+					sta $C0 
+					sta $C1
+
+					lda #%10010000
+					sta CIA2_ICR				// Enable SDR IRQs
+
+					jsr krnLongDelay
+					jsr krnLongDelay
+
+					lda CIA1_PRTB
+
+					jsr krnLongDelay
+
+					ldy $c0						// Reload TB vales
+					ldx $c1
+
+					cpy #$DD 
+					bne test0053_ko
+					cpx #$C6
+					bne test0053_ko
+					jsr printOK
+					jmp test0053_end
+test0053_ko:		jsr printKO
+test0053_end:					
