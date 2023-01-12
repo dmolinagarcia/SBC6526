@@ -1,8 +1,7 @@
 // -----------------------------------------------------------------------------
 // Register Detection                                            
 // -----------------------------------------------------------------------------
-
-// Skip variable area
+		// Skip variable area
 						jmp registerDetection
 
 						.const TOD_PRESENT		= %00100000
@@ -13,9 +12,9 @@
 						.const DDR_PRESENT		= %00000001
 
 reg_present:
-						.byte  REG_PRESENT		$00
+						.byte  $00
 
-registerDetection:		lda REG_PRESENT
+registerDetection:		lda reg_present
 						jsr ciaReset
 						ldx CIA2_DDRA
 						bne registerDetection1					// IF equals 0, not jump, as DDR is PRESENT
@@ -35,7 +34,12 @@ registerDetection4:		ldx CIA2_SDR
 registerDetection5:		ldx CIA2_TODM
 						bne registerDetection6					// IF equals 0, not jump, as ICR is PRESENT
 						ora #TOD_PRESENT						
-registerDetection6:     sta REG_PRESENT
+registerDetection6:     sta reg_present
+
+
+jsr scrPrint8
+
+parate: jmp parate
 
 // -----------------------------------------------------------------------------
 // Initialization
