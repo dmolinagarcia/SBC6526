@@ -1,4 +1,43 @@
 // -----------------------------------------------------------------------------
+// Register Detection                                            
+// -----------------------------------------------------------------------------
+
+// Skip variable area
+						jmp registerDetection
+
+						.const TOD_PRESENT		= %00100000
+						.const SDR_PRESENT		= %00010000
+						.const ICR_PRESENT		= %00001000
+						.const TMB_PRESENT  	= %00000100
+						.const TMA_PRESENT 		= %00000010
+						.const DDR_PRESENT		= %00000001
+
+reg_present:
+						.byte  REG_PRESENT		$00
+
+registerDetection:		lda REG_PRESENT
+						jsr ciaReset
+						ldx CIA2_DDRA
+						bne registerDetection1					// IF equals 0, not jump, as DDR is PRESENT
+						ora #DDR_PRESENT
+registerDetection1:		ldx CIA2_CRGA
+						bne registerDetection2					// IF equals 0, not jump, as TMA is PRESENT
+						ora #TMA_PRESENT						
+registerDetection2:		ldx CIA2_CRGB
+						bne registerDetection3					// IF equals 0, not jump, as TMB is PRESENT
+						ora #TMB_PRESENT						
+registerDetection3:		ldx CIA2_ICR
+						bne registerDetection4					// IF equals 0, not jump, as ICR is PRESENT
+						ora #ICR_PRESENT						
+registerDetection4:		ldx CIA2_SDR
+						bne registerDetection5					// IF equals 0, not jump, as ICR is PRESENT
+						ora #SDR_PRESENT						
+registerDetection5:		ldx CIA2_TODM
+						bne registerDetection6					// IF equals 0, not jump, as ICR is PRESENT
+						ora #TOD_PRESENT						
+registerDetection6:     sta REG_PRESENT
+
+// -----------------------------------------------------------------------------
 // Initialization
 // -----------------------------------------------------------------------------
 ciaTestStart:
