@@ -13,6 +13,9 @@
 
 reg_present:
 						.byte  $00
+icr_mask:
+						.byte  %11110011		
+						// TOD and SDR disables initialy. If present, enable them
 
 registerDetection:		lda reg_present
 						jsr ciaReset
@@ -29,17 +32,22 @@ registerDetection3:		ldx CIA2_ICR
 						bne registerDetection4					// IF equals 0, not jump, as ICR is PRESENT
 						ora #ICR_PRESENT						
 registerDetection4:		ldx CIA2_SDR
-						bne registerDetection5					// IF equals 0, not jump, as ICR is PRESENT
+						bne registerDetection5					// IF equals 0, not jump, as SDR is PRESENT
 						ora #SDR_PRESENT						
+						pha 
+						lda icr_mask
+						ora #%00001000
+						sta icr_mask
+						pla
 registerDetection5:		ldx CIA2_TODM
-						bne registerDetection6					// IF equals 0, not jump, as ICR is PRESENT
+						bne registerDetection6					// IF equals 0, not jump, as TOD is PRESENT
 						ora #TOD_PRESENT						
+						pha 
+						lda icr_mask
+						ora #%00000100
+						sta icr_mask
+						pla						
 registerDetection6:     sta reg_present
-
-
-jsr scrPrint8
-
-parate: jmp parate
 
 // -----------------------------------------------------------------------------
 // Initialization

@@ -17,6 +17,7 @@ testIRQ:
 // Test 0042
 // Tests if TA interrupt is detected and then cleared
 
+
 test0042: 			jsr printTest
 					jsr ciaReset
 
@@ -27,16 +28,20 @@ test0042: 			jsr printTest
 
        				jsr krnLongDelay 		// Wait some time for IRQ
  					lda CIA2_ICR			// LOAD ICR
+ 					and icr_mask
  					cmp #$01  				// TA SET
  					bne test0042_ko
 
  					lda CIA2_ICR			// LOAD ICR . Should be 0
+ 					and icr_mask
  					beq test0042_ok			// If 0
 
 test0042_ko:		jsr printKO
 					jmp test0042_end
 test0042_ok:		jsr printOK
 test0042_end:	
+
+
 
 // Test 0043
 // Tests if TB interrupt is detected and then cleared
@@ -51,10 +56,12 @@ test0043: 			jsr printTest
 
        				jsr krnLongDelay 		// Wait some time for IRQ
  					lda CIA2_ICR			// LOAD ICR
+ 					and icr_mask
  					cmp #$02  				// TA SET
  					bne test0043_ko
 
  					lda CIA2_ICR			// LOAD ICR . Should be 0
+ 					and icr_mask
  					beq test0043_ok			// If 0
  					
 test0043_ko:		
@@ -65,11 +72,18 @@ test0043_ok:
 test0043_end:					
 
 
+
 // Test0044
 // Tests if TOD Alarm fires interrupt
 
 test0044: 			jsr printTest
 					jsr ciaReset
+
+// Check if TOD is Present
+					lda reg_present
+					and #TOD_PRESENT
+					beq test0044_na
+
 // Set Alarm
 // 01.01.01.08
 					lda #$80
@@ -99,14 +113,19 @@ test0044: 			jsr printTest
 					jsr tickTodFromVia		// Tick FF times
 
  					lda CIA2_ICR			// LOAD ICR
+ 					and icr_mask
  					cmp #$04  				// TOD SET
  					bne test0044_ko
 
  					lda CIA2_ICR			// LOAD ICR . Should be 0
+ 					and icr_mask
  					beq test0044_ok			// If 0
  					
 test0044_ko:		
 					jsr printKO
+ 					jmp test0044_end
+test0044_na:
+					jsr printNA 					
  					jmp test0044_end
 test0044_ok:		
 					jsr printOK
@@ -117,6 +136,11 @@ test0044_end:
 
 test0045: 			jsr printTest
 					jsr ciaReset
+
+// Check if SDR is Present
+					lda reg_present
+					and #SDR_PRESENT
+					beq test0045_na
 
 // SDR Send
 					lda #%01000000
@@ -136,14 +160,19 @@ test0045: 			jsr printTest
 					jsr krnLongDelay 			// Wait for SEND			
 
  					lda CIA2_ICR				// LOAD ICR
+ 					and icr_mask
  					cmp #$09  					// SDR and TA SET
  					bne test0045_ko
 
  					lda CIA2_ICR				// LOAD ICR . Should be 0
+ 					and icr_mask
  					beq test0045_ok				// If 0
  					
 test0045_ko:		
 					jsr printKO
+ 					jmp test0045_end
+test0045_na:
+					jsr printNA 					
  					jmp test0045_end
 test0045_ok:		
 					jsr printOK
@@ -154,6 +183,11 @@ test0045_end:
 
 test0046: 			jsr printTest
 					jsr ciaReset
+
+// Check if SDR is Present
+					lda reg_present
+					and #SDR_PRESENT
+					beq test0046_na
 
 					lda #%00000000
 					sta CIA2_CRGA				// CIA2 SPMODE = INPUT											
@@ -175,14 +209,19 @@ test0046: 			jsr printTest
 					jsr krnLongDelay
 
  					lda CIA2_ICR				// LOAD ICR
+ 					and icr_mask
  					cmp #$08  					// SDR SET
  					bne test0046_ko
 
  					lda CIA2_ICR				// LOAD ICR . Should be 0
+ 					and icr_mask
  					beq test0046_ok				// If 0
  					
 test0046_ko:		
 					jsr printKO
+ 					jmp test0046_end
+test0046_na:
+					jsr printNA 					
  					jmp test0046_end
 test0046_ok:		
 					jsr printOK
@@ -197,10 +236,13 @@ test0047: 			jsr printTest
 					lda CIA1_PRTB				// READ PRTB CIA1, triggers nPC
 
  					lda CIA2_ICR				// LOAD ICR
+ 					and icr_mask
+
  					cmp #$10  					// FLAG SET
  					bne test0047_ko
 
  					lda CIA2_ICR				// LOAD ICR . Should be 0
+ 					and icr_mask
  					beq test0047_ok				// If 0
  					
 test0047_ko:		
@@ -210,8 +252,11 @@ test0047_ok:
 					jsr printOK
 test0047_end:		
 
+
 // Here we start with the IRQ tests
 // Some initial setup is needed
+
+
 
 testIRQfire:
 					jsr ciaReset		// Reset CIA, just in case
@@ -262,6 +307,9 @@ test0048:			jsr printTest
 test0048_ko:		jsr printKO
 test0048_end:					
 
+
+
+
 // test0049
 // Test TB firing interrupt
 
@@ -285,6 +333,7 @@ test0049:			jsr printTest
 test0049_ko:		jsr printKO
 test0049_end:
 
+
 // Test 0050
 // Test TOD Alarm IRQ
 
@@ -294,6 +343,12 @@ test0049_end:
 
 test0050:			jsr printTest
 					jsr ciaReset			// Reset both cias
+
+// Check if TOD is Present
+					lda reg_present
+					and #TOD_PRESENT
+					beq test0050_na
+
 					lda #$01
 					sta CIA1_CRGB			// CIA1 TB is our timestamp
 					lda #%10000100
@@ -339,6 +394,9 @@ test0050:			jsr printTest
 					beq test0050_ok
 test0050_ko:		jsr printKO
 					jmp test0050_end
+test0050_na:
+					jsr printNA 					
+ 					jmp test0050_end
 test0050_ok:		jsr printOK
 test0050_end:	
 
@@ -347,6 +405,12 @@ test0050_end:
 
 test0051:			jsr printTest
 					jsr ciaReset				// Reset both cias
+
+// Check if SDR is Present
+					lda reg_present
+					and #SDR_PRESENT
+					beq test0051_na
+
 					lda #$01
 					sta CIA1_CRGB				// CIA1 TB is our timestamp
 
@@ -375,6 +439,9 @@ test0051:			jsr printTest
 					bne test0051_ko
 					jsr printOK
 					jmp test0051_end
+test0051_na:
+					jsr printNA 					
+ 					jmp test0051_end
 test0051_ko:		jsr printKO
 test0051_end:
 
@@ -383,6 +450,12 @@ test0051_end:
 
 test0052:			jsr printTest
 					jsr ciaReset				// Reset both cias
+
+// Check if SDR is Present
+					lda reg_present
+					and #SDR_PRESENT
+					beq test0052_na
+
 					lda #$01
 					sta CIA1_CRGB				// CIA1 TB is our timestamp
 
@@ -411,6 +484,9 @@ test0052:			jsr printTest
 					bne test0052_ko
 					jsr printOK
 					jmp test0052_end
+test0052_na:
+					jsr printNA 					
+ 					jmp test0052_end
 test0052_ko:		jsr printKO
 test0052_end:
 

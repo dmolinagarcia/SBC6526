@@ -188,6 +188,28 @@ printOK:
 			plx
 			rts
 
+printNA:
+			phx
+			phy
+			pha
+			ldx #<str_txtNA
+			ldy #>str_txtNA
+			jsr scrPrintStr
+		// Increment OK TEST counter
+			sed
+			lda testOK
+			clc
+			adc #$01
+			sta testOK
+			cmp #$00
+			beq incrementNextOK
+			cld
+			pla
+			ply
+			plx
+			rts
+
+
 	incrementNextOK:
 			lda testOK+1
 			clc
@@ -227,6 +249,10 @@ str_txtOK:
 
 str_txtKO:
 			.text "   ( KO ) "
+			.byte $00
+
+str_txtNA:
+			.text "   (    ) "
 			.byte $00
 
 str_total:  .text "   OK "
