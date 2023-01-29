@@ -15,7 +15,7 @@
 // Author : Daniel Molina 
 // https://github.com/dmolinagarcia
 //
-// 2018 - 2021
+// 2018 - 2023
 //
 // -----------------------------------------------------------------------------
 
@@ -31,22 +31,83 @@ program: 	lda #$01
 			sta MACHINE_TYPE				// LOGISIM
 			// #import "90.ciaTests.asm"
 
-					jsr ciaReset
+sei
 
-					lda #%01000000
-					sta CIA2_CRGA				// CIA1 SPMODE = OUTPUT											
+jsr ciaReset
+ldy #$82
+sty CIA2_ICR
+lda #$03
+sta loadb+1
 
-					lda #$20
-					sta CIA2_TALO 				// CIA1 TA = 00FF
-					lda #$00
-					sta CIA2_TAHI
+ 
 
-					lda #%01000001				
-					sta CIA2_CRGA 				// START timera and SPOUT
-					ldx #$AA
-					ldy #$55
-					sty CIA2_SDR 				// Write to PORT OUT
-					// sty CIA2_SDR
+// CIA 1 fires IRQ
+
+lda #<nmi
+sta vecIRQ
+lda #>nmi
+sta vecIRQ+1
+
+cli
+
+
+
+test:
+ldx #$00
+stx $AA
+
+ldy #$82
+sty CIA2_ICR
+ldy #$FF
+sty CIA1_TALO
+ldy #$00
+sty CIA1_TAHI
+
+ldy #$d5
+sty CIA1_CRGA
+
+loada:
+	ldy #$10
+	sty CIA2_TALO
+	ldy #$00
+	sty CIA2_TAHI
+forceloada:
+	ldy #$d5
+	sty CIA2_CRGA
+
+loadb:
+	ldy #$01
+	sty CIA2_TBLO
+	ldy #$00
+	sty CIA2_TBHI
+forceloadb:
+	ldy #$d9
+	sty CIA2_CRGB
+
+// Wait for irq
+waitfornmi:
+	ldy $AA
+	cpy #$01
+	bne waitfornmi
+
+jmp test
+
+nmi:
+	pha 
+	lda CIA1_TALO
+incHere:	
+	sta $0600
+	inc incHere+1
+	lda CIA2_ICR
+ 	pla
+ 	ldx loadb+1
+ 	dex 
+ 	stx loadb+1
+ 	cpx #$FF
+ 	beq codeEnd
+ 	inc $AA
+	rti
+
 
 
 codeEnd:	jmp codeEnd

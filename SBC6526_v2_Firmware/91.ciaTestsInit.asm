@@ -15,7 +15,7 @@ reg_present:
 						.byte  $00
 icr_mask:
 						.byte  %11110011		
-						// TOD and SDR disables initialy. If present, enable them
+						// TOD and SDR disabled initialy. If present, enable them
 
 registerDetection:		lda reg_present
 						jsr ciaReset

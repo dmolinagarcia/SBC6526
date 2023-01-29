@@ -14,7 +14,7 @@
 // Author : Daniel Molina 
 // https://github.com/dmolinagarcia
 //
-// 2018 - 2022
+// 2018 - 2023
 //
 // -----------------------------------------------------------------------------
 // Ensure all subroutines return with A,X,Y unchanged!!
@@ -637,6 +637,35 @@ scrSetWindowEnd:
 			plx
 			pla
 			rts
+
+scrPrint8bin:
+// Prints in binary 8bit value in AA
+				pha 
+				phx 
+
+				ldx #$08 
+scrPrint8bin_start:				
+				rol 					// 7th bit into carry
+				pha 
+				bcc scrPrint8bin_zero   // Branch if carry is 0
+
+				lda #$31				// Else print 1
+				jsr scrPrintChar
+				jmp scrPrint8bin_next
+scrPrint8bin_zero:
+				lda #$30
+				jsr scrPrintChar
+scrPrint8bin_next:
+				pla 
+				dex 
+				bne scrPrint8bin_start
+
+				plx
+				pla 
+				rts 
+				
+
+
 
 scrPrint8:
 // Prints in HEX 8bit value in AA

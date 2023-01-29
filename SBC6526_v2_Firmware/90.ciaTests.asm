@@ -10,18 +10,10 @@
 // Author : Daniel Molina 
 // https://github.com/dmolinagarcia
 //
+
 // 2018 - 2023
 //
 // -----------------------------------------------------------------------------
-
-
-// lda #$42
-// sta testNo 
-// dec
-// sta testOK 
-// jmp testIRQ
-
-
 
 
 #import "91.ciaTestsInit.asm"
@@ -30,3 +22,7 @@
 #import "94.ciaTestsCregTimerB.asm"
 #import "95.ciaTestsIcr.asm"
 #import "99.ciaTestsEnd.asm"
+
+jsr kbdWaitOK
+jmp reset
+

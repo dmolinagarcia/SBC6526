@@ -454,7 +454,7 @@ test0052:			jsr printTest
 // Check if SDR is Present
 					lda reg_present
 					and #SDR_PRESENT
-					beq test0052_na
+					jmp test0052_na
 
 					lda #$01
 					sta CIA1_CRGB				// CIA1 TB is our timestamp

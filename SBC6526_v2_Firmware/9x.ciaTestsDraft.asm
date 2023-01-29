@@ -283,3 +283,387 @@ endendendend:
 
 
 
+//// 
+
+jsr ciaReset
+
+lda #%01000000
+sta CIA2_CRGA				// CIA2 SPMODE = OUTPUT											
+
+lda #$FF
+sta CIA2_TALO 				// CIA2 TA = 00FF
+lda #$FF
+sta CIA2_TAHI
+
+lda #$21
+sta CIA1_CRGB				// CIA2 counts CNT
+
+lda #%01000001				
+sta CIA2_CRGA 				// START timera and SPOUT
+ldx #$AA
+stx CIA2_SDR 				// Write to PORT OUT		
+ldx #$AA
+stx CIA2_SDR 				// Write to PORT OUT		
+
+
+jmp jmp_displayCIA1
+			
+
+
+////
+
+jsr printTest
+jsr ciaReset
+
+lda #%00000000
+sta CIA2_CRGA				// CIA2 SPMODE = INPUT											
+
+lda #%01000000
+sta CIA1_CRGA				// CIA1 SPMODE = OUTPUT		
+
+lda #$FF
+sta CIA1_TALO 				// CIA1 TA = 00FF
+lda #$00
+sta CIA1_TAHI
+
+lda #%01000001				
+sta CIA1_CRGA 				// CIA1  START timera and SPOUT
+
+ldx #$AA
+stx CIA1_SDR 				// Write to CIA 1 PORT OUT	
+
+jsr krnLongDelay
+
+				
+
+
+
+
+
+
+
+jsr ciaReset
+
+sei
+
+lda #$88
+sta CIA2_ICR				// Enable SDR interrupts
+
+lda #%01000000
+sta CIA2_CRGA				// CIA2 SPMODE = OUTPUT											
+lda #$FF
+sta CIA2_TALO 				// CIA2 TA = 00FF
+lda #$00
+sta CIA2_TAHI
+lda #%01000001				
+sta CIA2_CRGA 				// START timera and SPOUT
+
+
+lda #$21
+sta CIA1_CRGB
+
+ldx #$44
+stx CIA2_SDR 				// Write to PORT OUT		
+
+lda #$20
+delay:
+jsr krnLongDelay
+dex 
+bne delay 
+
+lda CIA2_ICR				// LOAD ICR
+jsr scrPrint8				// 89
+lda #$20
+jsr scrPrintChar
+lda CIA2_SDR
+jsr scrPrint8
+lda #$20
+jsr scrPrintChar
+lda CIA1_ICR
+jsr scrPrint8
+lda #$20
+jsr scrPrintChar
+lda CIA1_SDR
+jsr scrPrint8
+lda #$20
+jsr scrPrintChar
+lda CIA1_TBLO
+jsr scrPrint8
+
+
+// // 2 to 1 OKKKKK
+
+testSDR2to1:
+
+ldx #$00
+stx $55		// byte to send
+
+jsr ciaReset
+sei 
+lda #$88
+sta CIA2_ICR				// Enable SDR interrupts
+
+lda #%01000000
+sta CIA2_CRGA				// CIA2 SPMODE = OUTPUT											
+lda #$20
+sta CIA2_TALO 				// CIA2 TA = 00FF
+lda #$00
+sta CIA2_TAHI
+lda #%01000001				
+sta CIA2_CRGA 				// START timera and SPOUT
+
+
+lda #$21
+sta CIA1_CRGB
+
+gooooo1:
+
+
+ldx $55
+inc $55
+bne continue1
+jmp stophere
+
+continue1:
+stx CIA2_SDR 				// Write to PORT OUT		
+jsr krnLongDelay
+wai 
+
+lda CIA2_ICR				// LOAD ICR
+jsr scrPrint8				// 89   IRQ ICR and SDR
+lda #$20
+jsr scrPrintChar
+lda CIA2_SDR				// AA same as line 37
+jsr scrPrint8
+lda #$20
+jsr scrPrintChar
+lda CIA1_ICR				// 08  SDR
+jsr scrPrint8
+lda #$20
+jsr scrPrintChar
+lda CIA1_SDR				// Sames as 50, AA
+jsr scrPrint8
+lda #$20
+jsr scrPrintChar
+lda CIA1_TBLO				// F7 for single bit
+jsr scrPrint8
+lda #$20
+jsr scrPrintChar
+jsr scrPrintChar
+jsr scrPrintChar
+jsr scrPrintChar
+jsr scrPrintChar
+jsr scrPrintChar
+jsr scrSetWindow
+
+lda CIA1_SDR
+cmp CIA2_SDR
+beq gooooo1	
+jmp stophere
+
+
+
+
+//// 1 to 2
+testSDR1to2:
+
+ldx #$00
+stx $55		// byte to send
+
+jsr ciaReset
+sei 
+
+lda #$88
+sta CIA1_ICR				// Enable SDR interrupts
+
+lda #%01000000
+sta CIA1_CRGA				// CIA2 SPMODE = OUTPUT											
+lda #$10
+sta CIA1_TALO 				// CIA2 TA = 00FF
+lda #$00
+sta CIA1_TAHI
+lda #%01000001				
+sta CIA1_CRGA 				// START timera and SPOUT
+
+
+lda #$21
+sta CIA2_CRGB
+
+gooooo:
+
+
+ldx $55
+
+stx CIA1_SDR 				// Write to PORT OUT		
+
+wai 
+
+lda CIA1_ICR				// LOAD ICR
+// jsr scrPrint8				// 89   IRQ ICR and SDR
+// lda #$20
+// jsr scrPrintChar
+lda CIA1_SDR				// AA same as line 37
+jsr scrPrint8bin
+lda #$20
+jsr scrPrintChar
+lda CIA2_ICR				// 08  SDR
+// jsr scrPrint8
+// lda #$20
+// jsr scrPrintChar
+lda CIA2_SDR				// Sames as 50, AA
+jsr scrPrint8bin
+lda #$20
+jsr scrPrintChar
+// lda CIA2_TBLO				// F7 for single bit
+// jsr scrPrint8
+lda CIA2_SDR
+jsr scrPrint8
+jsr scrSetWindow
+
+inc $55
+
+lda CIA1_SDR
+cmp CIA2_SDR
+beq gooooo
+
+stophere: jmp stophere		
+
+
+
+
+
+sendONE2to1:
+
+jsr ciaReset
+sei 
+
+lda #%01000000
+sta CIA2_CRGA				// CIA2 SPMODE = OUTPUT											
+lda #$FF
+sta CIA2_TALO 				// CIA2 TA = 00FF
+lda #$00
+sta CIA2_TAHI
+lda #%01000001				
+sta CIA2_CRGA 				// START timera and SPOUT
+
+lda #$21
+sta CIA1_CRGB
+
+ldx #$AA
+stx CIA2_SDR 				// Write to PORT OUT		
+wai 
+
+lda CIA2_ICR				// LOAD ICR
+jsr scrPrint8				// 89   IRQ ICR and SDR
+lda #$20
+jsr scrPrintChar
+lda CIA2_SDR				// AA same as line 37
+jsr scrPrint8
+lda #$20
+jsr scrPrintChar
+lda CIA1_ICR				// 08  SDR
+jsr scrPrint8
+lda #$20
+jsr scrPrintChar
+lda CIA1_SDR				// Sames as 50, AA
+jsr scrPrint8
+lda #$20
+jsr scrPrintChar
+lda CIA1_TBLO				// F7 for single bit
+jsr scrPrint8
+lda #$20
+jsr scrPrintChar
+jsr scrPrintChar
+jsr scrPrintChar
+jsr scrPrintChar
+jsr scrPrintChar
+jsr scrPrintChar
+jsr scrSetWindow
+
+
+
+jmp stophere
+
+
+
+
+//////// small test for 01cmpold
+
+/*
+
+
+jsr ciaReset
+
+lda #$03
+sta loadb+1
+
+sei 
+
+// CIA 1 fires IRQ
+
+lda #<nmi
+sta vecIRQ
+lda #>nmi
+sta vecIRQ+1
+
+cli
+
+test:
+ldx #$00
+stx $AA
+
+ldy #$82
+sty CIA2_ICR
+ldy #$ff
+sta CIA1_TALO
+ldy #$00
+sty CIA1_TAHI
+ldy #$d5
+sty CIA1_CRGA
+
+loada:
+	ldy #$10
+	sty CIA2_TALO
+	ldy #$00
+	sty CIA2_TAHI
+forceloada:
+	ldy #$d5
+	sty CIA2_CRGA
+
+loadb:
+	ldy #$01
+	sty CIA2_TBLO
+	ldy #$00
+	sty CIA2_TBHI
+forceloadb:
+	ldy #$d9
+	sty CIA2_CRGB
+
+// Wait for irq
+waitfornmi:
+	ldy $AA
+	cpy #$01
+	bne waitfornmi
+
+jmp test
+
+nmi:
+	pha 
+	lda CIA1_TALO
+	jsr scrPrint8
+	lda CIA2_ICR
+ 	pla
+ 	ldx loadb+1
+ 	dex 
+ 	stx loadb+1
+ 	cpx #$FF
+ 	beq endlalala
+ 	inc $AA
+	rti
+
+
+
+endlalala: jmp stophere
+
+
+////// */
