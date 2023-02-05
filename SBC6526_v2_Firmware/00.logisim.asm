@@ -27,88 +27,10 @@
 .segment ROM [min=$0000, max=$FFFF, fill]
  
 *=$0300 "CODE" 
+reset:
 program: 	lda #$01
 			sta MACHINE_TYPE				// LOGISIM
-			// #import "90.ciaTests.asm"
-
-sei
-
-jsr ciaReset
-ldy #$82
-sty CIA2_ICR
-lda #$03
-sta loadb+1
-
- 
-
-// CIA 1 fires IRQ
-
-lda #<nmi
-sta vecIRQ
-lda #>nmi
-sta vecIRQ+1
-
-cli
-
-
-
-test:
-ldx #$00
-stx $AA
-
-ldy #$82
-sty CIA2_ICR
-ldy #$FF
-sty CIA1_TALO
-ldy #$00
-sty CIA1_TAHI
-
-ldy #$d5
-sty CIA1_CRGA
-
-loada:
-	ldy #$10
-	sty CIA2_TALO
-	ldy #$00
-	sty CIA2_TAHI
-forceloada:
-	ldy #$d5
-	sty CIA2_CRGA
-
-loadb:
-	ldy #$01
-	sty CIA2_TBLO
-	ldy #$00
-	sty CIA2_TBHI
-forceloadb:
-	ldy #$d9
-	sty CIA2_CRGB
-
-// Wait for irq
-waitfornmi:
-	ldy $AA
-	cpy #$01
-	bne waitfornmi
-
-jmp test
-
-nmi:
-	pha 
-	lda CIA1_TALO
-incHere:	
-	sta $0600
-	inc incHere+1
-	lda CIA2_ICR
- 	pla
- 	ldx loadb+1
- 	dex 
- 	stx loadb+1
- 	cpx #$FF
- 	beq codeEnd
- 	inc $AA
-	rti
-
-
+			#import "90.ciaTests.asm"
 
 codeEnd:	jmp codeEnd
 
@@ -146,6 +68,8 @@ scrPrintStrEnd:
 // Dummy functions for logisim
 // kbd and lcd functions not loaded
 // Where are these used???
+tickTodFromVia:
+			sta $8000
 kbdWaitOK:
 scrScrollUp:
 scrScrollDown:
@@ -153,6 +77,7 @@ scrInitialize:
 scrClear:
 krnDoNothing:
 scrRefresh:
+enableTodFromVia:
 			rts
 
 

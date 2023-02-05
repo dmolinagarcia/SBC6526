@@ -7,7 +7,7 @@ Writing prg file: logisim.bin
 Memory Map
 ----------
 ROM-segment:
-  $0300-$037a CODE
-  $ff00-$ff54 KERNEL
+  $0300-$12d7 CODE
+  $ff00-$ff57 KERNEL
   $fffa-$ffff VECTORS
 
