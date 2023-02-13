@@ -118,7 +118,7 @@ test0018:			jsr ciaReset
 					jsr printTest
 					lda #$01
 					sta CIA2_CRGA				// Start Timer
-					jsr krnLongDelay	 		// Wait for delay
+					jsr krnShortDelay	 		// Wait for delay
 					lda #$11 					
 					sta CIA2_CRGA 				// Force LOAD
 					jsr krnLongDelay

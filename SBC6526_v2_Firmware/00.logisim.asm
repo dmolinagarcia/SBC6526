@@ -28,7 +28,11 @@
  
 *=$0300 "CODE" 
 reset:
-program: 	lda #$01
+program:
+
+// End Test
+
+			lda #$01
 			sta MACHINE_TYPE				// LOGISIM
 			#import "90.ciaTests.asm"
 
@@ -139,3 +143,18 @@ vecRES:		.word program  			// Reset
 vecIRQ:		.word irqHand  			// IRQ/BRK
 
 // VECTORS ///////////////////////////////////////////////////////////////////
+
+
+
+// Test Results
+
+// 41 TB counts TA >> kbdOk
+// 48 KO 
+// 49 KO 
+// 50 KO 
+// 51 KO 
+// 52 NA 
+// 53 STUCK 
+
+// 41 Is normal counting
+// 48 - 53 are interrupt firing tests

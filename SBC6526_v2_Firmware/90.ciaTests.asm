@@ -16,11 +16,15 @@
 // -----------------------------------------------------------------------------
 
 
+
 #import "91.ciaTestsInit.asm"
-#import "92.ciaTestsDdrPort.asm"
+testCIA2:
+//	 #import "92.ciaTestsDdrPort.asm"
+lda #$13
+sta testNo
 #import "93.ciaTestsCregTimerA.asm"
-#import "94.ciaTestsCregTimerB.asm"
-#import "95.ciaTestsIcr.asm"
+// #import "94.ciaTestsCregTimerB.asm"
+// #import "95.ciaTestsIcr.asm"
 #import "99.ciaTestsEnd.asm"
 
 jsr kbdWaitOK

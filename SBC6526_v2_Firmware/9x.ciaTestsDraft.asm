@@ -667,3 +667,81 @@ endlalala: jmp stophere
 
 
 ////// */
+
+
+
+//// Test for 01cmp
+
+	// Test individual para 01cmp bug
+  jsr ciaReset
+  
+					lda #%01000000
+					sta VIA_IER 				// DISABLEVIA Timer 1 interrupts
+												// Prevent unexpected delays
+
+runciatest:
+loada:
+  ldy #$13
+  sty CIA2_TALO
+  ldy #$00
+  sty CIA2_TAHI
+forceloada:
+  ldy #%00010011				// 00010111 : FL PULSE PB6ON START CONT PHI2
+  sty CIA2_CRGA
+
+loadb:
+  ldy #$07
+  sty CIA2_TBLO
+  ldy #$00
+  sty CIA2_TBHI
+forceloadb:
+  ldy #%01011011				// 01011011 : FL PULSE PB7 ON START O.S TAunderflows					
+  sty CIA2_CRGB
+
+waitforbunder:					// Wait until timerb has stopped
+  lda CIA2_CRGB
+  and #$01
+  bne waitforbunder
+
+  								// Setup next test
+								// try with force load & without
+  lda forceloada+1
+  eor #$10
+  sta forceloada+1
+  and #$10
+  beq setupend
+  								// try all choices from 0x13 to 0x4
+  ldx loada+1
+  dex
+  stx loada+1
+  cpx #$03
+  bne setupend
+  ldx #$13
+  stx loada+1
+  								// try with force load & without
+  lda forceloadb+1
+  eor #$10
+  sta forceloadb+1
+  and #$10
+  beq setupend
+  								// decrement load until complete
+  ldx loadb+1
+  dex
+  stx loadb+1
+  cpx #$ff
+  bne setupend
+  								// end test
+
+  lda #$00
+  sta CIA2_CRGA
+  sta CIA2_CRGB
+  jsr printOK
+			lda #%11000000
+			sta VIA_IER					// Reenable VIA IRQ  
+  jmp programEnd
+
+setupend:
+  jmp runciatest
+
+
+

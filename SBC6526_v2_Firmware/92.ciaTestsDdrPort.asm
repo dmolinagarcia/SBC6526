@@ -2,7 +2,6 @@
 // Begin of CIA2 Testing
 // -----------------------------------------------------------------------------
 
-testCIA2:
 					lda #$01 					// Reset test value to 1
 					sta testNo					// TestNo holds running test
             		dec
