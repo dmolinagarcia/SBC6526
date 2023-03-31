@@ -118,7 +118,7 @@ test0018:			jsr ciaReset
 					jsr printTest
 					lda #$01
 					sta CIA2_CRGA				// Start Timer
-					jsr krnShortDelay	 		// Wait for delay
+					jsr krnLongDelay	 		// Wait for delay
 					lda #$11 					
 					sta CIA2_CRGA 				// Force LOAD
 					jsr krnLongDelay
@@ -129,7 +129,7 @@ test0018:			jsr ciaReset
 					lda CIA2_TALO 
 					cmp #$F7
 					bne test0018_ko
-test0018_cont:		lda CIA2_TAHI
+					lda CIA2_TAHI
 					cmp #$EE 
 					bne test0018_ko 			// Test EEF7
 					lda #$10 					

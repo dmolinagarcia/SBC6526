@@ -2,13 +2,6 @@
 // Begin of CIA2 Testing
 // -----------------------------------------------------------------------------
 
-					lda #$01 					// Reset test value to 1
-					sta testNo					// TestNo holds running test
-            		dec
-	           		sta testNo+1 				// as a 2 byte decimal
-	           		sta testOK+1
-	           		sta testOK
-            		jsr ciaReset				// Local Reset CIAs
 
 //  TEST 0001. DDRA Initialization Value
 //		RESET

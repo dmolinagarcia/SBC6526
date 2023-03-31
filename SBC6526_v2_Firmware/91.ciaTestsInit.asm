@@ -128,12 +128,21 @@ jmp_testCIA2:
 					sta VIA_IER 				// DISABLEVIA Timer 1 interrupts
 												// Prevent unexpected delays
 
+
+					lda #$01 					// Reset test value to 1
+					sta testNo					// TestNo holds running test
+            		dec
+	           		sta testNo+1 				// as a 2 byte decimal
+	           		sta testOK+1
+	           		sta testOK
+            		jsr ciaReset				// Local Reset CIAs												
+
 					jmp testCIA2 				// Jump to option
 
 // -----------------------------------------------------------------------------
 // CIA DISPLAY
 // -----------------------------------------------------------------------------
-displayCIA:			
+displayCIA:		
 					ldx #$00
 					ldy #$00
 					
