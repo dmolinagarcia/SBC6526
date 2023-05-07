@@ -433,6 +433,18 @@ test0051:			jsr printTest
 
 					wai 	
 
+					lda #'-'
+					jsr scrPrintChar
+					ldy #$D2
+					ldx #$EB 
+					jsr scrPrint16
+					lda #'-'
+					jsr scrPrintChar
+					ldy $c0						// Reload TB vales
+					ldx $c1
+					jsr scrPrint16
+					jmp test0051_end					
+
 					cpy #$D2
 					bne test0051_ko
 					cpx #$EB
@@ -454,7 +466,7 @@ test0052:			jsr printTest
 // Check if SDR is Present
 					lda reg_present
 					and #SDR_PRESENT
-					jmp test0052_na
+					beq test0052_na
 
 					lda #$01
 					sta CIA1_CRGB				// CIA1 TB is our timestamp
@@ -477,6 +489,19 @@ test0052:			jsr printTest
 					stx CIA1_SDR 				// Write to CIA 1 PORT OUT	
 
 					wai 
+
+					lda #'-'
+					jsr scrPrintChar
+					ldy #$A0
+					ldx #$7B 
+					jsr scrPrint16
+					lda #'-'
+					jsr scrPrintChar
+					ldy $c0						// Reload TB vales
+					ldx $c1
+					jsr scrPrint16
+					jmp test0052_end
+
 
 					cpy #$A0 
 					bne test0052_ko

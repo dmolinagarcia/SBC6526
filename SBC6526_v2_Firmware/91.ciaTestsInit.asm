@@ -14,7 +14,7 @@
 reg_present:
 						.byte  $00
 icr_mask:
-						.byte  %11110011		
+						.byte  %11111111		
 						// TOD and SDR disabled initialy. If present, enable them
 
 registerDetection:		lda reg_present
